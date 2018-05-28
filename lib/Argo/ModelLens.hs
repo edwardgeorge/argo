@@ -269,6 +269,10 @@ metadataLabelsL f Metadata{..} = (\metadataLabels -> Metadata { metadataLabels, 
 
 
 
+-- * NodeStatus
+
+
+
 -- * Outputs
 
 -- | 'outputsArtifacts' Lens
@@ -906,6 +910,45 @@ workflowSpecVolumeClaimTemplatesL f WorkflowSpec{..} = (\workflowSpecVolumeClaim
 workflowSpecVolumesL :: Lens_' WorkflowSpec (Maybe [V1Volume])
 workflowSpecVolumesL f WorkflowSpec{..} = (\workflowSpecVolumes -> WorkflowSpec { workflowSpecVolumes, ..} ) <$> f workflowSpecVolumes
 {-# INLINE workflowSpecVolumesL #-}
+
+
+
+-- * WorkflowStatus
+
+-- | 'workflowStatusPhase' Lens
+workflowStatusPhaseL :: Lens_' WorkflowStatus (Maybe E'Phase)
+workflowStatusPhaseL f WorkflowStatus{..} = (\workflowStatusPhase -> WorkflowStatus { workflowStatusPhase, ..} ) <$> f workflowStatusPhase
+{-# INLINE workflowStatusPhaseL #-}
+
+-- | 'workflowStatusStartedAt' Lens
+workflowStatusStartedAtL :: Lens_' WorkflowStatus (Maybe DateTime)
+workflowStatusStartedAtL f WorkflowStatus{..} = (\workflowStatusStartedAt -> WorkflowStatus { workflowStatusStartedAt, ..} ) <$> f workflowStatusStartedAt
+{-# INLINE workflowStatusStartedAtL #-}
+
+-- | 'workflowStatusFinishedAt' Lens
+workflowStatusFinishedAtL :: Lens_' WorkflowStatus (Maybe DateTime)
+workflowStatusFinishedAtL f WorkflowStatus{..} = (\workflowStatusFinishedAt -> WorkflowStatus { workflowStatusFinishedAt, ..} ) <$> f workflowStatusFinishedAt
+{-# INLINE workflowStatusFinishedAtL #-}
+
+-- | 'workflowStatusMessage' Lens
+workflowStatusMessageL :: Lens_' WorkflowStatus (Maybe Text)
+workflowStatusMessageL f WorkflowStatus{..} = (\workflowStatusMessage -> WorkflowStatus { workflowStatusMessage, ..} ) <$> f workflowStatusMessage
+{-# INLINE workflowStatusMessageL #-}
+
+-- | 'workflowStatusNodes' Lens
+workflowStatusNodesL :: Lens_' WorkflowStatus (Maybe (Map.Map String NodeStatus))
+workflowStatusNodesL f WorkflowStatus{..} = (\workflowStatusNodes -> WorkflowStatus { workflowStatusNodes, ..} ) <$> f workflowStatusNodes
+{-# INLINE workflowStatusNodesL #-}
+
+-- | 'workflowStatusPersistentVolumeClaims' Lens
+workflowStatusPersistentVolumeClaimsL :: Lens_' WorkflowStatus (Maybe [V1Volume])
+workflowStatusPersistentVolumeClaimsL f WorkflowStatus{..} = (\workflowStatusPersistentVolumeClaims -> WorkflowStatus { workflowStatusPersistentVolumeClaims, ..} ) <$> f workflowStatusPersistentVolumeClaims
+{-# INLINE workflowStatusPersistentVolumeClaimsL #-}
+
+-- | 'workflowStatusOutputs' Lens
+workflowStatusOutputsL :: Lens_' WorkflowStatus (Maybe Outputs)
+workflowStatusOutputsL f WorkflowStatus{..} = (\workflowStatusOutputs -> WorkflowStatus { workflowStatusOutputs, ..} ) <$> f workflowStatusOutputs
+{-# INLINE workflowStatusOutputsL #-}
 
 
 

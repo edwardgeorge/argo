@@ -32,6 +32,7 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy Inputs)
       propMimeEq MimeJSON (Proxy :: Proxy Item)
       propMimeEq MimeJSON (Proxy :: Proxy Metadata)
+      propMimeEq MimeJSON (Proxy :: Proxy NodeStatus)
       propMimeEq MimeJSON (Proxy :: Proxy Outputs)
       propMimeEq MimeJSON (Proxy :: Proxy Parameter)
       propMimeEq MimeJSON (Proxy :: Proxy RawArtifact)
@@ -47,5 +48,6 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy Workflow)
       propMimeEq MimeJSON (Proxy :: Proxy WorkflowList)
       propMimeEq MimeJSON (Proxy :: Proxy WorkflowSpec)
+      propMimeEq MimeJSON (Proxy :: Proxy WorkflowStatus)
       propMimeEq MimeJSON (Proxy :: Proxy WorkflowStep)
       

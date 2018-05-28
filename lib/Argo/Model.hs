@@ -506,6 +506,35 @@ mkMetadata =
   , metadataLabels = Nothing
   }
 
+-- ** NodeStatus
+-- | NodeStatus
+-- NodeStatus contains status information about an individual node in the workflow
+data NodeStatus = NodeStatus
+  { 
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON NodeStatus
+instance A.FromJSON NodeStatus where
+  parseJSON = A.withObject "NodeStatus" $ \o ->
+    pure NodeStatus
+      
+
+-- | ToJSON NodeStatus
+instance A.ToJSON NodeStatus where
+  toJSON NodeStatus  =
+   _omitNulls
+      [ 
+      ]
+
+
+-- | Construct a value of type 'NodeStatus' (by applying it's required fields, if any)
+mkNodeStatus
+  :: NodeStatus
+mkNodeStatus =
+  NodeStatus
+  { 
+  }
+
 -- ** Outputs
 -- | Outputs
 -- Outputs hold parameters, artifacts, and results from a step
@@ -1372,6 +1401,59 @@ mkWorkflowSpec workflowSpecEntrypoint workflowSpecTemplates =
   , workflowSpecVolumes = Nothing
   }
 
+-- ** WorkflowStatus
+-- | WorkflowStatus
+-- WorkflowStatus contains overall status information about a workflow
+data WorkflowStatus = WorkflowStatus
+  { workflowStatusPhase :: !(Maybe E'Phase) -- ^ "phase" - Phase a simple, high-level summary of where the workflow is in its lifecycle.
+  , workflowStatusStartedAt :: !(Maybe DateTime) -- ^ "startedAt" - Time at which this workflow started
+  , workflowStatusFinishedAt :: !(Maybe DateTime) -- ^ "finishedAt" - Time at which this workflow completed
+  , workflowStatusMessage :: !(Maybe Text) -- ^ "message" - A human readable message indicating details about why the workflow is in this condition.
+  , workflowStatusNodes :: !(Maybe (Map.Map String NodeStatus)) -- ^ "nodes" - Nodes is a mapping between a node ID and the node&#39;s status.
+  , workflowStatusPersistentVolumeClaims :: !(Maybe [V1Volume]) -- ^ "persistentVolumeClaims" - PersistentVolumeClaims tracks all PVCs that were created as part of the workflow. The contents of this list are drained at the end of the workflow.
+  , workflowStatusOutputs :: !(Maybe Outputs) -- ^ "outputs" - Outputs captures output values and artifact locations produced by the workflow via global outputs
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON WorkflowStatus
+instance A.FromJSON WorkflowStatus where
+  parseJSON = A.withObject "WorkflowStatus" $ \o ->
+    WorkflowStatus
+      <$> (o .:? "phase")
+      <*> (o .:? "startedAt")
+      <*> (o .:? "finishedAt")
+      <*> (o .:? "message")
+      <*> (o .:? "nodes")
+      <*> (o .:? "persistentVolumeClaims")
+      <*> (o .:? "outputs")
+
+-- | ToJSON WorkflowStatus
+instance A.ToJSON WorkflowStatus where
+  toJSON WorkflowStatus {..} =
+   _omitNulls
+      [ "phase" .= workflowStatusPhase
+      , "startedAt" .= workflowStatusStartedAt
+      , "finishedAt" .= workflowStatusFinishedAt
+      , "message" .= workflowStatusMessage
+      , "nodes" .= workflowStatusNodes
+      , "persistentVolumeClaims" .= workflowStatusPersistentVolumeClaims
+      , "outputs" .= workflowStatusOutputs
+      ]
+
+
+-- | Construct a value of type 'WorkflowStatus' (by applying it's required fields, if any)
+mkWorkflowStatus
+  :: WorkflowStatus
+mkWorkflowStatus =
+  WorkflowStatus
+  { workflowStatusPhase = Nothing
+  , workflowStatusStartedAt = Nothing
+  , workflowStatusFinishedAt = Nothing
+  , workflowStatusMessage = Nothing
+  , workflowStatusNodes = Nothing
+  , workflowStatusPersistentVolumeClaims = Nothing
+  , workflowStatusOutputs = Nothing
+  }
+
 -- ** WorkflowStep
 -- | WorkflowStep
 -- WorkflowStep is a reference to a template to execute in a series of step
@@ -1422,5 +1504,44 @@ mkWorkflowStep =
   }
 
 
+-- * Enums
+
+
+-- ** E'Phase
+
+-- | Enum of 'Text' . 
+-- Phase a simple, high-level summary of where the workflow is in its lifecycle.
+data E'Phase
+  = E'Phase'Running -- ^ @"Running"@
+  | E'Phase'Succeeded -- ^ @"Succeeded"@
+  | E'Phase'Skipped -- ^ @"Skipped"@
+  | E'Phase'Failed -- ^ @"Failed"@
+  | E'Phase'Error -- ^ @"Error"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON E'Phase where toJSON = A.toJSON . fromE'Phase
+instance A.FromJSON E'Phase where parseJSON o = P.either P.fail (pure . P.id) . toE'Phase =<< A.parseJSON o
+instance WH.ToHttpApiData E'Phase where toQueryParam = WH.toQueryParam . fromE'Phase
+instance WH.FromHttpApiData E'Phase where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'Phase
+instance MimeRender MimeMultipartFormData E'Phase where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'E'Phase' enum
+fromE'Phase :: E'Phase -> Text
+fromE'Phase = \case
+  E'Phase'Running -> "Running"
+  E'Phase'Succeeded -> "Succeeded"
+  E'Phase'Skipped -> "Skipped"
+  E'Phase'Failed -> "Failed"
+  E'Phase'Error -> "Error"
+
+-- | parse 'E'Phase' enum
+toE'Phase :: Text -> P.Either String E'Phase
+toE'Phase = \case
+  "Running" -> P.Right E'Phase'Running
+  "Succeeded" -> P.Right E'Phase'Succeeded
+  "Skipped" -> P.Right E'Phase'Skipped
+  "Failed" -> P.Right E'Phase'Failed
+  "Error" -> P.Right E'Phase'Error
+  s -> P.Left $ "toE'Phase: enum parse failure: " P.++ P.show s
 
 

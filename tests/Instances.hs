@@ -173,6 +173,11 @@ instance Arbitrary Metadata where
       <$> arbitrary -- metadataAnnotations :: Maybe (Map.Map String Text)
       <*> arbitrary -- metadataLabels :: Maybe (Map.Map String Text)
     
+instance Arbitrary NodeStatus where
+  arbitrary =
+    
+    pure NodeStatus
+     
 instance Arbitrary Outputs where
   arbitrary =
     Outputs
@@ -350,6 +355,17 @@ instance Arbitrary WorkflowSpec where
       <*> arbitrary -- workflowSpecVolumeClaimTemplates :: Maybe [V1PersistentVolumeClaim]
       <*> arbitrary -- workflowSpecVolumes :: Maybe [V1Volume]
     
+instance Arbitrary WorkflowStatus where
+  arbitrary =
+    WorkflowStatus
+      <$> arbitrary -- workflowStatusPhase :: Maybe Text
+      <*> arbitrary -- workflowStatusStartedAt :: Maybe DateTime
+      <*> arbitrary -- workflowStatusFinishedAt :: Maybe DateTime
+      <*> arbitrary -- workflowStatusMessage :: Maybe Text
+      <*> arbitrary -- workflowStatusNodes :: Maybe (Map.Map String NodeStatus)
+      <*> arbitrary -- workflowStatusPersistentVolumeClaims :: Maybe [V1Volume]
+      <*> arbitrary -- workflowStatusOutputs :: Maybe Outputs
+    
 instance Arbitrary WorkflowStep where
   arbitrary =
     WorkflowStep
@@ -362,3 +378,6 @@ instance Arbitrary WorkflowStep where
     
 
 
+
+instance Arbitrary E'Phase where
+  arbitrary = arbitraryBoundedEnum
