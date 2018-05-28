@@ -1,0 +1,1072 @@
+---
+swagger: "2.0"
+info:
+  version: "v2.1.0"
+  title: "Argo"
+paths: {}
+definitions:
+  v1alpha1.Arguments:
+    properties:
+      artifacts:
+        type: "array"
+        description: "Artifacts is the list of artifacts to pass to the template or\
+          \ workflow"
+        items:
+          $ref: "#/definitions/v1alpha1.Artifact"
+        x-dataType: "[V1alpha1Artifact]"
+      parameters:
+        type: "array"
+        description: "Parameters is the list of parameters to pass to the template\
+          \ or workflow"
+        items:
+          $ref: "#/definitions/v1alpha1.Parameter"
+        x-dataType: "[V1alpha1Parameter]"
+    description: "Arguments to a template"
+  v1alpha1.Artifact:
+    required:
+    - "name"
+    properties:
+      artifactory:
+        description: "Artifactory contains artifactory artifact location details"
+        $ref: "#/definitions/v1alpha1.ArtifactoryArtifact"
+        x-dataType: "V1alpha1ArtifactoryArtifact"
+      from:
+        type: "string"
+        description: "From allows an artifact to reference an artifact from a previous\
+          \ step"
+        x-dataType: "Text"
+      git:
+        description: "Git contains git artifact location details"
+        $ref: "#/definitions/v1alpha1.GitArtifact"
+        x-dataType: "V1alpha1GitArtifact"
+      globalName:
+        type: "string"
+        description: "GlobalName exports an output artifact to the global scope, making\
+          \ it available as '{{workflow.outputs.artifacts.XXXX}} and in workflow.status.outputs.artifacts"
+        x-dataType: "Text"
+      http:
+        description: "HTTP contains HTTP artifact location details"
+        $ref: "#/definitions/v1alpha1.HTTPArtifact"
+        x-dataType: "V1alpha1HTTPArtifact"
+      mode:
+        type: "integer"
+        format: "int32"
+        description: "mode bits to use on this file, must be a value between 0 and\
+          \ 0777 set when loading input artifacts."
+        x-dataType: "Int"
+      name:
+        type: "string"
+        description: "name of the artifact. must be unique within a template's inputs/outputs."
+        x-dataType: "Text"
+      path:
+        type: "string"
+        description: "Path is the container path to the artifact"
+        x-dataType: "Text"
+      raw:
+        description: "Raw contains raw artifact location details"
+        $ref: "#/definitions/v1alpha1.RawArtifact"
+        x-dataType: "V1alpha1RawArtifact"
+      s3:
+        description: "S3 contains S3 artifact location details"
+        $ref: "#/definitions/v1alpha1.S3Artifact"
+        x-dataType: "V1alpha1S3Artifact"
+    description: "Artifact indicates an artifact to place at a specified path"
+  v1alpha1.ArtifactLocation:
+    properties:
+      artifactory:
+        description: "Artifactory contains artifactory artifact location details"
+        $ref: "#/definitions/v1alpha1.ArtifactoryArtifact"
+        x-dataType: "V1alpha1ArtifactoryArtifact"
+      git:
+        description: "Git contains git artifact location details"
+        $ref: "#/definitions/v1alpha1.GitArtifact"
+        x-dataType: "V1alpha1GitArtifact"
+      http:
+        description: "HTTP contains HTTP artifact location details"
+        $ref: "#/definitions/v1alpha1.HTTPArtifact"
+        x-dataType: "V1alpha1HTTPArtifact"
+      raw:
+        description: "Raw contains raw artifact location details"
+        $ref: "#/definitions/v1alpha1.RawArtifact"
+        x-dataType: "V1alpha1RawArtifact"
+      s3:
+        description: "S3 contains S3 artifact location details"
+        $ref: "#/definitions/v1alpha1.S3Artifact"
+        x-dataType: "V1alpha1S3Artifact"
+    description: "ArtifactLocation describes a location for a single or multiple artifacts.\
+      \ It is used as single artifact in the context of inputs/outputs (e.g. outputs.artifacts.artname).\
+      \ It is also used to describe the location of multiple artifacts such as the\
+      \ archive location of a single workflow step, which the executor will use as\
+      \ a default location to store its files."
+  v1alpha1.ArtifactoryArtifact:
+    required:
+    - "url"
+    properties:
+      passwordSecret:
+        description: "PasswordSecret is the secret selector to the repository password"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+      url:
+        type: "string"
+        description: "URL of the artifact"
+        x-dataType: "Text"
+      usernameSecret:
+        description: "UsernameSecret is the secret selector to the repository username"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+    description: "ArtifactoryArtifact is the location of an artifactory artifact"
+  v1alpha1.ArtifactoryAuth:
+    properties:
+      passwordSecret:
+        description: "PasswordSecret is the secret selector to the repository password"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+      usernameSecret:
+        description: "UsernameSecret is the secret selector to the repository username"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+    description: "ArtifactoryAuth describes the secret selectors required for authenticating\
+      \ to artifactory"
+  v1alpha1.DAGTask:
+    required:
+    - "name"
+    - "template"
+    properties:
+      arguments:
+        description: "Arguments are the parameter and artifact arguments to the template"
+        $ref: "#/definitions/v1alpha1.Arguments"
+        x-dataType: "V1alpha1Arguments"
+      dependencies:
+        type: "array"
+        description: "Dependencies are name of other targets which this depends on"
+        items:
+          type: "string"
+        x-dataType: "[Text]"
+      name:
+        type: "string"
+        description: "Name is the name of the target"
+        x-dataType: "Text"
+      template:
+        type: "string"
+        description: "Name of template to execute"
+        x-dataType: "Text"
+    description: "DAGTask represents a node in the graph during DAG execution"
+  v1alpha1.DAGTemplate:
+    required:
+    - "tasks"
+    properties:
+      target:
+        type: "string"
+        description: "Target are one or more names of targets to execute in a DAG"
+        x-dataType: "Text"
+      tasks:
+        type: "array"
+        description: "Tasks are a list of DAG tasks"
+        items:
+          $ref: "#/definitions/v1alpha1.DAGTask"
+        x-dataType: "[V1alpha1DAGTask]"
+    description: "DAGTemplate is a template subtype for directed acyclic graph templates"
+  v1alpha1.GitArtifact:
+    required:
+    - "repo"
+    properties:
+      passwordSecret:
+        description: "PasswordSecret is the secret selector to the repository password"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+      repo:
+        type: "string"
+        description: "Repo is the git repository"
+        x-dataType: "Text"
+      revision:
+        type: "string"
+        description: "Revision is the git commit, tag, branch to checkout"
+        x-dataType: "Text"
+      usernameSecret:
+        description: "UsernameSecret is the secret selector to the repository username"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+    description: "GitArtifact is the location of an git artifact"
+  v1alpha1.HTTPArtifact:
+    required:
+    - "url"
+    properties:
+      url:
+        type: "string"
+        description: "URL of the artifact"
+        x-dataType: "Text"
+    description: "HTTPArtifact allows an file served on HTTP to be placed as an input\
+      \ artifact in a container"
+  v1alpha1.Inputs:
+    properties:
+      artifacts:
+        type: "array"
+        description: "Artifact are a list of artifacts passed as inputs"
+        items:
+          $ref: "#/definitions/v1alpha1.Artifact"
+        x-dataType: "[V1alpha1Artifact]"
+      parameters:
+        type: "array"
+        description: "Parameters are a list of parameters passed as inputs"
+        items:
+          $ref: "#/definitions/v1alpha1.Parameter"
+        x-dataType: "[V1alpha1Parameter]"
+    description: "Inputs are the mechanism for passing parameters, artifacts, volumes\
+      \ from one template to another"
+  v1alpha1.Item:
+    type: "string"
+    format: "item"
+    x-dataType: "Text"
+  v1alpha1.Metadata:
+    properties:
+      annotations:
+        type: "object"
+        additionalProperties:
+          type: "string"
+        x-dataType: "(Map.Map String Text)"
+      labels:
+        type: "object"
+        additionalProperties:
+          type: "string"
+        x-dataType: "(Map.Map String Text)"
+    description: "Pod metdata"
+  v1alpha1.Outputs:
+    properties:
+      artifacts:
+        type: "array"
+        description: "Artifacts holds the list of output artifacts produced by a step"
+        items:
+          $ref: "#/definitions/v1alpha1.Artifact"
+        x-dataType: "[V1alpha1Artifact]"
+      parameters:
+        type: "array"
+        description: "Parameters holds the list of output parameters produced by a\
+          \ step"
+        items:
+          $ref: "#/definitions/v1alpha1.Parameter"
+        x-dataType: "[V1alpha1Parameter]"
+      result:
+        type: "string"
+        description: "Result holds the result (stdout) of a script template"
+        x-dataType: "Text"
+    description: "Outputs hold parameters, artifacts, and results from a step"
+  v1alpha1.Parameter:
+    required:
+    - "name"
+    properties:
+      default:
+        type: "string"
+        description: "Default is the default value to use for an input parameter if\
+          \ a value was not supplied"
+        x-dataType: "Text"
+      globalName:
+        type: "string"
+        description: "GlobalName exports an output parameter to the global scope,\
+          \ making it available as '{{workflow.outputs.parameters.XXXX}} and in workflow.status.outputs.parameters"
+        x-dataType: "Text"
+      name:
+        type: "string"
+        description: "Name is the parameter name"
+        x-dataType: "Text"
+      value:
+        type: "string"
+        description: "Value is the literal value to use for the parameter. If specified\
+          \ in the context of an input parameter, the value takes precedence over\
+          \ any passed values"
+        x-dataType: "Text"
+      valueFrom:
+        description: "ValueFrom is the source for the output parameter's value"
+        $ref: "#/definitions/v1alpha1.ValueFrom"
+        x-dataType: "V1alpha1ValueFrom"
+    description: "Parameter indicate a passed string parameter to a service template\
+      \ with an optional default value"
+  v1alpha1.RawArtifact:
+    required:
+    - "data"
+    properties:
+      data:
+        type: "string"
+        description: "Data is the string contents of the artifact"
+        x-dataType: "Text"
+    description: "RawArtifact allows raw string content to be placed as an artifact\
+      \ in a container"
+  v1alpha1.ResourceTemplate:
+    required:
+    - "action"
+    - "manifest"
+    properties:
+      action:
+        type: "string"
+        description: "Action is the action to perform to the resource. Must be one\
+          \ of: get, create, apply, delete, replace"
+        x-dataType: "Text"
+      failureCondition:
+        type: "string"
+        description: "FailureCondition is a label selector expression which describes\
+          \ the conditions of the k8s resource in which the step was considered failed"
+        x-dataType: "Text"
+      manifest:
+        type: "string"
+        description: "Manifest contains the kubernetes manifest"
+        x-dataType: "Text"
+      successCondition:
+        type: "string"
+        description: "SuccessCondition is a label selector expression which describes\
+          \ the conditions of the k8s resource in which it is acceptable to proceed\
+          \ to the following step"
+        x-dataType: "Text"
+    description: "ResourceTemplate is a template subtype to manipulate kubernetes\
+      \ resources"
+  v1alpha1.RetryStrategy:
+    properties:
+      limit:
+        type: "integer"
+        format: "int32"
+        description: "Limit is the maximum number of attempts when retrying a container"
+        x-dataType: "Int"
+    description: "RetryStrategy provides controls on how to retry a workflow step"
+  v1alpha1.S3Artifact:
+    required:
+    - "accessKeySecret"
+    - "bucket"
+    - "endpoint"
+    - "key"
+    - "secretKeySecret"
+    properties:
+      accessKeySecret:
+        description: "AccessKeySecret is the secret selector to the bucket's access\
+          \ key"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+      bucket:
+        type: "string"
+        description: "Bucket is the name of the bucket"
+        x-dataType: "Text"
+      endpoint:
+        type: "string"
+        description: "Endpoint is the hostname of the bucket endpoint"
+        x-dataType: "Text"
+      insecure:
+        type: "boolean"
+        description: "Insecure will connect to the service with TLS"
+        x-dataType: "Bool"
+      key:
+        type: "string"
+        description: "Key is the key in the bucket where the artifact resides"
+        x-dataType: "Text"
+      region:
+        type: "string"
+        description: "Region contains the optional bucket region"
+        x-dataType: "Text"
+      secretKeySecret:
+        description: "SecretKeySecret is the secret selector to the bucket's secret\
+          \ key"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+    description: "S3Artifact is the location of an S3 artifact"
+  v1alpha1.S3Bucket:
+    required:
+    - "accessKeySecret"
+    - "bucket"
+    - "endpoint"
+    - "secretKeySecret"
+    properties:
+      accessKeySecret:
+        description: "AccessKeySecret is the secret selector to the bucket's access\
+          \ key"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+      bucket:
+        type: "string"
+        description: "Bucket is the name of the bucket"
+        x-dataType: "Text"
+      endpoint:
+        type: "string"
+        description: "Endpoint is the hostname of the bucket endpoint"
+        x-dataType: "Text"
+      insecure:
+        type: "boolean"
+        description: "Insecure will connect to the service with TLS"
+        x-dataType: "Bool"
+      region:
+        type: "string"
+        description: "Region contains the optional bucket region"
+        x-dataType: "Text"
+      secretKeySecret:
+        description: "SecretKeySecret is the secret selector to the bucket's secret\
+          \ key"
+        $ref: "#/definitions/v1.SecretKeySelector"
+        x-dataType: "V1SecretKeySelector"
+    description: "S3Bucket contains the access information required for interfacing\
+      \ with an S3 bucket"
+  v1alpha1.ScriptTemplate:
+    required:
+    - "name"
+    - "source"
+    properties:
+      args:
+        type: "array"
+        description: "Arguments to the entrypoint. The docker image's CMD is used\
+          \ if this is not provided. Variable references $(VAR_NAME) are expanded\
+          \ using the container's environment. If a variable cannot be resolved, the\
+          \ reference in the input string will be unchanged. The $(VAR_NAME) syntax\
+          \ can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references\
+          \ will never be expanded, regardless of whether the variable exists or not.\
+          \ Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+        items:
+          type: "string"
+        x-dataType: "[Text]"
+      command:
+        type: "array"
+        description: "Entrypoint array. Not executed within a shell. The docker image's\
+          \ ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME)\
+          \ are expanded using the container's environment. If a variable cannot be\
+          \ resolved, the reference in the input string will be unchanged. The $(VAR_NAME)\
+          \ syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references\
+          \ will never be expanded, regardless of whether the variable exists or not.\
+          \ Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+        items:
+          type: "string"
+        x-dataType: "[Text]"
+      env:
+        type: "array"
+        description: "List of environment variables to set in the container. Cannot\
+          \ be updated."
+        items:
+          $ref: "#/definitions/v1.EnvVar"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "name"
+        x-dataType: "[V1EnvVar]"
+      envFrom:
+        type: "array"
+        description: "List of sources to populate environment variables in the container.\
+          \ The keys defined within a source must be a C_IDENTIFIER. All invalid keys\
+          \ will be reported as an event when the container is starting. When a key\
+          \ exists in multiple sources, the value associated with the last source\
+          \ will take precedence. Values defined by an Env with a duplicate key will\
+          \ take precedence. Cannot be updated."
+        items:
+          $ref: "#/definitions/v1.EnvFromSource"
+        x-dataType: "[V1EnvFromSource]"
+      image:
+        type: "string"
+        description: "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images\
+          \ This field is optional to allow higher level config management to default\
+          \ or override container images in workload controllers like Deployments\
+          \ and StatefulSets."
+        x-dataType: "Text"
+      imagePullPolicy:
+        type: "string"
+        description: "Image pull policy. One of Always, Never, IfNotPresent. Defaults\
+          \ to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot\
+          \ be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images"
+        x-dataType: "Text"
+      lifecycle:
+        description: "Actions that the management system should take in response to\
+          \ container lifecycle events. Cannot be updated."
+        $ref: "#/definitions/v1.Lifecycle"
+        x-dataType: "V1Lifecycle"
+      livenessProbe:
+        description: "Periodic probe of container liveness. Container will be restarted\
+          \ if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
+        $ref: "#/definitions/v1.Probe"
+        x-dataType: "V1Probe"
+      name:
+        type: "string"
+        description: "Name of the container specified as a DNS_LABEL. Each container\
+          \ in a pod must have a unique name (DNS_LABEL). Cannot be updated."
+        x-dataType: "Text"
+      ports:
+        type: "array"
+        description: "List of ports to expose from the container. Exposing a port\
+          \ here gives the system additional information about the network connections\
+          \ a container uses, but is primarily informational. Not specifying a port\
+          \ here DOES NOT prevent that port from being exposed. Any port which is\
+          \ listening on the default \"0.0.0.0\" address inside a container will be\
+          \ accessible from the network. Cannot be updated."
+        items:
+          $ref: "#/definitions/v1.ContainerPort"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "containerPort"
+        x-dataType: "[V1ContainerPort]"
+      readinessProbe:
+        description: "Periodic probe of container service readiness. Container will\
+          \ be removed from service endpoints if the probe fails. Cannot be updated.\
+          \ More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
+        $ref: "#/definitions/v1.Probe"
+        x-dataType: "V1Probe"
+      resources:
+        description: "Compute Resources required by this container. Cannot be updated.\
+          \ More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"
+        $ref: "#/definitions/v1.ResourceRequirements"
+        x-dataType: "V1ResourceRequirements"
+      securityContext:
+        description: "Security options the pod should run with. More info: https://kubernetes.io/docs/concepts/policy/security-context/\
+          \ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
+        $ref: "#/definitions/v1.SecurityContext"
+        x-dataType: "V1SecurityContext"
+      source:
+        type: "string"
+        description: "Source contains the source code of the script to execute"
+        x-dataType: "Text"
+      stdin:
+        type: "boolean"
+        description: "Whether this container should allocate a buffer for stdin in\
+          \ the container runtime. If this is not set, reads from stdin in the container\
+          \ will always result in EOF. Default is false."
+        x-dataType: "Bool"
+      stdinOnce:
+        type: "boolean"
+        description: "Whether the container runtime should close the stdin channel\
+          \ after it has been opened by a single attach. When stdin is true the stdin\
+          \ stream will remain open across multiple attach sessions. If stdinOnce\
+          \ is set to true, stdin is opened on container start, is empty until the\
+          \ first client attaches to stdin, and then remains open and accepts data\
+          \ until the client disconnects, at which time stdin is closed and remains\
+          \ closed until the container is restarted. If this flag is false, a container\
+          \ processes that reads from stdin will never receive an EOF. Default is\
+          \ false"
+        x-dataType: "Bool"
+      terminationMessagePath:
+        type: "string"
+        description: "Optional: Path at which the file to which the container's termination\
+          \ message will be written is mounted into the container's filesystem. Message\
+          \ written is intended to be brief final status, such as an assertion failure\
+          \ message. Will be truncated by the node if greater than 4096 bytes. The\
+          \ total message length across all containers will be limited to 12kb. Defaults\
+          \ to /dev/termination-log. Cannot be updated."
+        x-dataType: "Text"
+      terminationMessagePolicy:
+        type: "string"
+        description: "Indicate how the termination message should be populated. File\
+          \ will use the contents of terminationMessagePath to populate the container\
+          \ status message on both success and failure. FallbackToLogsOnError will\
+          \ use the last chunk of container log output if the termination message\
+          \ file is empty and the container exited with an error. The log output is\
+          \ limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File.\
+          \ Cannot be updated."
+        x-dataType: "Text"
+      tty:
+        type: "boolean"
+        description: "Whether this container should allocate a TTY for itself, also\
+          \ requires 'stdin' to be true. Default is false."
+        x-dataType: "Bool"
+      volumeDevices:
+        type: "array"
+        description: "volumeDevices is the list of block devices to be used by the\
+          \ container. This is an alpha feature and may change in the future."
+        items:
+          $ref: "#/definitions/v1.VolumeDevice"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "devicePath"
+        x-dataType: "[V1VolumeDevice]"
+      volumeMounts:
+        type: "array"
+        description: "Pod volumes to mount into the container's filesystem. Cannot\
+          \ be updated."
+        items:
+          $ref: "#/definitions/v1.VolumeMount"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "mountPath"
+        x-dataType: "[V1VolumeMount]"
+      workingDir:
+        type: "string"
+        description: "Container's working directory. If not specified, the container\
+          \ runtime's default will be used, which might be configured in the container\
+          \ image. Cannot be updated."
+        x-dataType: "Text"
+    description: "ScriptTemplate is a template subtype to enable scripting through\
+      \ code steps"
+  v1alpha1.Sidecar:
+    required:
+    - "name"
+    properties:
+      args:
+        type: "array"
+        description: "Arguments to the entrypoint. The docker image's CMD is used\
+          \ if this is not provided. Variable references $(VAR_NAME) are expanded\
+          \ using the container's environment. If a variable cannot be resolved, the\
+          \ reference in the input string will be unchanged. The $(VAR_NAME) syntax\
+          \ can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references\
+          \ will never be expanded, regardless of whether the variable exists or not.\
+          \ Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+        items:
+          type: "string"
+        x-dataType: "[Text]"
+      command:
+        type: "array"
+        description: "Entrypoint array. Not executed within a shell. The docker image's\
+          \ ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME)\
+          \ are expanded using the container's environment. If a variable cannot be\
+          \ resolved, the reference in the input string will be unchanged. The $(VAR_NAME)\
+          \ syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references\
+          \ will never be expanded, regardless of whether the variable exists or not.\
+          \ Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+        items:
+          type: "string"
+        x-dataType: "[Text]"
+      env:
+        type: "array"
+        description: "List of environment variables to set in the container. Cannot\
+          \ be updated."
+        items:
+          $ref: "#/definitions/v1.EnvVar"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "name"
+        x-dataType: "[V1EnvVar]"
+      envFrom:
+        type: "array"
+        description: "List of sources to populate environment variables in the container.\
+          \ The keys defined within a source must be a C_IDENTIFIER. All invalid keys\
+          \ will be reported as an event when the container is starting. When a key\
+          \ exists in multiple sources, the value associated with the last source\
+          \ will take precedence. Values defined by an Env with a duplicate key will\
+          \ take precedence. Cannot be updated."
+        items:
+          $ref: "#/definitions/v1.EnvFromSource"
+        x-dataType: "[V1EnvFromSource]"
+      image:
+        type: "string"
+        description: "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images\
+          \ This field is optional to allow higher level config management to default\
+          \ or override container images in workload controllers like Deployments\
+          \ and StatefulSets."
+        x-dataType: "Text"
+      imagePullPolicy:
+        type: "string"
+        description: "Image pull policy. One of Always, Never, IfNotPresent. Defaults\
+          \ to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot\
+          \ be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images"
+        x-dataType: "Text"
+      lifecycle:
+        description: "Actions that the management system should take in response to\
+          \ container lifecycle events. Cannot be updated."
+        $ref: "#/definitions/v1.Lifecycle"
+        x-dataType: "V1Lifecycle"
+      livenessProbe:
+        description: "Periodic probe of container liveness. Container will be restarted\
+          \ if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
+        $ref: "#/definitions/v1.Probe"
+        x-dataType: "V1Probe"
+      mirrorVolumeMounts:
+        type: "boolean"
+        description: "MirrorVolumeMounts will mount the same volumes specified in\
+          \ the main container to the sidecar (including artifacts), at the same mountPaths.\
+          \ This enables dind daemon to partially see the same filesystem as the main\
+          \ container in order to use features such as docker volume binding"
+        x-dataType: "Bool"
+      name:
+        type: "string"
+        description: "Name of the container specified as a DNS_LABEL. Each container\
+          \ in a pod must have a unique name (DNS_LABEL). Cannot be updated."
+        x-dataType: "Text"
+      ports:
+        type: "array"
+        description: "List of ports to expose from the container. Exposing a port\
+          \ here gives the system additional information about the network connections\
+          \ a container uses, but is primarily informational. Not specifying a port\
+          \ here DOES NOT prevent that port from being exposed. Any port which is\
+          \ listening on the default \"0.0.0.0\" address inside a container will be\
+          \ accessible from the network. Cannot be updated."
+        items:
+          $ref: "#/definitions/v1.ContainerPort"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "containerPort"
+        x-dataType: "[V1ContainerPort]"
+      readinessProbe:
+        description: "Periodic probe of container service readiness. Container will\
+          \ be removed from service endpoints if the probe fails. Cannot be updated.\
+          \ More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes"
+        $ref: "#/definitions/v1.Probe"
+        x-dataType: "V1Probe"
+      resources:
+        description: "Compute Resources required by this container. Cannot be updated.\
+          \ More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"
+        $ref: "#/definitions/v1.ResourceRequirements"
+        x-dataType: "V1ResourceRequirements"
+      securityContext:
+        description: "Security options the pod should run with. More info: https://kubernetes.io/docs/concepts/policy/security-context/\
+          \ More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
+        $ref: "#/definitions/v1.SecurityContext"
+        x-dataType: "V1SecurityContext"
+      stdin:
+        type: "boolean"
+        description: "Whether this container should allocate a buffer for stdin in\
+          \ the container runtime. If this is not set, reads from stdin in the container\
+          \ will always result in EOF. Default is false."
+        x-dataType: "Bool"
+      stdinOnce:
+        type: "boolean"
+        description: "Whether the container runtime should close the stdin channel\
+          \ after it has been opened by a single attach. When stdin is true the stdin\
+          \ stream will remain open across multiple attach sessions. If stdinOnce\
+          \ is set to true, stdin is opened on container start, is empty until the\
+          \ first client attaches to stdin, and then remains open and accepts data\
+          \ until the client disconnects, at which time stdin is closed and remains\
+          \ closed until the container is restarted. If this flag is false, a container\
+          \ processes that reads from stdin will never receive an EOF. Default is\
+          \ false"
+        x-dataType: "Bool"
+      terminationMessagePath:
+        type: "string"
+        description: "Optional: Path at which the file to which the container's termination\
+          \ message will be written is mounted into the container's filesystem. Message\
+          \ written is intended to be brief final status, such as an assertion failure\
+          \ message. Will be truncated by the node if greater than 4096 bytes. The\
+          \ total message length across all containers will be limited to 12kb. Defaults\
+          \ to /dev/termination-log. Cannot be updated."
+        x-dataType: "Text"
+      terminationMessagePolicy:
+        type: "string"
+        description: "Indicate how the termination message should be populated. File\
+          \ will use the contents of terminationMessagePath to populate the container\
+          \ status message on both success and failure. FallbackToLogsOnError will\
+          \ use the last chunk of container log output if the termination message\
+          \ file is empty and the container exited with an error. The log output is\
+          \ limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File.\
+          \ Cannot be updated."
+        x-dataType: "Text"
+      tty:
+        type: "boolean"
+        description: "Whether this container should allocate a TTY for itself, also\
+          \ requires 'stdin' to be true. Default is false."
+        x-dataType: "Bool"
+      volumeDevices:
+        type: "array"
+        description: "volumeDevices is the list of block devices to be used by the\
+          \ container. This is an alpha feature and may change in the future."
+        items:
+          $ref: "#/definitions/v1.VolumeDevice"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "devicePath"
+        x-dataType: "[V1VolumeDevice]"
+      volumeMounts:
+        type: "array"
+        description: "Pod volumes to mount into the container's filesystem. Cannot\
+          \ be updated."
+        items:
+          $ref: "#/definitions/v1.VolumeMount"
+        x-kubernetes-patch-strategy: "merge"
+        x-kubernetes-patch-merge-key: "mountPath"
+        x-dataType: "[V1VolumeMount]"
+      workingDir:
+        type: "string"
+        description: "Container's working directory. If not specified, the container\
+          \ runtime's default will be used, which might be configured in the container\
+          \ image. Cannot be updated."
+        x-dataType: "Text"
+    description: "Sidecar is a container which runs alongside the main container"
+  v1alpha1.SuspendTemplate:
+    description: "SuspendTemplate is a template subtype to suspend a workflow at a\
+      \ predetermined point in time"
+  v1alpha1.Template:
+    required:
+    - "name"
+    properties:
+      activeDeadlineSeconds:
+        type: "integer"
+        format: "int64"
+        description: "Optional duration in seconds relative to the StartTime that\
+          \ the pod may be active on a node before the system actively tries to terminate\
+          \ the pod; value must be positive integer This field is only applicable\
+          \ to container and script templates."
+        x-dataType: "Integer"
+      affinity:
+        description: "Affinity sets the pod's scheduling constraints Overrides the\
+          \ affinity set at the workflow level (if any)"
+        $ref: "#/definitions/v1.Affinity"
+        x-dataType: "V1Affinity"
+      archiveLocation:
+        description: "Location in which all files related to the step will be stored\
+          \ (logs, artifacts, etc...). Can be overridden by individual items in Outputs.\
+          \ If omitted, will use the default artifact repository location configured\
+          \ in the controller, appended with the <workflowname>/<nodename> in the\
+          \ key."
+        $ref: "#/definitions/v1alpha1.ArtifactLocation"
+        x-dataType: "V1alpha1ArtifactLocation"
+      container:
+        description: "Container is the main container image to run in the pod"
+        $ref: "#/definitions/v1.Container"
+        x-dataType: "V1Container"
+      daemon:
+        type: "boolean"
+        description: "Deamon will allow a workflow to proceed to the next step so\
+          \ long as the container reaches readiness"
+        x-dataType: "Bool"
+      dag:
+        description: "DAG template subtype which runs a DAG"
+        $ref: "#/definitions/v1alpha1.DAGTemplate"
+        x-dataType: "V1alpha1DAGTemplate"
+      inputs:
+        description: "Inputs describe what inputs parameters and artifacts are supplied\
+          \ to this template"
+        $ref: "#/definitions/v1alpha1.Inputs"
+        x-dataType: "V1alpha1Inputs"
+      metadata:
+        description: "Metdata sets the pods's metadata, i.e. annotations and labels"
+        $ref: "#/definitions/v1alpha1.Metadata"
+        x-dataType: "V1alpha1Metadata"
+      name:
+        type: "string"
+        description: "Name is the name of the template"
+        x-dataType: "Text"
+      nodeSelector:
+        type: "object"
+        description: "NodeSelector is a selector to schedule this step of the workflow\
+          \ to be run on the selected node(s). Overrides the selector set at the workflow\
+          \ level."
+        additionalProperties:
+          type: "string"
+        x-dataType: "(Map.Map String Text)"
+      outputs:
+        description: "Outputs describe the parameters and artifacts that this template\
+          \ produces"
+        $ref: "#/definitions/v1alpha1.Outputs"
+        x-dataType: "V1alpha1Outputs"
+      parallelism:
+        type: "integer"
+        format: "int64"
+        description: "Parallelism limits the max total parallel pods that can execute\
+          \ at the same time within the boundaries of this template invocation. If\
+          \ additional steps/dag templates are invoked, the pods created by those\
+          \ templates will not be counted towards this total."
+        x-dataType: "Integer"
+      resource:
+        description: "Resource template subtype which can run k8s resources"
+        $ref: "#/definitions/v1alpha1.ResourceTemplate"
+        x-dataType: "V1alpha1ResourceTemplate"
+      retryStrategy:
+        description: "RetryStrategy describes how to retry a template when it fails"
+        $ref: "#/definitions/v1alpha1.RetryStrategy"
+        x-dataType: "V1alpha1RetryStrategy"
+      script:
+        description: "Script runs a portion of code against an interpreter"
+        $ref: "#/definitions/v1alpha1.ScriptTemplate"
+        x-dataType: "V1alpha1ScriptTemplate"
+      sidecars:
+        type: "array"
+        description: "Sidecars is a list of containers which run alongside the main\
+          \ container Sidecars are automatically killed when the main container completes"
+        items:
+          $ref: "#/definitions/v1alpha1.Sidecar"
+        x-dataType: "[V1alpha1Sidecar]"
+      steps:
+        type: "array"
+        description: "Steps define a series of sequential/parallel workflow steps"
+        items:
+          type: "array"
+          items:
+            $ref: "#/definitions/v1alpha1.WorkflowStep"
+        x-dataType: "[[V1alpha1WorkflowStep]]"
+      suspend:
+        description: "Suspend template subtype which can suspend a workflow when reaching\
+          \ the step"
+        $ref: "#/definitions/v1alpha1.SuspendTemplate"
+        x-dataType: "V1alpha1SuspendTemplate"
+      tolerations:
+        type: "array"
+        description: "Tolerations to apply to workflow pods."
+        items:
+          $ref: "#/definitions/v1.Toleration"
+        x-dataType: "[V1Toleration]"
+    description: "Template is a reusable and composable unit of execution in a workflow"
+  v1alpha1.ValueFrom:
+    properties:
+      jqFilter:
+        type: "string"
+        description: "JQFilter expression against the resource object in resource\
+          \ templates"
+        x-dataType: "Text"
+      jsonPath:
+        type: "string"
+        description: "JSONPath of a resource to retrieve an output parameter value\
+          \ from in resource templates"
+        x-dataType: "Text"
+      parameter:
+        type: "string"
+        description: "Parameter reference to a step or dag task in which to retrieve\
+          \ an output parameter value from (e.g. '{{steps.mystep.outputs.myparam}}')"
+        x-dataType: "Text"
+      path:
+        type: "string"
+        description: "Path in the container to retrieve an output parameter value\
+          \ from in container templates"
+        x-dataType: "Text"
+    description: "ValueFrom describes a location in which to obtain the value to a\
+      \ parameter"
+  v1alpha1.Workflow:
+    required:
+    - "metadata"
+    - "spec"
+    - "status"
+    properties:
+      apiVersion:
+        type: "string"
+        description: "APIVersion defines the versioned schema of this representation\
+          \ of an object. Servers should convert recognized schemas to the latest\
+          \ internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+        x-dataType: "Text"
+      kind:
+        type: "string"
+        description: "Kind is a string value representing the REST resource this object\
+          \ represents. Servers may infer this from the endpoint the client submits\
+          \ requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+        x-dataType: "Text"
+      metadata:
+        $ref: "#/definitions/v1.ObjectMeta"
+        x-dataType: "V1ObjectMeta"
+      spec:
+        $ref: "#/definitions/v1alpha1.WorkflowSpec"
+        x-dataType: "V1alpha1WorkflowSpec"
+      status:
+        $ref: "#/definitions/v1alpha1.WorkflowStatus"
+        x-dataType: "V1alpha1WorkflowStatus"
+    description: "Workflow is the definition of a workflow resource"
+  v1alpha1.WorkflowList:
+    required:
+    - "items"
+    - "metadata"
+    properties:
+      apiVersion:
+        type: "string"
+        description: "APIVersion defines the versioned schema of this representation\
+          \ of an object. Servers should convert recognized schemas to the latest\
+          \ internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources"
+        x-dataType: "Text"
+      items:
+        type: "array"
+        items:
+          $ref: "#/definitions/v1alpha1.Workflow"
+        x-dataType: "[V1alpha1Workflow]"
+      kind:
+        type: "string"
+        description: "Kind is a string value representing the REST resource this object\
+          \ represents. Servers may infer this from the endpoint the client submits\
+          \ requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+        x-dataType: "Text"
+      metadata:
+        $ref: "#/definitions/v1.ListMeta"
+        x-dataType: "V1ListMeta"
+    description: "WorkflowList is list of Workflow resources"
+  v1alpha1.WorkflowSpec:
+    required:
+    - "entrypoint"
+    - "templates"
+    properties:
+      affinity:
+        description: "Affinity sets the scheduling constraints for all pods in the\
+          \ workflow. Can be overridden by an affinity specified in the template"
+        $ref: "#/definitions/v1.Affinity"
+        x-dataType: "V1Affinity"
+      arguments:
+        description: "Arguments contain the parameters and artifacts sent to the workflow\
+          \ entrypoint Parameters are referencable globally using the 'workflow' variable\
+          \ prefix. e.g. {{workflow.parameters.myparam}}"
+        $ref: "#/definitions/v1alpha1.Arguments"
+        x-dataType: "V1alpha1Arguments"
+      entrypoint:
+        type: "string"
+        description: "Entrypoint is a template reference to the starting point of\
+          \ the workflow"
+        x-dataType: "Text"
+      imagePullSecrets:
+        type: "array"
+        description: "ImagePullSecrets is a list of references to secrets in the same\
+          \ namespace to use for pulling any images in pods that reference this ServiceAccount.\
+          \ ImagePullSecrets are distinct from Secrets because Secrets can be mounted\
+          \ in the pod, but ImagePullSecrets are only accessed by the kubelet. More\
+          \ info: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod"
+        items:
+          $ref: "#/definitions/v1.LocalObjectReference"
+        x-dataType: "[V1LocalObjectReference]"
+      nodeSelector:
+        type: "object"
+        description: "NodeSelector is a selector which will result in all pods of\
+          \ the workflow to be scheduled on the selected node(s). This is able to\
+          \ be overridden by a nodeSelector specified in the template."
+        additionalProperties:
+          type: "string"
+        x-dataType: "(Map.Map String Text)"
+      onExit:
+        type: "string"
+        description: "OnExit is a template reference which is invoked at the end of\
+          \ the workflow, irrespective of the success, failure, or error of the primary\
+          \ workflow."
+        x-dataType: "Text"
+      parallelism:
+        type: "integer"
+        format: "int64"
+        description: "Parallelism limits the max total parallel pods that can execute\
+          \ at the same time in a workflow"
+        x-dataType: "Integer"
+      serviceAccountName:
+        type: "string"
+        description: "ServiceAccountName is the name of the ServiceAccount to run\
+          \ all pods of the workflow as."
+        x-dataType: "Text"
+      suspend:
+        type: "boolean"
+        description: "Suspend will suspend the workflow and prevent execution of any\
+          \ future steps in the workflow"
+        x-dataType: "Bool"
+      templates:
+        type: "array"
+        description: "Templates is a list of workflow templates used in a workflow"
+        items:
+          $ref: "#/definitions/v1alpha1.Template"
+        x-dataType: "[V1alpha1Template]"
+      tolerations:
+        type: "array"
+        description: "Tolerations to apply to workflow pods."
+        items:
+          $ref: "#/definitions/v1.Toleration"
+        x-dataType: "[V1Toleration]"
+      volumeClaimTemplates:
+        type: "array"
+        description: "VolumeClaimTemplates is a list of claims that containers are\
+          \ allowed to reference. The Workflow controller will create the claims at\
+          \ the beginning of the workflow and delete the claims upon completion of\
+          \ the workflow"
+        items:
+          $ref: "#/definitions/v1.PersistentVolumeClaim"
+        x-dataType: "[V1PersistentVolumeClaim]"
+      volumes:
+        type: "array"
+        description: "Volumes is a list of volumes that can be mounted by containers\
+          \ in a workflow."
+        items:
+          $ref: "#/definitions/v1.Volume"
+        x-dataType: "[V1Volume]"
+    description: "WorkflowSpec is the specification of a Workflow."
+  v1alpha1.WorkflowStep:
+    properties:
+      arguments:
+        description: "Arguments hold arguments to the template"
+        $ref: "#/definitions/v1alpha1.Arguments"
+        x-dataType: "V1alpha1Arguments"
+      name:
+        type: "string"
+        description: "Name of the step"
+        x-dataType: "Text"
+      template:
+        type: "string"
+        description: "Template is a reference to the template to execute as the step"
+        x-dataType: "Text"
+      when:
+        type: "string"
+        description: "When is an expression in which the step should conditionally\
+          \ execute"
+        x-dataType: "Text"
+      withItems:
+        type: "array"
+        description: "WithItems expands a step into multiple parallel steps from the\
+          \ items in the list"
+        items:
+          $ref: "#/definitions/v1alpha1.Item"
+        x-dataType: "[V1alpha1Item]"
+      withParam:
+        type: "string"
+        description: "WithParam expands a step into from the value in the parameter"
+        x-dataType: "Text"
+    description: "WorkflowStep is a reference to a template to execute in a series\
+      \ of step"
