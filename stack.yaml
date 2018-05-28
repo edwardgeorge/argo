@@ -1,8 +1,8 @@
 resolver: lts-10.0
-build:
-  haddock-arguments:
-    haddock-args:
-    - "--odir=./docs"
-extra-deps: []
+extra-deps:
+- git: git@github.com:kubernetes-client/haskell.git
+  commit: 662e34661adf06a8d9346ee6d22b135c4eb97ddd
+  subdirs:
+  - kubernetes
 packages:
 - '.'

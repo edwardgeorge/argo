@@ -61,7 +61,7 @@ import Prelude (($),(/=),(.),(<$>),(<*>),(>>=),(=<<),Maybe(..),Bool(..),Char,Dou
 
 import qualified Prelude as P
 
-
+import Kubernetes.Model
 
 -- * Parameter newtypes
 

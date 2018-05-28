@@ -35,6 +35,7 @@ import qualified Prelude as P
 import Argo.Model
 import Argo.Core
 
+import Kubernetes.Model
 
 -- * Arguments
 
