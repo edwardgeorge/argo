@@ -1211,7 +1211,7 @@ data Workflow = Workflow
   , workflowKind :: !(Maybe Text) -- ^ "kind" - Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
   , workflowMetadata :: !(V1ObjectMeta) -- ^ /Required/ "metadata"
   , workflowSpec :: !(WorkflowSpec) -- ^ /Required/ "spec"
-  , workflowStatus :: !(WorkflowStatus) -- ^ /Required/ "status"
+  , workflowStatus :: !(Maybe WorkflowStatus) -- ^ "status"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON Workflow
@@ -1222,7 +1222,7 @@ instance A.FromJSON Workflow where
       <*> (o .:? "kind")
       <*> (o .:  "metadata")
       <*> (o .:  "spec")
-      <*> (o .:  "status")
+      <*> (o .:? "status")
 
 -- | ToJSON Workflow
 instance A.ToJSON Workflow where
@@ -1240,15 +1240,14 @@ instance A.ToJSON Workflow where
 mkWorkflow
   :: V1ObjectMeta -- ^ 'workflowMetadata' 
   -> WorkflowSpec -- ^ 'workflowSpec' 
-  -> WorkflowStatus -- ^ 'workflowStatus' 
   -> Workflow
-mkWorkflow workflowMetadata workflowSpec workflowStatus =
+mkWorkflow workflowMetadata workflowSpec =
   Workflow
   { workflowApiVersion = Nothing
   , workflowKind = Nothing
   , workflowMetadata
   , workflowSpec
-  , workflowStatus
+  , workflowStatus = Nothing
   }
 
 -- ** WorkflowList

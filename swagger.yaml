@@ -898,7 +898,6 @@ definitions:
     required:
     - "metadata"
     - "spec"
-    - "status"
     properties:
       apiVersion:
         type: "string"

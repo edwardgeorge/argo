@@ -808,8 +808,7 @@
       "description": "Workflow is the definition of a workflow resource",
       "required": [
         "metadata",
-        "spec",
-        "status"
+        "spec"
       ],
       "properties": {
         "apiVersion": {

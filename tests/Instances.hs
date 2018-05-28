@@ -323,7 +323,7 @@ instance Arbitrary Workflow where
       <*> arbitrary -- workflowKind :: Maybe Text
       <*> arbitrary -- workflowMetadata :: V1ObjectMeta
       <*> arbitrary -- workflowSpec :: WorkflowSpec
-      <*> arbitrary -- workflowStatus :: WorkflowStatus
+      <*> arbitrary -- workflowStatus :: Maybe WorkflowStatus
     
 instance Arbitrary WorkflowList where
   arbitrary =

@@ -810,7 +810,7 @@ workflowSpecL f Workflow{..} = (\workflowSpec -> Workflow { workflowSpec, ..} ) 
 {-# INLINE workflowSpecL #-}
 
 -- | 'workflowStatus' Lens
-workflowStatusL :: Lens_' Workflow (WorkflowStatus)
+workflowStatusL :: Lens_' Workflow (Maybe WorkflowStatus)
 workflowStatusL f Workflow{..} = (\workflowStatus -> Workflow { workflowStatus, ..} ) <$> f workflowStatus
 {-# INLINE workflowStatusL #-}
 
