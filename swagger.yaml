@@ -5,31 +5,31 @@ info:
   title: "Argo"
 paths: {}
 definitions:
-  v1alpha1.Arguments:
+  Arguments:
     properties:
       artifacts:
         type: "array"
         description: "Artifacts is the list of artifacts to pass to the template or\
           \ workflow"
         items:
-          $ref: "#/definitions/v1alpha1.Artifact"
-        x-dataType: "[V1alpha1Artifact]"
+          $ref: "#/definitions/Artifact"
+        x-dataType: "[Artifact]"
       parameters:
         type: "array"
         description: "Parameters is the list of parameters to pass to the template\
           \ or workflow"
         items:
-          $ref: "#/definitions/v1alpha1.Parameter"
-        x-dataType: "[V1alpha1Parameter]"
+          $ref: "#/definitions/Parameter"
+        x-dataType: "[Parameter]"
     description: "Arguments to a template"
-  v1alpha1.Artifact:
+  Artifact:
     required:
     - "name"
     properties:
       artifactory:
         description: "Artifactory contains artifactory artifact location details"
-        $ref: "#/definitions/v1alpha1.ArtifactoryArtifact"
-        x-dataType: "V1alpha1ArtifactoryArtifact"
+        $ref: "#/definitions/ArtifactoryArtifact"
+        x-dataType: "ArtifactoryArtifact"
       from:
         type: "string"
         description: "From allows an artifact to reference an artifact from a previous\
@@ -37,8 +37,8 @@ definitions:
         x-dataType: "Text"
       git:
         description: "Git contains git artifact location details"
-        $ref: "#/definitions/v1alpha1.GitArtifact"
-        x-dataType: "V1alpha1GitArtifact"
+        $ref: "#/definitions/GitArtifact"
+        x-dataType: "GitArtifact"
       globalName:
         type: "string"
         description: "GlobalName exports an output artifact to the global scope, making\
@@ -46,8 +46,8 @@ definitions:
         x-dataType: "Text"
       http:
         description: "HTTP contains HTTP artifact location details"
-        $ref: "#/definitions/v1alpha1.HTTPArtifact"
-        x-dataType: "V1alpha1HTTPArtifact"
+        $ref: "#/definitions/HTTPArtifact"
+        x-dataType: "HTTPArtifact"
       mode:
         type: "integer"
         format: "int32"
@@ -64,41 +64,41 @@ definitions:
         x-dataType: "Text"
       raw:
         description: "Raw contains raw artifact location details"
-        $ref: "#/definitions/v1alpha1.RawArtifact"
-        x-dataType: "V1alpha1RawArtifact"
+        $ref: "#/definitions/RawArtifact"
+        x-dataType: "RawArtifact"
       s3:
         description: "S3 contains S3 artifact location details"
-        $ref: "#/definitions/v1alpha1.S3Artifact"
-        x-dataType: "V1alpha1S3Artifact"
+        $ref: "#/definitions/S3Artifact"
+        x-dataType: "S3Artifact"
     description: "Artifact indicates an artifact to place at a specified path"
-  v1alpha1.ArtifactLocation:
+  ArtifactLocation:
     properties:
       artifactory:
         description: "Artifactory contains artifactory artifact location details"
-        $ref: "#/definitions/v1alpha1.ArtifactoryArtifact"
-        x-dataType: "V1alpha1ArtifactoryArtifact"
+        $ref: "#/definitions/ArtifactoryArtifact"
+        x-dataType: "ArtifactoryArtifact"
       git:
         description: "Git contains git artifact location details"
-        $ref: "#/definitions/v1alpha1.GitArtifact"
-        x-dataType: "V1alpha1GitArtifact"
+        $ref: "#/definitions/GitArtifact"
+        x-dataType: "GitArtifact"
       http:
         description: "HTTP contains HTTP artifact location details"
-        $ref: "#/definitions/v1alpha1.HTTPArtifact"
-        x-dataType: "V1alpha1HTTPArtifact"
+        $ref: "#/definitions/HTTPArtifact"
+        x-dataType: "HTTPArtifact"
       raw:
         description: "Raw contains raw artifact location details"
-        $ref: "#/definitions/v1alpha1.RawArtifact"
-        x-dataType: "V1alpha1RawArtifact"
+        $ref: "#/definitions/RawArtifact"
+        x-dataType: "RawArtifact"
       s3:
         description: "S3 contains S3 artifact location details"
-        $ref: "#/definitions/v1alpha1.S3Artifact"
-        x-dataType: "V1alpha1S3Artifact"
+        $ref: "#/definitions/S3Artifact"
+        x-dataType: "S3Artifact"
     description: "ArtifactLocation describes a location for a single or multiple artifacts.\
       \ It is used as single artifact in the context of inputs/outputs (e.g. outputs.artifacts.artname).\
       \ It is also used to describe the location of multiple artifacts such as the\
       \ archive location of a single workflow step, which the executor will use as\
       \ a default location to store its files."
-  v1alpha1.ArtifactoryArtifact:
+  ArtifactoryArtifact:
     required:
     - "url"
     properties:
@@ -115,7 +115,7 @@ definitions:
         $ref: "#/definitions/v1.SecretKeySelector"
         x-dataType: "V1SecretKeySelector"
     description: "ArtifactoryArtifact is the location of an artifactory artifact"
-  v1alpha1.ArtifactoryAuth:
+  ArtifactoryAuth:
     properties:
       passwordSecret:
         description: "PasswordSecret is the secret selector to the repository password"
@@ -127,15 +127,15 @@ definitions:
         x-dataType: "V1SecretKeySelector"
     description: "ArtifactoryAuth describes the secret selectors required for authenticating\
       \ to artifactory"
-  v1alpha1.DAGTask:
+  DAGTask:
     required:
     - "name"
     - "template"
     properties:
       arguments:
         description: "Arguments are the parameter and artifact arguments to the template"
-        $ref: "#/definitions/v1alpha1.Arguments"
-        x-dataType: "V1alpha1Arguments"
+        $ref: "#/definitions/Arguments"
+        x-dataType: "Arguments"
       dependencies:
         type: "array"
         description: "Dependencies are name of other targets which this depends on"
@@ -151,7 +151,7 @@ definitions:
         description: "Name of template to execute"
         x-dataType: "Text"
     description: "DAGTask represents a node in the graph during DAG execution"
-  v1alpha1.DAGTemplate:
+  DAGTemplate:
     required:
     - "tasks"
     properties:
@@ -163,10 +163,10 @@ definitions:
         type: "array"
         description: "Tasks are a list of DAG tasks"
         items:
-          $ref: "#/definitions/v1alpha1.DAGTask"
-        x-dataType: "[V1alpha1DAGTask]"
+          $ref: "#/definitions/DAGTask"
+        x-dataType: "[DAGTask]"
     description: "DAGTemplate is a template subtype for directed acyclic graph templates"
-  v1alpha1.GitArtifact:
+  GitArtifact:
     required:
     - "repo"
     properties:
@@ -187,7 +187,7 @@ definitions:
         $ref: "#/definitions/v1.SecretKeySelector"
         x-dataType: "V1SecretKeySelector"
     description: "GitArtifact is the location of an git artifact"
-  v1alpha1.HTTPArtifact:
+  HTTPArtifact:
     required:
     - "url"
     properties:
@@ -197,27 +197,27 @@ definitions:
         x-dataType: "Text"
     description: "HTTPArtifact allows an file served on HTTP to be placed as an input\
       \ artifact in a container"
-  v1alpha1.Inputs:
+  Inputs:
     properties:
       artifacts:
         type: "array"
         description: "Artifact are a list of artifacts passed as inputs"
         items:
-          $ref: "#/definitions/v1alpha1.Artifact"
-        x-dataType: "[V1alpha1Artifact]"
+          $ref: "#/definitions/Artifact"
+        x-dataType: "[Artifact]"
       parameters:
         type: "array"
         description: "Parameters are a list of parameters passed as inputs"
         items:
-          $ref: "#/definitions/v1alpha1.Parameter"
-        x-dataType: "[V1alpha1Parameter]"
+          $ref: "#/definitions/Parameter"
+        x-dataType: "[Parameter]"
     description: "Inputs are the mechanism for passing parameters, artifacts, volumes\
       \ from one template to another"
-  v1alpha1.Item:
+  Item:
     type: "string"
     format: "item"
     x-dataType: "Text"
-  v1alpha1.Metadata:
+  Metadata:
     properties:
       annotations:
         type: "object"
@@ -230,27 +230,27 @@ definitions:
           type: "string"
         x-dataType: "(Map.Map String Text)"
     description: "Pod metdata"
-  v1alpha1.Outputs:
+  Outputs:
     properties:
       artifacts:
         type: "array"
         description: "Artifacts holds the list of output artifacts produced by a step"
         items:
-          $ref: "#/definitions/v1alpha1.Artifact"
-        x-dataType: "[V1alpha1Artifact]"
+          $ref: "#/definitions/Artifact"
+        x-dataType: "[Artifact]"
       parameters:
         type: "array"
         description: "Parameters holds the list of output parameters produced by a\
           \ step"
         items:
-          $ref: "#/definitions/v1alpha1.Parameter"
-        x-dataType: "[V1alpha1Parameter]"
+          $ref: "#/definitions/Parameter"
+        x-dataType: "[Parameter]"
       result:
         type: "string"
         description: "Result holds the result (stdout) of a script template"
         x-dataType: "Text"
     description: "Outputs hold parameters, artifacts, and results from a step"
-  v1alpha1.Parameter:
+  Parameter:
     required:
     - "name"
     properties:
@@ -276,11 +276,11 @@ definitions:
         x-dataType: "Text"
       valueFrom:
         description: "ValueFrom is the source for the output parameter's value"
-        $ref: "#/definitions/v1alpha1.ValueFrom"
-        x-dataType: "V1alpha1ValueFrom"
+        $ref: "#/definitions/ValueFrom"
+        x-dataType: "ValueFrom"
     description: "Parameter indicate a passed string parameter to a service template\
       \ with an optional default value"
-  v1alpha1.RawArtifact:
+  RawArtifact:
     required:
     - "data"
     properties:
@@ -290,7 +290,7 @@ definitions:
         x-dataType: "Text"
     description: "RawArtifact allows raw string content to be placed as an artifact\
       \ in a container"
-  v1alpha1.ResourceTemplate:
+  ResourceTemplate:
     required:
     - "action"
     - "manifest"
@@ -317,7 +317,7 @@ definitions:
         x-dataType: "Text"
     description: "ResourceTemplate is a template subtype to manipulate kubernetes\
       \ resources"
-  v1alpha1.RetryStrategy:
+  RetryStrategy:
     properties:
       limit:
         type: "integer"
@@ -325,7 +325,7 @@ definitions:
         description: "Limit is the maximum number of attempts when retrying a container"
         x-dataType: "Int"
     description: "RetryStrategy provides controls on how to retry a workflow step"
-  v1alpha1.S3Artifact:
+  S3Artifact:
     required:
     - "accessKeySecret"
     - "bucket"
@@ -364,7 +364,7 @@ definitions:
         $ref: "#/definitions/v1.SecretKeySelector"
         x-dataType: "V1SecretKeySelector"
     description: "S3Artifact is the location of an S3 artifact"
-  v1alpha1.S3Bucket:
+  S3Bucket:
     required:
     - "accessKeySecret"
     - "bucket"
@@ -399,7 +399,7 @@ definitions:
         x-dataType: "V1SecretKeySelector"
     description: "S3Bucket contains the access information required for interfacing\
       \ with an S3 bucket"
-  v1alpha1.ScriptTemplate:
+  ScriptTemplate:
     required:
     - "name"
     - "source"
@@ -577,7 +577,7 @@ definitions:
         x-dataType: "Text"
     description: "ScriptTemplate is a template subtype to enable scripting through\
       \ code steps"
-  v1alpha1.Sidecar:
+  Sidecar:
     required:
     - "name"
     properties:
@@ -756,10 +756,10 @@ definitions:
           \ image. Cannot be updated."
         x-dataType: "Text"
     description: "Sidecar is a container which runs alongside the main container"
-  v1alpha1.SuspendTemplate:
+  SuspendTemplate:
     description: "SuspendTemplate is a template subtype to suspend a workflow at a\
       \ predetermined point in time"
-  v1alpha1.Template:
+  Template:
     required:
     - "name"
     properties:
@@ -782,8 +782,8 @@ definitions:
           \ If omitted, will use the default artifact repository location configured\
           \ in the controller, appended with the <workflowname>/<nodename> in the\
           \ key."
-        $ref: "#/definitions/v1alpha1.ArtifactLocation"
-        x-dataType: "V1alpha1ArtifactLocation"
+        $ref: "#/definitions/ArtifactLocation"
+        x-dataType: "ArtifactLocation"
       container:
         description: "Container is the main container image to run in the pod"
         $ref: "#/definitions/v1.Container"
@@ -795,17 +795,17 @@ definitions:
         x-dataType: "Bool"
       dag:
         description: "DAG template subtype which runs a DAG"
-        $ref: "#/definitions/v1alpha1.DAGTemplate"
-        x-dataType: "V1alpha1DAGTemplate"
+        $ref: "#/definitions/DAGTemplate"
+        x-dataType: "DAGTemplate"
       inputs:
         description: "Inputs describe what inputs parameters and artifacts are supplied\
           \ to this template"
-        $ref: "#/definitions/v1alpha1.Inputs"
-        x-dataType: "V1alpha1Inputs"
+        $ref: "#/definitions/Inputs"
+        x-dataType: "Inputs"
       metadata:
         description: "Metdata sets the pods's metadata, i.e. annotations and labels"
-        $ref: "#/definitions/v1alpha1.Metadata"
-        x-dataType: "V1alpha1Metadata"
+        $ref: "#/definitions/Metadata"
+        x-dataType: "Metadata"
       name:
         type: "string"
         description: "Name is the name of the template"
@@ -821,8 +821,8 @@ definitions:
       outputs:
         description: "Outputs describe the parameters and artifacts that this template\
           \ produces"
-        $ref: "#/definitions/v1alpha1.Outputs"
-        x-dataType: "V1alpha1Outputs"
+        $ref: "#/definitions/Outputs"
+        x-dataType: "Outputs"
       parallelism:
         type: "integer"
         format: "int64"
@@ -833,36 +833,36 @@ definitions:
         x-dataType: "Integer"
       resource:
         description: "Resource template subtype which can run k8s resources"
-        $ref: "#/definitions/v1alpha1.ResourceTemplate"
-        x-dataType: "V1alpha1ResourceTemplate"
+        $ref: "#/definitions/ResourceTemplate"
+        x-dataType: "ResourceTemplate"
       retryStrategy:
         description: "RetryStrategy describes how to retry a template when it fails"
-        $ref: "#/definitions/v1alpha1.RetryStrategy"
-        x-dataType: "V1alpha1RetryStrategy"
+        $ref: "#/definitions/RetryStrategy"
+        x-dataType: "RetryStrategy"
       script:
         description: "Script runs a portion of code against an interpreter"
-        $ref: "#/definitions/v1alpha1.ScriptTemplate"
-        x-dataType: "V1alpha1ScriptTemplate"
+        $ref: "#/definitions/ScriptTemplate"
+        x-dataType: "ScriptTemplate"
       sidecars:
         type: "array"
         description: "Sidecars is a list of containers which run alongside the main\
           \ container Sidecars are automatically killed when the main container completes"
         items:
-          $ref: "#/definitions/v1alpha1.Sidecar"
-        x-dataType: "[V1alpha1Sidecar]"
+          $ref: "#/definitions/Sidecar"
+        x-dataType: "[Sidecar]"
       steps:
         type: "array"
         description: "Steps define a series of sequential/parallel workflow steps"
         items:
           type: "array"
           items:
-            $ref: "#/definitions/v1alpha1.WorkflowStep"
-        x-dataType: "[[V1alpha1WorkflowStep]]"
+            $ref: "#/definitions/WorkflowStep"
+        x-dataType: "[[WorkflowStep]]"
       suspend:
         description: "Suspend template subtype which can suspend a workflow when reaching\
           \ the step"
-        $ref: "#/definitions/v1alpha1.SuspendTemplate"
-        x-dataType: "V1alpha1SuspendTemplate"
+        $ref: "#/definitions/SuspendTemplate"
+        x-dataType: "SuspendTemplate"
       tolerations:
         type: "array"
         description: "Tolerations to apply to workflow pods."
@@ -870,7 +870,7 @@ definitions:
           $ref: "#/definitions/v1.Toleration"
         x-dataType: "[V1Toleration]"
     description: "Template is a reusable and composable unit of execution in a workflow"
-  v1alpha1.ValueFrom:
+  ValueFrom:
     properties:
       jqFilter:
         type: "string"
@@ -894,7 +894,7 @@ definitions:
         x-dataType: "Text"
     description: "ValueFrom describes a location in which to obtain the value to a\
       \ parameter"
-  v1alpha1.Workflow:
+  Workflow:
     required:
     - "metadata"
     - "spec"
@@ -916,13 +916,13 @@ definitions:
         $ref: "#/definitions/v1.ObjectMeta"
         x-dataType: "V1ObjectMeta"
       spec:
-        $ref: "#/definitions/v1alpha1.WorkflowSpec"
-        x-dataType: "V1alpha1WorkflowSpec"
+        $ref: "#/definitions/WorkflowSpec"
+        x-dataType: "WorkflowSpec"
       status:
-        $ref: "#/definitions/v1alpha1.WorkflowStatus"
-        x-dataType: "V1alpha1WorkflowStatus"
+        $ref: "#/definitions/WorkflowStatus"
+        x-dataType: "WorkflowStatus"
     description: "Workflow is the definition of a workflow resource"
-  v1alpha1.WorkflowList:
+  WorkflowList:
     required:
     - "items"
     - "metadata"
@@ -936,8 +936,8 @@ definitions:
       items:
         type: "array"
         items:
-          $ref: "#/definitions/v1alpha1.Workflow"
-        x-dataType: "[V1alpha1Workflow]"
+          $ref: "#/definitions/Workflow"
+        x-dataType: "[Workflow]"
       kind:
         type: "string"
         description: "Kind is a string value representing the REST resource this object\
@@ -948,7 +948,7 @@ definitions:
         $ref: "#/definitions/v1.ListMeta"
         x-dataType: "V1ListMeta"
     description: "WorkflowList is list of Workflow resources"
-  v1alpha1.WorkflowSpec:
+  WorkflowSpec:
     required:
     - "entrypoint"
     - "templates"
@@ -962,8 +962,8 @@ definitions:
         description: "Arguments contain the parameters and artifacts sent to the workflow\
           \ entrypoint Parameters are referencable globally using the 'workflow' variable\
           \ prefix. e.g. {{workflow.parameters.myparam}}"
-        $ref: "#/definitions/v1alpha1.Arguments"
-        x-dataType: "V1alpha1Arguments"
+        $ref: "#/definitions/Arguments"
+        x-dataType: "Arguments"
       entrypoint:
         type: "string"
         description: "Entrypoint is a template reference to the starting point of\
@@ -1013,8 +1013,8 @@ definitions:
         type: "array"
         description: "Templates is a list of workflow templates used in a workflow"
         items:
-          $ref: "#/definitions/v1alpha1.Template"
-        x-dataType: "[V1alpha1Template]"
+          $ref: "#/definitions/Template"
+        x-dataType: "[Template]"
       tolerations:
         type: "array"
         description: "Tolerations to apply to workflow pods."
@@ -1038,12 +1038,12 @@ definitions:
           $ref: "#/definitions/v1.Volume"
         x-dataType: "[V1Volume]"
     description: "WorkflowSpec is the specification of a Workflow."
-  v1alpha1.WorkflowStep:
+  WorkflowStep:
     properties:
       arguments:
         description: "Arguments hold arguments to the template"
-        $ref: "#/definitions/v1alpha1.Arguments"
-        x-dataType: "V1alpha1Arguments"
+        $ref: "#/definitions/Arguments"
+        x-dataType: "Arguments"
       name:
         type: "string"
         description: "Name of the step"
@@ -1062,8 +1062,8 @@ definitions:
         description: "WithItems expands a step into multiple parallel steps from the\
           \ items in the list"
         items:
-          $ref: "#/definitions/v1alpha1.Item"
-        x-dataType: "[V1alpha1Item]"
+          $ref: "#/definitions/Item"
+        x-dataType: "[Item]"
       withParam:
         type: "string"
         description: "WithParam expands a step into from the value in the parameter"

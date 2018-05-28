@@ -89,276 +89,276 @@ instance ApproxEq TI.Day where
 
 -- * Models
  
-instance Arbitrary V1alpha1Arguments where
+instance Arbitrary Arguments where
   arbitrary =
-    V1alpha1Arguments
-      <$> arbitrary -- v1alpha1ArgumentsArtifacts :: Maybe [V1alpha1Artifact]
-      <*> arbitrary -- v1alpha1ArgumentsParameters :: Maybe [V1alpha1Parameter]
+    Arguments
+      <$> arbitrary -- argumentsArtifacts :: Maybe [Artifact]
+      <*> arbitrary -- argumentsParameters :: Maybe [Parameter]
     
-instance Arbitrary V1alpha1Artifact where
+instance Arbitrary Artifact where
   arbitrary =
-    V1alpha1Artifact
-      <$> arbitrary -- v1alpha1ArtifactArtifactory :: Maybe V1alpha1ArtifactoryArtifact
-      <*> arbitrary -- v1alpha1ArtifactFrom :: Maybe Text
-      <*> arbitrary -- v1alpha1ArtifactGit :: Maybe V1alpha1GitArtifact
-      <*> arbitrary -- v1alpha1ArtifactGlobalName :: Maybe Text
-      <*> arbitrary -- v1alpha1ArtifactHttp :: Maybe V1alpha1HTTPArtifact
-      <*> arbitrary -- v1alpha1ArtifactMode :: Maybe Int
-      <*> arbitrary -- v1alpha1ArtifactName :: Text
-      <*> arbitrary -- v1alpha1ArtifactPath :: Maybe Text
-      <*> arbitrary -- v1alpha1ArtifactRaw :: Maybe V1alpha1RawArtifact
-      <*> arbitrary -- v1alpha1ArtifactS3 :: Maybe V1alpha1S3Artifact
+    Artifact
+      <$> arbitrary -- artifactArtifactory :: Maybe ArtifactoryArtifact
+      <*> arbitrary -- artifactFrom :: Maybe Text
+      <*> arbitrary -- artifactGit :: Maybe GitArtifact
+      <*> arbitrary -- artifactGlobalName :: Maybe Text
+      <*> arbitrary -- artifactHttp :: Maybe HTTPArtifact
+      <*> arbitrary -- artifactMode :: Maybe Int
+      <*> arbitrary -- artifactName :: Text
+      <*> arbitrary -- artifactPath :: Maybe Text
+      <*> arbitrary -- artifactRaw :: Maybe RawArtifact
+      <*> arbitrary -- artifactS3 :: Maybe S3Artifact
     
-instance Arbitrary V1alpha1ArtifactLocation where
+instance Arbitrary ArtifactLocation where
   arbitrary =
-    V1alpha1ArtifactLocation
-      <$> arbitrary -- v1alpha1ArtifactLocationArtifactory :: Maybe V1alpha1ArtifactoryArtifact
-      <*> arbitrary -- v1alpha1ArtifactLocationGit :: Maybe V1alpha1GitArtifact
-      <*> arbitrary -- v1alpha1ArtifactLocationHttp :: Maybe V1alpha1HTTPArtifact
-      <*> arbitrary -- v1alpha1ArtifactLocationRaw :: Maybe V1alpha1RawArtifact
-      <*> arbitrary -- v1alpha1ArtifactLocationS3 :: Maybe V1alpha1S3Artifact
+    ArtifactLocation
+      <$> arbitrary -- artifactLocationArtifactory :: Maybe ArtifactoryArtifact
+      <*> arbitrary -- artifactLocationGit :: Maybe GitArtifact
+      <*> arbitrary -- artifactLocationHttp :: Maybe HTTPArtifact
+      <*> arbitrary -- artifactLocationRaw :: Maybe RawArtifact
+      <*> arbitrary -- artifactLocationS3 :: Maybe S3Artifact
     
-instance Arbitrary V1alpha1ArtifactoryArtifact where
+instance Arbitrary ArtifactoryArtifact where
   arbitrary =
-    V1alpha1ArtifactoryArtifact
-      <$> arbitrary -- v1alpha1ArtifactoryArtifactPasswordSecret :: Maybe V1SecretKeySelector
-      <*> arbitrary -- v1alpha1ArtifactoryArtifactUrl :: Text
-      <*> arbitrary -- v1alpha1ArtifactoryArtifactUsernameSecret :: Maybe V1SecretKeySelector
+    ArtifactoryArtifact
+      <$> arbitrary -- artifactoryArtifactPasswordSecret :: Maybe V1SecretKeySelector
+      <*> arbitrary -- artifactoryArtifactUrl :: Text
+      <*> arbitrary -- artifactoryArtifactUsernameSecret :: Maybe V1SecretKeySelector
     
-instance Arbitrary V1alpha1ArtifactoryAuth where
+instance Arbitrary ArtifactoryAuth where
   arbitrary =
-    V1alpha1ArtifactoryAuth
-      <$> arbitrary -- v1alpha1ArtifactoryAuthPasswordSecret :: Maybe V1SecretKeySelector
-      <*> arbitrary -- v1alpha1ArtifactoryAuthUsernameSecret :: Maybe V1SecretKeySelector
+    ArtifactoryAuth
+      <$> arbitrary -- artifactoryAuthPasswordSecret :: Maybe V1SecretKeySelector
+      <*> arbitrary -- artifactoryAuthUsernameSecret :: Maybe V1SecretKeySelector
     
-instance Arbitrary V1alpha1DAGTask where
+instance Arbitrary DAGTask where
   arbitrary =
-    V1alpha1DAGTask
-      <$> arbitrary -- v1alpha1DAGTaskArguments :: Maybe V1alpha1Arguments
-      <*> arbitrary -- v1alpha1DAGTaskDependencies :: Maybe [Text]
-      <*> arbitrary -- v1alpha1DAGTaskName :: Text
-      <*> arbitrary -- v1alpha1DAGTaskTemplate :: Text
+    DAGTask
+      <$> arbitrary -- dAGTaskArguments :: Maybe Arguments
+      <*> arbitrary -- dAGTaskDependencies :: Maybe [Text]
+      <*> arbitrary -- dAGTaskName :: Text
+      <*> arbitrary -- dAGTaskTemplate :: Text
     
-instance Arbitrary V1alpha1DAGTemplate where
+instance Arbitrary DAGTemplate where
   arbitrary =
-    V1alpha1DAGTemplate
-      <$> arbitrary -- v1alpha1DAGTemplateTarget :: Maybe Text
-      <*> arbitrary -- v1alpha1DAGTemplateTasks :: [V1alpha1DAGTask]
+    DAGTemplate
+      <$> arbitrary -- dAGTemplateTarget :: Maybe Text
+      <*> arbitrary -- dAGTemplateTasks :: [DAGTask]
     
-instance Arbitrary V1alpha1GitArtifact where
+instance Arbitrary GitArtifact where
   arbitrary =
-    V1alpha1GitArtifact
-      <$> arbitrary -- v1alpha1GitArtifactPasswordSecret :: Maybe V1SecretKeySelector
-      <*> arbitrary -- v1alpha1GitArtifactRepo :: Text
-      <*> arbitrary -- v1alpha1GitArtifactRevision :: Maybe Text
-      <*> arbitrary -- v1alpha1GitArtifactUsernameSecret :: Maybe V1SecretKeySelector
+    GitArtifact
+      <$> arbitrary -- gitArtifactPasswordSecret :: Maybe V1SecretKeySelector
+      <*> arbitrary -- gitArtifactRepo :: Text
+      <*> arbitrary -- gitArtifactRevision :: Maybe Text
+      <*> arbitrary -- gitArtifactUsernameSecret :: Maybe V1SecretKeySelector
     
-instance Arbitrary V1alpha1HTTPArtifact where
+instance Arbitrary HTTPArtifact where
   arbitrary =
-    V1alpha1HTTPArtifact
-      <$> arbitrary -- v1alpha1HTTPArtifactUrl :: Text
+    HTTPArtifact
+      <$> arbitrary -- hTTPArtifactUrl :: Text
     
-instance Arbitrary V1alpha1Inputs where
+instance Arbitrary Inputs where
   arbitrary =
-    V1alpha1Inputs
-      <$> arbitrary -- v1alpha1InputsArtifacts :: Maybe [V1alpha1Artifact]
-      <*> arbitrary -- v1alpha1InputsParameters :: Maybe [V1alpha1Parameter]
+    Inputs
+      <$> arbitrary -- inputsArtifacts :: Maybe [Artifact]
+      <*> arbitrary -- inputsParameters :: Maybe [Parameter]
     
-instance Arbitrary V1alpha1Item where
+instance Arbitrary Item where
   arbitrary =
-    V1alpha1Item <$> arbitrary
-instance Arbitrary V1alpha1Metadata where
+    Item <$> arbitrary
+instance Arbitrary Metadata where
   arbitrary =
-    V1alpha1Metadata
-      <$> arbitrary -- v1alpha1MetadataAnnotations :: Maybe (Map.Map String Text)
-      <*> arbitrary -- v1alpha1MetadataLabels :: Maybe (Map.Map String Text)
+    Metadata
+      <$> arbitrary -- metadataAnnotations :: Maybe (Map.Map String Text)
+      <*> arbitrary -- metadataLabels :: Maybe (Map.Map String Text)
     
-instance Arbitrary V1alpha1Outputs where
+instance Arbitrary Outputs where
   arbitrary =
-    V1alpha1Outputs
-      <$> arbitrary -- v1alpha1OutputsArtifacts :: Maybe [V1alpha1Artifact]
-      <*> arbitrary -- v1alpha1OutputsParameters :: Maybe [V1alpha1Parameter]
-      <*> arbitrary -- v1alpha1OutputsResult :: Maybe Text
+    Outputs
+      <$> arbitrary -- outputsArtifacts :: Maybe [Artifact]
+      <*> arbitrary -- outputsParameters :: Maybe [Parameter]
+      <*> arbitrary -- outputsResult :: Maybe Text
     
-instance Arbitrary V1alpha1Parameter where
+instance Arbitrary Parameter where
   arbitrary =
-    V1alpha1Parameter
-      <$> arbitrary -- v1alpha1ParameterDefault :: Maybe Text
-      <*> arbitrary -- v1alpha1ParameterGlobalName :: Maybe Text
-      <*> arbitrary -- v1alpha1ParameterName :: Text
-      <*> arbitrary -- v1alpha1ParameterValue :: Maybe Text
-      <*> arbitrary -- v1alpha1ParameterValueFrom :: Maybe V1alpha1ValueFrom
+    Parameter
+      <$> arbitrary -- parameterDefault :: Maybe Text
+      <*> arbitrary -- parameterGlobalName :: Maybe Text
+      <*> arbitrary -- parameterName :: Text
+      <*> arbitrary -- parameterValue :: Maybe Text
+      <*> arbitrary -- parameterValueFrom :: Maybe ValueFrom
     
-instance Arbitrary V1alpha1RawArtifact where
+instance Arbitrary RawArtifact where
   arbitrary =
-    V1alpha1RawArtifact
-      <$> arbitrary -- v1alpha1RawArtifactData :: Text
+    RawArtifact
+      <$> arbitrary -- rawArtifactData :: Text
     
-instance Arbitrary V1alpha1ResourceTemplate where
+instance Arbitrary ResourceTemplate where
   arbitrary =
-    V1alpha1ResourceTemplate
-      <$> arbitrary -- v1alpha1ResourceTemplateAction :: Text
-      <*> arbitrary -- v1alpha1ResourceTemplateFailureCondition :: Maybe Text
-      <*> arbitrary -- v1alpha1ResourceTemplateManifest :: Text
-      <*> arbitrary -- v1alpha1ResourceTemplateSuccessCondition :: Maybe Text
+    ResourceTemplate
+      <$> arbitrary -- resourceTemplateAction :: Text
+      <*> arbitrary -- resourceTemplateFailureCondition :: Maybe Text
+      <*> arbitrary -- resourceTemplateManifest :: Text
+      <*> arbitrary -- resourceTemplateSuccessCondition :: Maybe Text
     
-instance Arbitrary V1alpha1RetryStrategy where
+instance Arbitrary RetryStrategy where
   arbitrary =
-    V1alpha1RetryStrategy
-      <$> arbitrary -- v1alpha1RetryStrategyLimit :: Maybe Int
+    RetryStrategy
+      <$> arbitrary -- retryStrategyLimit :: Maybe Int
     
-instance Arbitrary V1alpha1S3Artifact where
+instance Arbitrary S3Artifact where
   arbitrary =
-    V1alpha1S3Artifact
-      <$> arbitrary -- v1alpha1S3ArtifactAccessKeySecret :: V1SecretKeySelector
-      <*> arbitrary -- v1alpha1S3ArtifactBucket :: Text
-      <*> arbitrary -- v1alpha1S3ArtifactEndpoint :: Text
-      <*> arbitrary -- v1alpha1S3ArtifactInsecure :: Maybe Bool
-      <*> arbitrary -- v1alpha1S3ArtifactKey :: Text
-      <*> arbitrary -- v1alpha1S3ArtifactRegion :: Maybe Text
-      <*> arbitrary -- v1alpha1S3ArtifactSecretKeySecret :: V1SecretKeySelector
+    S3Artifact
+      <$> arbitrary -- s3ArtifactAccessKeySecret :: V1SecretKeySelector
+      <*> arbitrary -- s3ArtifactBucket :: Text
+      <*> arbitrary -- s3ArtifactEndpoint :: Text
+      <*> arbitrary -- s3ArtifactInsecure :: Maybe Bool
+      <*> arbitrary -- s3ArtifactKey :: Text
+      <*> arbitrary -- s3ArtifactRegion :: Maybe Text
+      <*> arbitrary -- s3ArtifactSecretKeySecret :: V1SecretKeySelector
     
-instance Arbitrary V1alpha1S3Bucket where
+instance Arbitrary S3Bucket where
   arbitrary =
-    V1alpha1S3Bucket
-      <$> arbitrary -- v1alpha1S3BucketAccessKeySecret :: V1SecretKeySelector
-      <*> arbitrary -- v1alpha1S3BucketBucket :: Text
-      <*> arbitrary -- v1alpha1S3BucketEndpoint :: Text
-      <*> arbitrary -- v1alpha1S3BucketInsecure :: Maybe Bool
-      <*> arbitrary -- v1alpha1S3BucketRegion :: Maybe Text
-      <*> arbitrary -- v1alpha1S3BucketSecretKeySecret :: V1SecretKeySelector
+    S3Bucket
+      <$> arbitrary -- s3BucketAccessKeySecret :: V1SecretKeySelector
+      <*> arbitrary -- s3BucketBucket :: Text
+      <*> arbitrary -- s3BucketEndpoint :: Text
+      <*> arbitrary -- s3BucketInsecure :: Maybe Bool
+      <*> arbitrary -- s3BucketRegion :: Maybe Text
+      <*> arbitrary -- s3BucketSecretKeySecret :: V1SecretKeySelector
     
-instance Arbitrary V1alpha1ScriptTemplate where
+instance Arbitrary ScriptTemplate where
   arbitrary =
-    V1alpha1ScriptTemplate
-      <$> arbitrary -- v1alpha1ScriptTemplateArgs :: Maybe [Text]
-      <*> arbitrary -- v1alpha1ScriptTemplateCommand :: Maybe [Text]
-      <*> arbitrary -- v1alpha1ScriptTemplateEnv :: Maybe [V1EnvVar]
-      <*> arbitrary -- v1alpha1ScriptTemplateEnvFrom :: Maybe [V1EnvFromSource]
-      <*> arbitrary -- v1alpha1ScriptTemplateImage :: Maybe Text
-      <*> arbitrary -- v1alpha1ScriptTemplateImagePullPolicy :: Maybe Text
-      <*> arbitrary -- v1alpha1ScriptTemplateLifecycle :: Maybe V1Lifecycle
-      <*> arbitrary -- v1alpha1ScriptTemplateLivenessProbe :: Maybe V1Probe
-      <*> arbitrary -- v1alpha1ScriptTemplateName :: Text
-      <*> arbitrary -- v1alpha1ScriptTemplatePorts :: Maybe [V1ContainerPort]
-      <*> arbitrary -- v1alpha1ScriptTemplateReadinessProbe :: Maybe V1Probe
-      <*> arbitrary -- v1alpha1ScriptTemplateResources :: Maybe V1ResourceRequirements
-      <*> arbitrary -- v1alpha1ScriptTemplateSecurityContext :: Maybe V1SecurityContext
-      <*> arbitrary -- v1alpha1ScriptTemplateSource :: Text
-      <*> arbitrary -- v1alpha1ScriptTemplateStdin :: Maybe Bool
-      <*> arbitrary -- v1alpha1ScriptTemplateStdinOnce :: Maybe Bool
-      <*> arbitrary -- v1alpha1ScriptTemplateTerminationMessagePath :: Maybe Text
-      <*> arbitrary -- v1alpha1ScriptTemplateTerminationMessagePolicy :: Maybe Text
-      <*> arbitrary -- v1alpha1ScriptTemplateTty :: Maybe Bool
-      <*> arbitrary -- v1alpha1ScriptTemplateVolumeDevices :: Maybe [V1VolumeDevice]
-      <*> arbitrary -- v1alpha1ScriptTemplateVolumeMounts :: Maybe [V1VolumeMount]
-      <*> arbitrary -- v1alpha1ScriptTemplateWorkingDir :: Maybe Text
+    ScriptTemplate
+      <$> arbitrary -- scriptTemplateArgs :: Maybe [Text]
+      <*> arbitrary -- scriptTemplateCommand :: Maybe [Text]
+      <*> arbitrary -- scriptTemplateEnv :: Maybe [V1EnvVar]
+      <*> arbitrary -- scriptTemplateEnvFrom :: Maybe [V1EnvFromSource]
+      <*> arbitrary -- scriptTemplateImage :: Maybe Text
+      <*> arbitrary -- scriptTemplateImagePullPolicy :: Maybe Text
+      <*> arbitrary -- scriptTemplateLifecycle :: Maybe V1Lifecycle
+      <*> arbitrary -- scriptTemplateLivenessProbe :: Maybe V1Probe
+      <*> arbitrary -- scriptTemplateName :: Text
+      <*> arbitrary -- scriptTemplatePorts :: Maybe [V1ContainerPort]
+      <*> arbitrary -- scriptTemplateReadinessProbe :: Maybe V1Probe
+      <*> arbitrary -- scriptTemplateResources :: Maybe V1ResourceRequirements
+      <*> arbitrary -- scriptTemplateSecurityContext :: Maybe V1SecurityContext
+      <*> arbitrary -- scriptTemplateSource :: Text
+      <*> arbitrary -- scriptTemplateStdin :: Maybe Bool
+      <*> arbitrary -- scriptTemplateStdinOnce :: Maybe Bool
+      <*> arbitrary -- scriptTemplateTerminationMessagePath :: Maybe Text
+      <*> arbitrary -- scriptTemplateTerminationMessagePolicy :: Maybe Text
+      <*> arbitrary -- scriptTemplateTty :: Maybe Bool
+      <*> arbitrary -- scriptTemplateVolumeDevices :: Maybe [V1VolumeDevice]
+      <*> arbitrary -- scriptTemplateVolumeMounts :: Maybe [V1VolumeMount]
+      <*> arbitrary -- scriptTemplateWorkingDir :: Maybe Text
     
-instance Arbitrary V1alpha1Sidecar where
+instance Arbitrary Sidecar where
   arbitrary =
-    V1alpha1Sidecar
-      <$> arbitrary -- v1alpha1SidecarArgs :: Maybe [Text]
-      <*> arbitrary -- v1alpha1SidecarCommand :: Maybe [Text]
-      <*> arbitrary -- v1alpha1SidecarEnv :: Maybe [V1EnvVar]
-      <*> arbitrary -- v1alpha1SidecarEnvFrom :: Maybe [V1EnvFromSource]
-      <*> arbitrary -- v1alpha1SidecarImage :: Maybe Text
-      <*> arbitrary -- v1alpha1SidecarImagePullPolicy :: Maybe Text
-      <*> arbitrary -- v1alpha1SidecarLifecycle :: Maybe V1Lifecycle
-      <*> arbitrary -- v1alpha1SidecarLivenessProbe :: Maybe V1Probe
-      <*> arbitrary -- v1alpha1SidecarMirrorVolumeMounts :: Maybe Bool
-      <*> arbitrary -- v1alpha1SidecarName :: Text
-      <*> arbitrary -- v1alpha1SidecarPorts :: Maybe [V1ContainerPort]
-      <*> arbitrary -- v1alpha1SidecarReadinessProbe :: Maybe V1Probe
-      <*> arbitrary -- v1alpha1SidecarResources :: Maybe V1ResourceRequirements
-      <*> arbitrary -- v1alpha1SidecarSecurityContext :: Maybe V1SecurityContext
-      <*> arbitrary -- v1alpha1SidecarStdin :: Maybe Bool
-      <*> arbitrary -- v1alpha1SidecarStdinOnce :: Maybe Bool
-      <*> arbitrary -- v1alpha1SidecarTerminationMessagePath :: Maybe Text
-      <*> arbitrary -- v1alpha1SidecarTerminationMessagePolicy :: Maybe Text
-      <*> arbitrary -- v1alpha1SidecarTty :: Maybe Bool
-      <*> arbitrary -- v1alpha1SidecarVolumeDevices :: Maybe [V1VolumeDevice]
-      <*> arbitrary -- v1alpha1SidecarVolumeMounts :: Maybe [V1VolumeMount]
-      <*> arbitrary -- v1alpha1SidecarWorkingDir :: Maybe Text
+    Sidecar
+      <$> arbitrary -- sidecarArgs :: Maybe [Text]
+      <*> arbitrary -- sidecarCommand :: Maybe [Text]
+      <*> arbitrary -- sidecarEnv :: Maybe [V1EnvVar]
+      <*> arbitrary -- sidecarEnvFrom :: Maybe [V1EnvFromSource]
+      <*> arbitrary -- sidecarImage :: Maybe Text
+      <*> arbitrary -- sidecarImagePullPolicy :: Maybe Text
+      <*> arbitrary -- sidecarLifecycle :: Maybe V1Lifecycle
+      <*> arbitrary -- sidecarLivenessProbe :: Maybe V1Probe
+      <*> arbitrary -- sidecarMirrorVolumeMounts :: Maybe Bool
+      <*> arbitrary -- sidecarName :: Text
+      <*> arbitrary -- sidecarPorts :: Maybe [V1ContainerPort]
+      <*> arbitrary -- sidecarReadinessProbe :: Maybe V1Probe
+      <*> arbitrary -- sidecarResources :: Maybe V1ResourceRequirements
+      <*> arbitrary -- sidecarSecurityContext :: Maybe V1SecurityContext
+      <*> arbitrary -- sidecarStdin :: Maybe Bool
+      <*> arbitrary -- sidecarStdinOnce :: Maybe Bool
+      <*> arbitrary -- sidecarTerminationMessagePath :: Maybe Text
+      <*> arbitrary -- sidecarTerminationMessagePolicy :: Maybe Text
+      <*> arbitrary -- sidecarTty :: Maybe Bool
+      <*> arbitrary -- sidecarVolumeDevices :: Maybe [V1VolumeDevice]
+      <*> arbitrary -- sidecarVolumeMounts :: Maybe [V1VolumeMount]
+      <*> arbitrary -- sidecarWorkingDir :: Maybe Text
     
-instance Arbitrary V1alpha1SuspendTemplate where
+instance Arbitrary SuspendTemplate where
   arbitrary =
     
-    pure V1alpha1SuspendTemplate
+    pure SuspendTemplate
      
-instance Arbitrary V1alpha1Template where
+instance Arbitrary Template where
   arbitrary =
-    V1alpha1Template
-      <$> arbitrary -- v1alpha1TemplateActiveDeadlineSeconds :: Maybe Integer
-      <*> arbitrary -- v1alpha1TemplateAffinity :: Maybe V1Affinity
-      <*> arbitrary -- v1alpha1TemplateArchiveLocation :: Maybe V1alpha1ArtifactLocation
-      <*> arbitrary -- v1alpha1TemplateContainer :: Maybe V1Container
-      <*> arbitrary -- v1alpha1TemplateDaemon :: Maybe Bool
-      <*> arbitrary -- v1alpha1TemplateDag :: Maybe V1alpha1DAGTemplate
-      <*> arbitrary -- v1alpha1TemplateInputs :: Maybe V1alpha1Inputs
-      <*> arbitrary -- v1alpha1TemplateMetadata :: Maybe V1alpha1Metadata
-      <*> arbitrary -- v1alpha1TemplateName :: Text
-      <*> arbitrary -- v1alpha1TemplateNodeSelector :: Maybe (Map.Map String Text)
-      <*> arbitrary -- v1alpha1TemplateOutputs :: Maybe V1alpha1Outputs
-      <*> arbitrary -- v1alpha1TemplateParallelism :: Maybe Integer
-      <*> arbitrary -- v1alpha1TemplateResource :: Maybe V1alpha1ResourceTemplate
-      <*> arbitrary -- v1alpha1TemplateRetryStrategy :: Maybe V1alpha1RetryStrategy
-      <*> arbitrary -- v1alpha1TemplateScript :: Maybe V1alpha1ScriptTemplate
-      <*> arbitrary -- v1alpha1TemplateSidecars :: Maybe [V1alpha1Sidecar]
-      <*> arbitrary -- v1alpha1TemplateSteps :: Maybe [[V1alpha1WorkflowStep]]
-      <*> arbitrary -- v1alpha1TemplateSuspend :: Maybe V1alpha1SuspendTemplate
-      <*> arbitrary -- v1alpha1TemplateTolerations :: Maybe [V1Toleration]
+    Template
+      <$> arbitrary -- templateActiveDeadlineSeconds :: Maybe Integer
+      <*> arbitrary -- templateAffinity :: Maybe V1Affinity
+      <*> arbitrary -- templateArchiveLocation :: Maybe ArtifactLocation
+      <*> arbitrary -- templateContainer :: Maybe V1Container
+      <*> arbitrary -- templateDaemon :: Maybe Bool
+      <*> arbitrary -- templateDag :: Maybe DAGTemplate
+      <*> arbitrary -- templateInputs :: Maybe Inputs
+      <*> arbitrary -- templateMetadata :: Maybe Metadata
+      <*> arbitrary -- templateName :: Text
+      <*> arbitrary -- templateNodeSelector :: Maybe (Map.Map String Text)
+      <*> arbitrary -- templateOutputs :: Maybe Outputs
+      <*> arbitrary -- templateParallelism :: Maybe Integer
+      <*> arbitrary -- templateResource :: Maybe ResourceTemplate
+      <*> arbitrary -- templateRetryStrategy :: Maybe RetryStrategy
+      <*> arbitrary -- templateScript :: Maybe ScriptTemplate
+      <*> arbitrary -- templateSidecars :: Maybe [Sidecar]
+      <*> arbitrary -- templateSteps :: Maybe [[WorkflowStep]]
+      <*> arbitrary -- templateSuspend :: Maybe SuspendTemplate
+      <*> arbitrary -- templateTolerations :: Maybe [V1Toleration]
     
-instance Arbitrary V1alpha1ValueFrom where
+instance Arbitrary ValueFrom where
   arbitrary =
-    V1alpha1ValueFrom
-      <$> arbitrary -- v1alpha1ValueFromJqFilter :: Maybe Text
-      <*> arbitrary -- v1alpha1ValueFromJsonPath :: Maybe Text
-      <*> arbitrary -- v1alpha1ValueFromParameter :: Maybe Text
-      <*> arbitrary -- v1alpha1ValueFromPath :: Maybe Text
+    ValueFrom
+      <$> arbitrary -- valueFromJqFilter :: Maybe Text
+      <*> arbitrary -- valueFromJsonPath :: Maybe Text
+      <*> arbitrary -- valueFromParameter :: Maybe Text
+      <*> arbitrary -- valueFromPath :: Maybe Text
     
-instance Arbitrary V1alpha1Workflow where
+instance Arbitrary Workflow where
   arbitrary =
-    V1alpha1Workflow
-      <$> arbitrary -- v1alpha1WorkflowApiVersion :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowKind :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowMetadata :: V1ObjectMeta
-      <*> arbitrary -- v1alpha1WorkflowSpec :: V1alpha1WorkflowSpec
-      <*> arbitrary -- v1alpha1WorkflowStatus :: V1alpha1WorkflowStatus
+    Workflow
+      <$> arbitrary -- workflowApiVersion :: Maybe Text
+      <*> arbitrary -- workflowKind :: Maybe Text
+      <*> arbitrary -- workflowMetadata :: V1ObjectMeta
+      <*> arbitrary -- workflowSpec :: WorkflowSpec
+      <*> arbitrary -- workflowStatus :: WorkflowStatus
     
-instance Arbitrary V1alpha1WorkflowList where
+instance Arbitrary WorkflowList where
   arbitrary =
-    V1alpha1WorkflowList
-      <$> arbitrary -- v1alpha1WorkflowListApiVersion :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowListItems :: [V1alpha1Workflow]
-      <*> arbitrary -- v1alpha1WorkflowListKind :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowListMetadata :: V1ListMeta
+    WorkflowList
+      <$> arbitrary -- workflowListApiVersion :: Maybe Text
+      <*> arbitrary -- workflowListItems :: [Workflow]
+      <*> arbitrary -- workflowListKind :: Maybe Text
+      <*> arbitrary -- workflowListMetadata :: V1ListMeta
     
-instance Arbitrary V1alpha1WorkflowSpec where
+instance Arbitrary WorkflowSpec where
   arbitrary =
-    V1alpha1WorkflowSpec
-      <$> arbitrary -- v1alpha1WorkflowSpecAffinity :: Maybe V1Affinity
-      <*> arbitrary -- v1alpha1WorkflowSpecArguments :: Maybe V1alpha1Arguments
-      <*> arbitrary -- v1alpha1WorkflowSpecEntrypoint :: Text
-      <*> arbitrary -- v1alpha1WorkflowSpecImagePullSecrets :: Maybe [V1LocalObjectReference]
-      <*> arbitrary -- v1alpha1WorkflowSpecNodeSelector :: Maybe (Map.Map String Text)
-      <*> arbitrary -- v1alpha1WorkflowSpecOnExit :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowSpecParallelism :: Maybe Integer
-      <*> arbitrary -- v1alpha1WorkflowSpecServiceAccountName :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowSpecSuspend :: Maybe Bool
-      <*> arbitrary -- v1alpha1WorkflowSpecTemplates :: [V1alpha1Template]
-      <*> arbitrary -- v1alpha1WorkflowSpecTolerations :: Maybe [V1Toleration]
-      <*> arbitrary -- v1alpha1WorkflowSpecVolumeClaimTemplates :: Maybe [V1PersistentVolumeClaim]
-      <*> arbitrary -- v1alpha1WorkflowSpecVolumes :: Maybe [V1Volume]
+    WorkflowSpec
+      <$> arbitrary -- workflowSpecAffinity :: Maybe V1Affinity
+      <*> arbitrary -- workflowSpecArguments :: Maybe Arguments
+      <*> arbitrary -- workflowSpecEntrypoint :: Text
+      <*> arbitrary -- workflowSpecImagePullSecrets :: Maybe [V1LocalObjectReference]
+      <*> arbitrary -- workflowSpecNodeSelector :: Maybe (Map.Map String Text)
+      <*> arbitrary -- workflowSpecOnExit :: Maybe Text
+      <*> arbitrary -- workflowSpecParallelism :: Maybe Integer
+      <*> arbitrary -- workflowSpecServiceAccountName :: Maybe Text
+      <*> arbitrary -- workflowSpecSuspend :: Maybe Bool
+      <*> arbitrary -- workflowSpecTemplates :: [Template]
+      <*> arbitrary -- workflowSpecTolerations :: Maybe [V1Toleration]
+      <*> arbitrary -- workflowSpecVolumeClaimTemplates :: Maybe [V1PersistentVolumeClaim]
+      <*> arbitrary -- workflowSpecVolumes :: Maybe [V1Volume]
     
-instance Arbitrary V1alpha1WorkflowStep where
+instance Arbitrary WorkflowStep where
   arbitrary =
-    V1alpha1WorkflowStep
-      <$> arbitrary -- v1alpha1WorkflowStepArguments :: Maybe V1alpha1Arguments
-      <*> arbitrary -- v1alpha1WorkflowStepName :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowStepTemplate :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowStepWhen :: Maybe Text
-      <*> arbitrary -- v1alpha1WorkflowStepWithItems :: Maybe [V1alpha1Item]
-      <*> arbitrary -- v1alpha1WorkflowStepWithParam :: Maybe Text
+    WorkflowStep
+      <$> arbitrary -- workflowStepArguments :: Maybe Arguments
+      <*> arbitrary -- workflowStepName :: Maybe Text
+      <*> arbitrary -- workflowStepTemplate :: Maybe Text
+      <*> arbitrary -- workflowStepWhen :: Maybe Text
+      <*> arbitrary -- workflowStepWithItems :: Maybe [Item]
+      <*> arbitrary -- workflowStepWithParam :: Maybe Text
     
 
 

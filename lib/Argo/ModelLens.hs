@@ -36,909 +36,909 @@ import Argo.Model
 import Argo.Core
 
 
--- * V1alpha1Arguments
+-- * Arguments
 
--- | 'v1alpha1ArgumentsArtifacts' Lens
-v1alpha1ArgumentsArtifactsL :: Lens_' V1alpha1Arguments (Maybe [V1alpha1Artifact])
-v1alpha1ArgumentsArtifactsL f V1alpha1Arguments{..} = (\v1alpha1ArgumentsArtifacts -> V1alpha1Arguments { v1alpha1ArgumentsArtifacts, ..} ) <$> f v1alpha1ArgumentsArtifacts
-{-# INLINE v1alpha1ArgumentsArtifactsL #-}
+-- | 'argumentsArtifacts' Lens
+argumentsArtifactsL :: Lens_' Arguments (Maybe [Artifact])
+argumentsArtifactsL f Arguments{..} = (\argumentsArtifacts -> Arguments { argumentsArtifacts, ..} ) <$> f argumentsArtifacts
+{-# INLINE argumentsArtifactsL #-}
 
--- | 'v1alpha1ArgumentsParameters' Lens
-v1alpha1ArgumentsParametersL :: Lens_' V1alpha1Arguments (Maybe [V1alpha1Parameter])
-v1alpha1ArgumentsParametersL f V1alpha1Arguments{..} = (\v1alpha1ArgumentsParameters -> V1alpha1Arguments { v1alpha1ArgumentsParameters, ..} ) <$> f v1alpha1ArgumentsParameters
-{-# INLINE v1alpha1ArgumentsParametersL #-}
+-- | 'argumentsParameters' Lens
+argumentsParametersL :: Lens_' Arguments (Maybe [Parameter])
+argumentsParametersL f Arguments{..} = (\argumentsParameters -> Arguments { argumentsParameters, ..} ) <$> f argumentsParameters
+{-# INLINE argumentsParametersL #-}
 
 
 
--- * V1alpha1Artifact
+-- * Artifact
 
--- | 'v1alpha1ArtifactArtifactory' Lens
-v1alpha1ArtifactArtifactoryL :: Lens_' V1alpha1Artifact (Maybe V1alpha1ArtifactoryArtifact)
-v1alpha1ArtifactArtifactoryL f V1alpha1Artifact{..} = (\v1alpha1ArtifactArtifactory -> V1alpha1Artifact { v1alpha1ArtifactArtifactory, ..} ) <$> f v1alpha1ArtifactArtifactory
-{-# INLINE v1alpha1ArtifactArtifactoryL #-}
+-- | 'artifactArtifactory' Lens
+artifactArtifactoryL :: Lens_' Artifact (Maybe ArtifactoryArtifact)
+artifactArtifactoryL f Artifact{..} = (\artifactArtifactory -> Artifact { artifactArtifactory, ..} ) <$> f artifactArtifactory
+{-# INLINE artifactArtifactoryL #-}
 
--- | 'v1alpha1ArtifactFrom' Lens
-v1alpha1ArtifactFromL :: Lens_' V1alpha1Artifact (Maybe Text)
-v1alpha1ArtifactFromL f V1alpha1Artifact{..} = (\v1alpha1ArtifactFrom -> V1alpha1Artifact { v1alpha1ArtifactFrom, ..} ) <$> f v1alpha1ArtifactFrom
-{-# INLINE v1alpha1ArtifactFromL #-}
+-- | 'artifactFrom' Lens
+artifactFromL :: Lens_' Artifact (Maybe Text)
+artifactFromL f Artifact{..} = (\artifactFrom -> Artifact { artifactFrom, ..} ) <$> f artifactFrom
+{-# INLINE artifactFromL #-}
 
--- | 'v1alpha1ArtifactGit' Lens
-v1alpha1ArtifactGitL :: Lens_' V1alpha1Artifact (Maybe V1alpha1GitArtifact)
-v1alpha1ArtifactGitL f V1alpha1Artifact{..} = (\v1alpha1ArtifactGit -> V1alpha1Artifact { v1alpha1ArtifactGit, ..} ) <$> f v1alpha1ArtifactGit
-{-# INLINE v1alpha1ArtifactGitL #-}
+-- | 'artifactGit' Lens
+artifactGitL :: Lens_' Artifact (Maybe GitArtifact)
+artifactGitL f Artifact{..} = (\artifactGit -> Artifact { artifactGit, ..} ) <$> f artifactGit
+{-# INLINE artifactGitL #-}
 
--- | 'v1alpha1ArtifactGlobalName' Lens
-v1alpha1ArtifactGlobalNameL :: Lens_' V1alpha1Artifact (Maybe Text)
-v1alpha1ArtifactGlobalNameL f V1alpha1Artifact{..} = (\v1alpha1ArtifactGlobalName -> V1alpha1Artifact { v1alpha1ArtifactGlobalName, ..} ) <$> f v1alpha1ArtifactGlobalName
-{-# INLINE v1alpha1ArtifactGlobalNameL #-}
+-- | 'artifactGlobalName' Lens
+artifactGlobalNameL :: Lens_' Artifact (Maybe Text)
+artifactGlobalNameL f Artifact{..} = (\artifactGlobalName -> Artifact { artifactGlobalName, ..} ) <$> f artifactGlobalName
+{-# INLINE artifactGlobalNameL #-}
 
--- | 'v1alpha1ArtifactHttp' Lens
-v1alpha1ArtifactHttpL :: Lens_' V1alpha1Artifact (Maybe V1alpha1HTTPArtifact)
-v1alpha1ArtifactHttpL f V1alpha1Artifact{..} = (\v1alpha1ArtifactHttp -> V1alpha1Artifact { v1alpha1ArtifactHttp, ..} ) <$> f v1alpha1ArtifactHttp
-{-# INLINE v1alpha1ArtifactHttpL #-}
+-- | 'artifactHttp' Lens
+artifactHttpL :: Lens_' Artifact (Maybe HTTPArtifact)
+artifactHttpL f Artifact{..} = (\artifactHttp -> Artifact { artifactHttp, ..} ) <$> f artifactHttp
+{-# INLINE artifactHttpL #-}
 
--- | 'v1alpha1ArtifactMode' Lens
-v1alpha1ArtifactModeL :: Lens_' V1alpha1Artifact (Maybe Int)
-v1alpha1ArtifactModeL f V1alpha1Artifact{..} = (\v1alpha1ArtifactMode -> V1alpha1Artifact { v1alpha1ArtifactMode, ..} ) <$> f v1alpha1ArtifactMode
-{-# INLINE v1alpha1ArtifactModeL #-}
+-- | 'artifactMode' Lens
+artifactModeL :: Lens_' Artifact (Maybe Int)
+artifactModeL f Artifact{..} = (\artifactMode -> Artifact { artifactMode, ..} ) <$> f artifactMode
+{-# INLINE artifactModeL #-}
 
--- | 'v1alpha1ArtifactName' Lens
-v1alpha1ArtifactNameL :: Lens_' V1alpha1Artifact (Text)
-v1alpha1ArtifactNameL f V1alpha1Artifact{..} = (\v1alpha1ArtifactName -> V1alpha1Artifact { v1alpha1ArtifactName, ..} ) <$> f v1alpha1ArtifactName
-{-# INLINE v1alpha1ArtifactNameL #-}
+-- | 'artifactName' Lens
+artifactNameL :: Lens_' Artifact (Text)
+artifactNameL f Artifact{..} = (\artifactName -> Artifact { artifactName, ..} ) <$> f artifactName
+{-# INLINE artifactNameL #-}
 
--- | 'v1alpha1ArtifactPath' Lens
-v1alpha1ArtifactPathL :: Lens_' V1alpha1Artifact (Maybe Text)
-v1alpha1ArtifactPathL f V1alpha1Artifact{..} = (\v1alpha1ArtifactPath -> V1alpha1Artifact { v1alpha1ArtifactPath, ..} ) <$> f v1alpha1ArtifactPath
-{-# INLINE v1alpha1ArtifactPathL #-}
+-- | 'artifactPath' Lens
+artifactPathL :: Lens_' Artifact (Maybe Text)
+artifactPathL f Artifact{..} = (\artifactPath -> Artifact { artifactPath, ..} ) <$> f artifactPath
+{-# INLINE artifactPathL #-}
 
--- | 'v1alpha1ArtifactRaw' Lens
-v1alpha1ArtifactRawL :: Lens_' V1alpha1Artifact (Maybe V1alpha1RawArtifact)
-v1alpha1ArtifactRawL f V1alpha1Artifact{..} = (\v1alpha1ArtifactRaw -> V1alpha1Artifact { v1alpha1ArtifactRaw, ..} ) <$> f v1alpha1ArtifactRaw
-{-# INLINE v1alpha1ArtifactRawL #-}
+-- | 'artifactRaw' Lens
+artifactRawL :: Lens_' Artifact (Maybe RawArtifact)
+artifactRawL f Artifact{..} = (\artifactRaw -> Artifact { artifactRaw, ..} ) <$> f artifactRaw
+{-# INLINE artifactRawL #-}
 
--- | 'v1alpha1ArtifactS3' Lens
-v1alpha1ArtifactS3L :: Lens_' V1alpha1Artifact (Maybe V1alpha1S3Artifact)
-v1alpha1ArtifactS3L f V1alpha1Artifact{..} = (\v1alpha1ArtifactS3 -> V1alpha1Artifact { v1alpha1ArtifactS3, ..} ) <$> f v1alpha1ArtifactS3
-{-# INLINE v1alpha1ArtifactS3L #-}
+-- | 'artifactS3' Lens
+artifactS3L :: Lens_' Artifact (Maybe S3Artifact)
+artifactS3L f Artifact{..} = (\artifactS3 -> Artifact { artifactS3, ..} ) <$> f artifactS3
+{-# INLINE artifactS3L #-}
 
 
 
--- * V1alpha1ArtifactLocation
+-- * ArtifactLocation
 
--- | 'v1alpha1ArtifactLocationArtifactory' Lens
-v1alpha1ArtifactLocationArtifactoryL :: Lens_' V1alpha1ArtifactLocation (Maybe V1alpha1ArtifactoryArtifact)
-v1alpha1ArtifactLocationArtifactoryL f V1alpha1ArtifactLocation{..} = (\v1alpha1ArtifactLocationArtifactory -> V1alpha1ArtifactLocation { v1alpha1ArtifactLocationArtifactory, ..} ) <$> f v1alpha1ArtifactLocationArtifactory
-{-# INLINE v1alpha1ArtifactLocationArtifactoryL #-}
+-- | 'artifactLocationArtifactory' Lens
+artifactLocationArtifactoryL :: Lens_' ArtifactLocation (Maybe ArtifactoryArtifact)
+artifactLocationArtifactoryL f ArtifactLocation{..} = (\artifactLocationArtifactory -> ArtifactLocation { artifactLocationArtifactory, ..} ) <$> f artifactLocationArtifactory
+{-# INLINE artifactLocationArtifactoryL #-}
 
--- | 'v1alpha1ArtifactLocationGit' Lens
-v1alpha1ArtifactLocationGitL :: Lens_' V1alpha1ArtifactLocation (Maybe V1alpha1GitArtifact)
-v1alpha1ArtifactLocationGitL f V1alpha1ArtifactLocation{..} = (\v1alpha1ArtifactLocationGit -> V1alpha1ArtifactLocation { v1alpha1ArtifactLocationGit, ..} ) <$> f v1alpha1ArtifactLocationGit
-{-# INLINE v1alpha1ArtifactLocationGitL #-}
+-- | 'artifactLocationGit' Lens
+artifactLocationGitL :: Lens_' ArtifactLocation (Maybe GitArtifact)
+artifactLocationGitL f ArtifactLocation{..} = (\artifactLocationGit -> ArtifactLocation { artifactLocationGit, ..} ) <$> f artifactLocationGit
+{-# INLINE artifactLocationGitL #-}
 
--- | 'v1alpha1ArtifactLocationHttp' Lens
-v1alpha1ArtifactLocationHttpL :: Lens_' V1alpha1ArtifactLocation (Maybe V1alpha1HTTPArtifact)
-v1alpha1ArtifactLocationHttpL f V1alpha1ArtifactLocation{..} = (\v1alpha1ArtifactLocationHttp -> V1alpha1ArtifactLocation { v1alpha1ArtifactLocationHttp, ..} ) <$> f v1alpha1ArtifactLocationHttp
-{-# INLINE v1alpha1ArtifactLocationHttpL #-}
+-- | 'artifactLocationHttp' Lens
+artifactLocationHttpL :: Lens_' ArtifactLocation (Maybe HTTPArtifact)
+artifactLocationHttpL f ArtifactLocation{..} = (\artifactLocationHttp -> ArtifactLocation { artifactLocationHttp, ..} ) <$> f artifactLocationHttp
+{-# INLINE artifactLocationHttpL #-}
 
--- | 'v1alpha1ArtifactLocationRaw' Lens
-v1alpha1ArtifactLocationRawL :: Lens_' V1alpha1ArtifactLocation (Maybe V1alpha1RawArtifact)
-v1alpha1ArtifactLocationRawL f V1alpha1ArtifactLocation{..} = (\v1alpha1ArtifactLocationRaw -> V1alpha1ArtifactLocation { v1alpha1ArtifactLocationRaw, ..} ) <$> f v1alpha1ArtifactLocationRaw
-{-# INLINE v1alpha1ArtifactLocationRawL #-}
+-- | 'artifactLocationRaw' Lens
+artifactLocationRawL :: Lens_' ArtifactLocation (Maybe RawArtifact)
+artifactLocationRawL f ArtifactLocation{..} = (\artifactLocationRaw -> ArtifactLocation { artifactLocationRaw, ..} ) <$> f artifactLocationRaw
+{-# INLINE artifactLocationRawL #-}
 
--- | 'v1alpha1ArtifactLocationS3' Lens
-v1alpha1ArtifactLocationS3L :: Lens_' V1alpha1ArtifactLocation (Maybe V1alpha1S3Artifact)
-v1alpha1ArtifactLocationS3L f V1alpha1ArtifactLocation{..} = (\v1alpha1ArtifactLocationS3 -> V1alpha1ArtifactLocation { v1alpha1ArtifactLocationS3, ..} ) <$> f v1alpha1ArtifactLocationS3
-{-# INLINE v1alpha1ArtifactLocationS3L #-}
+-- | 'artifactLocationS3' Lens
+artifactLocationS3L :: Lens_' ArtifactLocation (Maybe S3Artifact)
+artifactLocationS3L f ArtifactLocation{..} = (\artifactLocationS3 -> ArtifactLocation { artifactLocationS3, ..} ) <$> f artifactLocationS3
+{-# INLINE artifactLocationS3L #-}
 
 
 
--- * V1alpha1ArtifactoryArtifact
+-- * ArtifactoryArtifact
 
--- | 'v1alpha1ArtifactoryArtifactPasswordSecret' Lens
-v1alpha1ArtifactoryArtifactPasswordSecretL :: Lens_' V1alpha1ArtifactoryArtifact (Maybe V1SecretKeySelector)
-v1alpha1ArtifactoryArtifactPasswordSecretL f V1alpha1ArtifactoryArtifact{..} = (\v1alpha1ArtifactoryArtifactPasswordSecret -> V1alpha1ArtifactoryArtifact { v1alpha1ArtifactoryArtifactPasswordSecret, ..} ) <$> f v1alpha1ArtifactoryArtifactPasswordSecret
-{-# INLINE v1alpha1ArtifactoryArtifactPasswordSecretL #-}
+-- | 'artifactoryArtifactPasswordSecret' Lens
+artifactoryArtifactPasswordSecretL :: Lens_' ArtifactoryArtifact (Maybe V1SecretKeySelector)
+artifactoryArtifactPasswordSecretL f ArtifactoryArtifact{..} = (\artifactoryArtifactPasswordSecret -> ArtifactoryArtifact { artifactoryArtifactPasswordSecret, ..} ) <$> f artifactoryArtifactPasswordSecret
+{-# INLINE artifactoryArtifactPasswordSecretL #-}
 
--- | 'v1alpha1ArtifactoryArtifactUrl' Lens
-v1alpha1ArtifactoryArtifactUrlL :: Lens_' V1alpha1ArtifactoryArtifact (Text)
-v1alpha1ArtifactoryArtifactUrlL f V1alpha1ArtifactoryArtifact{..} = (\v1alpha1ArtifactoryArtifactUrl -> V1alpha1ArtifactoryArtifact { v1alpha1ArtifactoryArtifactUrl, ..} ) <$> f v1alpha1ArtifactoryArtifactUrl
-{-# INLINE v1alpha1ArtifactoryArtifactUrlL #-}
+-- | 'artifactoryArtifactUrl' Lens
+artifactoryArtifactUrlL :: Lens_' ArtifactoryArtifact (Text)
+artifactoryArtifactUrlL f ArtifactoryArtifact{..} = (\artifactoryArtifactUrl -> ArtifactoryArtifact { artifactoryArtifactUrl, ..} ) <$> f artifactoryArtifactUrl
+{-# INLINE artifactoryArtifactUrlL #-}
 
--- | 'v1alpha1ArtifactoryArtifactUsernameSecret' Lens
-v1alpha1ArtifactoryArtifactUsernameSecretL :: Lens_' V1alpha1ArtifactoryArtifact (Maybe V1SecretKeySelector)
-v1alpha1ArtifactoryArtifactUsernameSecretL f V1alpha1ArtifactoryArtifact{..} = (\v1alpha1ArtifactoryArtifactUsernameSecret -> V1alpha1ArtifactoryArtifact { v1alpha1ArtifactoryArtifactUsernameSecret, ..} ) <$> f v1alpha1ArtifactoryArtifactUsernameSecret
-{-# INLINE v1alpha1ArtifactoryArtifactUsernameSecretL #-}
+-- | 'artifactoryArtifactUsernameSecret' Lens
+artifactoryArtifactUsernameSecretL :: Lens_' ArtifactoryArtifact (Maybe V1SecretKeySelector)
+artifactoryArtifactUsernameSecretL f ArtifactoryArtifact{..} = (\artifactoryArtifactUsernameSecret -> ArtifactoryArtifact { artifactoryArtifactUsernameSecret, ..} ) <$> f artifactoryArtifactUsernameSecret
+{-# INLINE artifactoryArtifactUsernameSecretL #-}
 
 
 
--- * V1alpha1ArtifactoryAuth
+-- * ArtifactoryAuth
 
--- | 'v1alpha1ArtifactoryAuthPasswordSecret' Lens
-v1alpha1ArtifactoryAuthPasswordSecretL :: Lens_' V1alpha1ArtifactoryAuth (Maybe V1SecretKeySelector)
-v1alpha1ArtifactoryAuthPasswordSecretL f V1alpha1ArtifactoryAuth{..} = (\v1alpha1ArtifactoryAuthPasswordSecret -> V1alpha1ArtifactoryAuth { v1alpha1ArtifactoryAuthPasswordSecret, ..} ) <$> f v1alpha1ArtifactoryAuthPasswordSecret
-{-# INLINE v1alpha1ArtifactoryAuthPasswordSecretL #-}
+-- | 'artifactoryAuthPasswordSecret' Lens
+artifactoryAuthPasswordSecretL :: Lens_' ArtifactoryAuth (Maybe V1SecretKeySelector)
+artifactoryAuthPasswordSecretL f ArtifactoryAuth{..} = (\artifactoryAuthPasswordSecret -> ArtifactoryAuth { artifactoryAuthPasswordSecret, ..} ) <$> f artifactoryAuthPasswordSecret
+{-# INLINE artifactoryAuthPasswordSecretL #-}
 
--- | 'v1alpha1ArtifactoryAuthUsernameSecret' Lens
-v1alpha1ArtifactoryAuthUsernameSecretL :: Lens_' V1alpha1ArtifactoryAuth (Maybe V1SecretKeySelector)
-v1alpha1ArtifactoryAuthUsernameSecretL f V1alpha1ArtifactoryAuth{..} = (\v1alpha1ArtifactoryAuthUsernameSecret -> V1alpha1ArtifactoryAuth { v1alpha1ArtifactoryAuthUsernameSecret, ..} ) <$> f v1alpha1ArtifactoryAuthUsernameSecret
-{-# INLINE v1alpha1ArtifactoryAuthUsernameSecretL #-}
+-- | 'artifactoryAuthUsernameSecret' Lens
+artifactoryAuthUsernameSecretL :: Lens_' ArtifactoryAuth (Maybe V1SecretKeySelector)
+artifactoryAuthUsernameSecretL f ArtifactoryAuth{..} = (\artifactoryAuthUsernameSecret -> ArtifactoryAuth { artifactoryAuthUsernameSecret, ..} ) <$> f artifactoryAuthUsernameSecret
+{-# INLINE artifactoryAuthUsernameSecretL #-}
 
 
 
--- * V1alpha1DAGTask
+-- * DAGTask
 
--- | 'v1alpha1DAGTaskArguments' Lens
-v1alpha1DAGTaskArgumentsL :: Lens_' V1alpha1DAGTask (Maybe V1alpha1Arguments)
-v1alpha1DAGTaskArgumentsL f V1alpha1DAGTask{..} = (\v1alpha1DAGTaskArguments -> V1alpha1DAGTask { v1alpha1DAGTaskArguments, ..} ) <$> f v1alpha1DAGTaskArguments
-{-# INLINE v1alpha1DAGTaskArgumentsL #-}
+-- | 'dAGTaskArguments' Lens
+dAGTaskArgumentsL :: Lens_' DAGTask (Maybe Arguments)
+dAGTaskArgumentsL f DAGTask{..} = (\dAGTaskArguments -> DAGTask { dAGTaskArguments, ..} ) <$> f dAGTaskArguments
+{-# INLINE dAGTaskArgumentsL #-}
 
--- | 'v1alpha1DAGTaskDependencies' Lens
-v1alpha1DAGTaskDependenciesL :: Lens_' V1alpha1DAGTask (Maybe [Text])
-v1alpha1DAGTaskDependenciesL f V1alpha1DAGTask{..} = (\v1alpha1DAGTaskDependencies -> V1alpha1DAGTask { v1alpha1DAGTaskDependencies, ..} ) <$> f v1alpha1DAGTaskDependencies
-{-# INLINE v1alpha1DAGTaskDependenciesL #-}
+-- | 'dAGTaskDependencies' Lens
+dAGTaskDependenciesL :: Lens_' DAGTask (Maybe [Text])
+dAGTaskDependenciesL f DAGTask{..} = (\dAGTaskDependencies -> DAGTask { dAGTaskDependencies, ..} ) <$> f dAGTaskDependencies
+{-# INLINE dAGTaskDependenciesL #-}
 
--- | 'v1alpha1DAGTaskName' Lens
-v1alpha1DAGTaskNameL :: Lens_' V1alpha1DAGTask (Text)
-v1alpha1DAGTaskNameL f V1alpha1DAGTask{..} = (\v1alpha1DAGTaskName -> V1alpha1DAGTask { v1alpha1DAGTaskName, ..} ) <$> f v1alpha1DAGTaskName
-{-# INLINE v1alpha1DAGTaskNameL #-}
+-- | 'dAGTaskName' Lens
+dAGTaskNameL :: Lens_' DAGTask (Text)
+dAGTaskNameL f DAGTask{..} = (\dAGTaskName -> DAGTask { dAGTaskName, ..} ) <$> f dAGTaskName
+{-# INLINE dAGTaskNameL #-}
 
--- | 'v1alpha1DAGTaskTemplate' Lens
-v1alpha1DAGTaskTemplateL :: Lens_' V1alpha1DAGTask (Text)
-v1alpha1DAGTaskTemplateL f V1alpha1DAGTask{..} = (\v1alpha1DAGTaskTemplate -> V1alpha1DAGTask { v1alpha1DAGTaskTemplate, ..} ) <$> f v1alpha1DAGTaskTemplate
-{-# INLINE v1alpha1DAGTaskTemplateL #-}
+-- | 'dAGTaskTemplate' Lens
+dAGTaskTemplateL :: Lens_' DAGTask (Text)
+dAGTaskTemplateL f DAGTask{..} = (\dAGTaskTemplate -> DAGTask { dAGTaskTemplate, ..} ) <$> f dAGTaskTemplate
+{-# INLINE dAGTaskTemplateL #-}
 
 
 
--- * V1alpha1DAGTemplate
+-- * DAGTemplate
 
--- | 'v1alpha1DAGTemplateTarget' Lens
-v1alpha1DAGTemplateTargetL :: Lens_' V1alpha1DAGTemplate (Maybe Text)
-v1alpha1DAGTemplateTargetL f V1alpha1DAGTemplate{..} = (\v1alpha1DAGTemplateTarget -> V1alpha1DAGTemplate { v1alpha1DAGTemplateTarget, ..} ) <$> f v1alpha1DAGTemplateTarget
-{-# INLINE v1alpha1DAGTemplateTargetL #-}
+-- | 'dAGTemplateTarget' Lens
+dAGTemplateTargetL :: Lens_' DAGTemplate (Maybe Text)
+dAGTemplateTargetL f DAGTemplate{..} = (\dAGTemplateTarget -> DAGTemplate { dAGTemplateTarget, ..} ) <$> f dAGTemplateTarget
+{-# INLINE dAGTemplateTargetL #-}
 
--- | 'v1alpha1DAGTemplateTasks' Lens
-v1alpha1DAGTemplateTasksL :: Lens_' V1alpha1DAGTemplate ([V1alpha1DAGTask])
-v1alpha1DAGTemplateTasksL f V1alpha1DAGTemplate{..} = (\v1alpha1DAGTemplateTasks -> V1alpha1DAGTemplate { v1alpha1DAGTemplateTasks, ..} ) <$> f v1alpha1DAGTemplateTasks
-{-# INLINE v1alpha1DAGTemplateTasksL #-}
+-- | 'dAGTemplateTasks' Lens
+dAGTemplateTasksL :: Lens_' DAGTemplate ([DAGTask])
+dAGTemplateTasksL f DAGTemplate{..} = (\dAGTemplateTasks -> DAGTemplate { dAGTemplateTasks, ..} ) <$> f dAGTemplateTasks
+{-# INLINE dAGTemplateTasksL #-}
 
 
 
--- * V1alpha1GitArtifact
+-- * GitArtifact
 
--- | 'v1alpha1GitArtifactPasswordSecret' Lens
-v1alpha1GitArtifactPasswordSecretL :: Lens_' V1alpha1GitArtifact (Maybe V1SecretKeySelector)
-v1alpha1GitArtifactPasswordSecretL f V1alpha1GitArtifact{..} = (\v1alpha1GitArtifactPasswordSecret -> V1alpha1GitArtifact { v1alpha1GitArtifactPasswordSecret, ..} ) <$> f v1alpha1GitArtifactPasswordSecret
-{-# INLINE v1alpha1GitArtifactPasswordSecretL #-}
+-- | 'gitArtifactPasswordSecret' Lens
+gitArtifactPasswordSecretL :: Lens_' GitArtifact (Maybe V1SecretKeySelector)
+gitArtifactPasswordSecretL f GitArtifact{..} = (\gitArtifactPasswordSecret -> GitArtifact { gitArtifactPasswordSecret, ..} ) <$> f gitArtifactPasswordSecret
+{-# INLINE gitArtifactPasswordSecretL #-}
 
--- | 'v1alpha1GitArtifactRepo' Lens
-v1alpha1GitArtifactRepoL :: Lens_' V1alpha1GitArtifact (Text)
-v1alpha1GitArtifactRepoL f V1alpha1GitArtifact{..} = (\v1alpha1GitArtifactRepo -> V1alpha1GitArtifact { v1alpha1GitArtifactRepo, ..} ) <$> f v1alpha1GitArtifactRepo
-{-# INLINE v1alpha1GitArtifactRepoL #-}
+-- | 'gitArtifactRepo' Lens
+gitArtifactRepoL :: Lens_' GitArtifact (Text)
+gitArtifactRepoL f GitArtifact{..} = (\gitArtifactRepo -> GitArtifact { gitArtifactRepo, ..} ) <$> f gitArtifactRepo
+{-# INLINE gitArtifactRepoL #-}
 
--- | 'v1alpha1GitArtifactRevision' Lens
-v1alpha1GitArtifactRevisionL :: Lens_' V1alpha1GitArtifact (Maybe Text)
-v1alpha1GitArtifactRevisionL f V1alpha1GitArtifact{..} = (\v1alpha1GitArtifactRevision -> V1alpha1GitArtifact { v1alpha1GitArtifactRevision, ..} ) <$> f v1alpha1GitArtifactRevision
-{-# INLINE v1alpha1GitArtifactRevisionL #-}
+-- | 'gitArtifactRevision' Lens
+gitArtifactRevisionL :: Lens_' GitArtifact (Maybe Text)
+gitArtifactRevisionL f GitArtifact{..} = (\gitArtifactRevision -> GitArtifact { gitArtifactRevision, ..} ) <$> f gitArtifactRevision
+{-# INLINE gitArtifactRevisionL #-}
 
--- | 'v1alpha1GitArtifactUsernameSecret' Lens
-v1alpha1GitArtifactUsernameSecretL :: Lens_' V1alpha1GitArtifact (Maybe V1SecretKeySelector)
-v1alpha1GitArtifactUsernameSecretL f V1alpha1GitArtifact{..} = (\v1alpha1GitArtifactUsernameSecret -> V1alpha1GitArtifact { v1alpha1GitArtifactUsernameSecret, ..} ) <$> f v1alpha1GitArtifactUsernameSecret
-{-# INLINE v1alpha1GitArtifactUsernameSecretL #-}
+-- | 'gitArtifactUsernameSecret' Lens
+gitArtifactUsernameSecretL :: Lens_' GitArtifact (Maybe V1SecretKeySelector)
+gitArtifactUsernameSecretL f GitArtifact{..} = (\gitArtifactUsernameSecret -> GitArtifact { gitArtifactUsernameSecret, ..} ) <$> f gitArtifactUsernameSecret
+{-# INLINE gitArtifactUsernameSecretL #-}
 
 
 
--- * V1alpha1HTTPArtifact
+-- * HTTPArtifact
 
--- | 'v1alpha1HTTPArtifactUrl' Lens
-v1alpha1HTTPArtifactUrlL :: Lens_' V1alpha1HTTPArtifact (Text)
-v1alpha1HTTPArtifactUrlL f V1alpha1HTTPArtifact{..} = (\v1alpha1HTTPArtifactUrl -> V1alpha1HTTPArtifact { v1alpha1HTTPArtifactUrl, ..} ) <$> f v1alpha1HTTPArtifactUrl
-{-# INLINE v1alpha1HTTPArtifactUrlL #-}
+-- | 'hTTPArtifactUrl' Lens
+hTTPArtifactUrlL :: Lens_' HTTPArtifact (Text)
+hTTPArtifactUrlL f HTTPArtifact{..} = (\hTTPArtifactUrl -> HTTPArtifact { hTTPArtifactUrl, ..} ) <$> f hTTPArtifactUrl
+{-# INLINE hTTPArtifactUrlL #-}
 
 
 
--- * V1alpha1Inputs
+-- * Inputs
 
--- | 'v1alpha1InputsArtifacts' Lens
-v1alpha1InputsArtifactsL :: Lens_' V1alpha1Inputs (Maybe [V1alpha1Artifact])
-v1alpha1InputsArtifactsL f V1alpha1Inputs{..} = (\v1alpha1InputsArtifacts -> V1alpha1Inputs { v1alpha1InputsArtifacts, ..} ) <$> f v1alpha1InputsArtifacts
-{-# INLINE v1alpha1InputsArtifactsL #-}
+-- | 'inputsArtifacts' Lens
+inputsArtifactsL :: Lens_' Inputs (Maybe [Artifact])
+inputsArtifactsL f Inputs{..} = (\inputsArtifacts -> Inputs { inputsArtifacts, ..} ) <$> f inputsArtifacts
+{-# INLINE inputsArtifactsL #-}
 
--- | 'v1alpha1InputsParameters' Lens
-v1alpha1InputsParametersL :: Lens_' V1alpha1Inputs (Maybe [V1alpha1Parameter])
-v1alpha1InputsParametersL f V1alpha1Inputs{..} = (\v1alpha1InputsParameters -> V1alpha1Inputs { v1alpha1InputsParameters, ..} ) <$> f v1alpha1InputsParameters
-{-# INLINE v1alpha1InputsParametersL #-}
+-- | 'inputsParameters' Lens
+inputsParametersL :: Lens_' Inputs (Maybe [Parameter])
+inputsParametersL f Inputs{..} = (\inputsParameters -> Inputs { inputsParameters, ..} ) <$> f inputsParameters
+{-# INLINE inputsParametersL #-}
 
 
 
--- * V1alpha1Item
+-- * Item
 
 
 
--- * V1alpha1Metadata
+-- * Metadata
 
--- | 'v1alpha1MetadataAnnotations' Lens
-v1alpha1MetadataAnnotationsL :: Lens_' V1alpha1Metadata (Maybe (Map.Map String Text))
-v1alpha1MetadataAnnotationsL f V1alpha1Metadata{..} = (\v1alpha1MetadataAnnotations -> V1alpha1Metadata { v1alpha1MetadataAnnotations, ..} ) <$> f v1alpha1MetadataAnnotations
-{-# INLINE v1alpha1MetadataAnnotationsL #-}
+-- | 'metadataAnnotations' Lens
+metadataAnnotationsL :: Lens_' Metadata (Maybe (Map.Map String Text))
+metadataAnnotationsL f Metadata{..} = (\metadataAnnotations -> Metadata { metadataAnnotations, ..} ) <$> f metadataAnnotations
+{-# INLINE metadataAnnotationsL #-}
 
--- | 'v1alpha1MetadataLabels' Lens
-v1alpha1MetadataLabelsL :: Lens_' V1alpha1Metadata (Maybe (Map.Map String Text))
-v1alpha1MetadataLabelsL f V1alpha1Metadata{..} = (\v1alpha1MetadataLabels -> V1alpha1Metadata { v1alpha1MetadataLabels, ..} ) <$> f v1alpha1MetadataLabels
-{-# INLINE v1alpha1MetadataLabelsL #-}
+-- | 'metadataLabels' Lens
+metadataLabelsL :: Lens_' Metadata (Maybe (Map.Map String Text))
+metadataLabelsL f Metadata{..} = (\metadataLabels -> Metadata { metadataLabels, ..} ) <$> f metadataLabels
+{-# INLINE metadataLabelsL #-}
 
 
 
--- * V1alpha1Outputs
+-- * Outputs
 
--- | 'v1alpha1OutputsArtifacts' Lens
-v1alpha1OutputsArtifactsL :: Lens_' V1alpha1Outputs (Maybe [V1alpha1Artifact])
-v1alpha1OutputsArtifactsL f V1alpha1Outputs{..} = (\v1alpha1OutputsArtifacts -> V1alpha1Outputs { v1alpha1OutputsArtifacts, ..} ) <$> f v1alpha1OutputsArtifacts
-{-# INLINE v1alpha1OutputsArtifactsL #-}
+-- | 'outputsArtifacts' Lens
+outputsArtifactsL :: Lens_' Outputs (Maybe [Artifact])
+outputsArtifactsL f Outputs{..} = (\outputsArtifacts -> Outputs { outputsArtifacts, ..} ) <$> f outputsArtifacts
+{-# INLINE outputsArtifactsL #-}
 
--- | 'v1alpha1OutputsParameters' Lens
-v1alpha1OutputsParametersL :: Lens_' V1alpha1Outputs (Maybe [V1alpha1Parameter])
-v1alpha1OutputsParametersL f V1alpha1Outputs{..} = (\v1alpha1OutputsParameters -> V1alpha1Outputs { v1alpha1OutputsParameters, ..} ) <$> f v1alpha1OutputsParameters
-{-# INLINE v1alpha1OutputsParametersL #-}
+-- | 'outputsParameters' Lens
+outputsParametersL :: Lens_' Outputs (Maybe [Parameter])
+outputsParametersL f Outputs{..} = (\outputsParameters -> Outputs { outputsParameters, ..} ) <$> f outputsParameters
+{-# INLINE outputsParametersL #-}
 
--- | 'v1alpha1OutputsResult' Lens
-v1alpha1OutputsResultL :: Lens_' V1alpha1Outputs (Maybe Text)
-v1alpha1OutputsResultL f V1alpha1Outputs{..} = (\v1alpha1OutputsResult -> V1alpha1Outputs { v1alpha1OutputsResult, ..} ) <$> f v1alpha1OutputsResult
-{-# INLINE v1alpha1OutputsResultL #-}
+-- | 'outputsResult' Lens
+outputsResultL :: Lens_' Outputs (Maybe Text)
+outputsResultL f Outputs{..} = (\outputsResult -> Outputs { outputsResult, ..} ) <$> f outputsResult
+{-# INLINE outputsResultL #-}
 
 
 
--- * V1alpha1Parameter
+-- * Parameter
 
--- | 'v1alpha1ParameterDefault' Lens
-v1alpha1ParameterDefaultL :: Lens_' V1alpha1Parameter (Maybe Text)
-v1alpha1ParameterDefaultL f V1alpha1Parameter{..} = (\v1alpha1ParameterDefault -> V1alpha1Parameter { v1alpha1ParameterDefault, ..} ) <$> f v1alpha1ParameterDefault
-{-# INLINE v1alpha1ParameterDefaultL #-}
+-- | 'parameterDefault' Lens
+parameterDefaultL :: Lens_' Parameter (Maybe Text)
+parameterDefaultL f Parameter{..} = (\parameterDefault -> Parameter { parameterDefault, ..} ) <$> f parameterDefault
+{-# INLINE parameterDefaultL #-}
 
--- | 'v1alpha1ParameterGlobalName' Lens
-v1alpha1ParameterGlobalNameL :: Lens_' V1alpha1Parameter (Maybe Text)
-v1alpha1ParameterGlobalNameL f V1alpha1Parameter{..} = (\v1alpha1ParameterGlobalName -> V1alpha1Parameter { v1alpha1ParameterGlobalName, ..} ) <$> f v1alpha1ParameterGlobalName
-{-# INLINE v1alpha1ParameterGlobalNameL #-}
+-- | 'parameterGlobalName' Lens
+parameterGlobalNameL :: Lens_' Parameter (Maybe Text)
+parameterGlobalNameL f Parameter{..} = (\parameterGlobalName -> Parameter { parameterGlobalName, ..} ) <$> f parameterGlobalName
+{-# INLINE parameterGlobalNameL #-}
 
--- | 'v1alpha1ParameterName' Lens
-v1alpha1ParameterNameL :: Lens_' V1alpha1Parameter (Text)
-v1alpha1ParameterNameL f V1alpha1Parameter{..} = (\v1alpha1ParameterName -> V1alpha1Parameter { v1alpha1ParameterName, ..} ) <$> f v1alpha1ParameterName
-{-# INLINE v1alpha1ParameterNameL #-}
+-- | 'parameterName' Lens
+parameterNameL :: Lens_' Parameter (Text)
+parameterNameL f Parameter{..} = (\parameterName -> Parameter { parameterName, ..} ) <$> f parameterName
+{-# INLINE parameterNameL #-}
 
--- | 'v1alpha1ParameterValue' Lens
-v1alpha1ParameterValueL :: Lens_' V1alpha1Parameter (Maybe Text)
-v1alpha1ParameterValueL f V1alpha1Parameter{..} = (\v1alpha1ParameterValue -> V1alpha1Parameter { v1alpha1ParameterValue, ..} ) <$> f v1alpha1ParameterValue
-{-# INLINE v1alpha1ParameterValueL #-}
+-- | 'parameterValue' Lens
+parameterValueL :: Lens_' Parameter (Maybe Text)
+parameterValueL f Parameter{..} = (\parameterValue -> Parameter { parameterValue, ..} ) <$> f parameterValue
+{-# INLINE parameterValueL #-}
 
--- | 'v1alpha1ParameterValueFrom' Lens
-v1alpha1ParameterValueFromL :: Lens_' V1alpha1Parameter (Maybe V1alpha1ValueFrom)
-v1alpha1ParameterValueFromL f V1alpha1Parameter{..} = (\v1alpha1ParameterValueFrom -> V1alpha1Parameter { v1alpha1ParameterValueFrom, ..} ) <$> f v1alpha1ParameterValueFrom
-{-# INLINE v1alpha1ParameterValueFromL #-}
+-- | 'parameterValueFrom' Lens
+parameterValueFromL :: Lens_' Parameter (Maybe ValueFrom)
+parameterValueFromL f Parameter{..} = (\parameterValueFrom -> Parameter { parameterValueFrom, ..} ) <$> f parameterValueFrom
+{-# INLINE parameterValueFromL #-}
 
 
 
--- * V1alpha1RawArtifact
+-- * RawArtifact
 
--- | 'v1alpha1RawArtifactData' Lens
-v1alpha1RawArtifactDataL :: Lens_' V1alpha1RawArtifact (Text)
-v1alpha1RawArtifactDataL f V1alpha1RawArtifact{..} = (\v1alpha1RawArtifactData -> V1alpha1RawArtifact { v1alpha1RawArtifactData, ..} ) <$> f v1alpha1RawArtifactData
-{-# INLINE v1alpha1RawArtifactDataL #-}
+-- | 'rawArtifactData' Lens
+rawArtifactDataL :: Lens_' RawArtifact (Text)
+rawArtifactDataL f RawArtifact{..} = (\rawArtifactData -> RawArtifact { rawArtifactData, ..} ) <$> f rawArtifactData
+{-# INLINE rawArtifactDataL #-}
 
 
 
--- * V1alpha1ResourceTemplate
+-- * ResourceTemplate
 
--- | 'v1alpha1ResourceTemplateAction' Lens
-v1alpha1ResourceTemplateActionL :: Lens_' V1alpha1ResourceTemplate (Text)
-v1alpha1ResourceTemplateActionL f V1alpha1ResourceTemplate{..} = (\v1alpha1ResourceTemplateAction -> V1alpha1ResourceTemplate { v1alpha1ResourceTemplateAction, ..} ) <$> f v1alpha1ResourceTemplateAction
-{-# INLINE v1alpha1ResourceTemplateActionL #-}
+-- | 'resourceTemplateAction' Lens
+resourceTemplateActionL :: Lens_' ResourceTemplate (Text)
+resourceTemplateActionL f ResourceTemplate{..} = (\resourceTemplateAction -> ResourceTemplate { resourceTemplateAction, ..} ) <$> f resourceTemplateAction
+{-# INLINE resourceTemplateActionL #-}
 
--- | 'v1alpha1ResourceTemplateFailureCondition' Lens
-v1alpha1ResourceTemplateFailureConditionL :: Lens_' V1alpha1ResourceTemplate (Maybe Text)
-v1alpha1ResourceTemplateFailureConditionL f V1alpha1ResourceTemplate{..} = (\v1alpha1ResourceTemplateFailureCondition -> V1alpha1ResourceTemplate { v1alpha1ResourceTemplateFailureCondition, ..} ) <$> f v1alpha1ResourceTemplateFailureCondition
-{-# INLINE v1alpha1ResourceTemplateFailureConditionL #-}
+-- | 'resourceTemplateFailureCondition' Lens
+resourceTemplateFailureConditionL :: Lens_' ResourceTemplate (Maybe Text)
+resourceTemplateFailureConditionL f ResourceTemplate{..} = (\resourceTemplateFailureCondition -> ResourceTemplate { resourceTemplateFailureCondition, ..} ) <$> f resourceTemplateFailureCondition
+{-# INLINE resourceTemplateFailureConditionL #-}
 
--- | 'v1alpha1ResourceTemplateManifest' Lens
-v1alpha1ResourceTemplateManifestL :: Lens_' V1alpha1ResourceTemplate (Text)
-v1alpha1ResourceTemplateManifestL f V1alpha1ResourceTemplate{..} = (\v1alpha1ResourceTemplateManifest -> V1alpha1ResourceTemplate { v1alpha1ResourceTemplateManifest, ..} ) <$> f v1alpha1ResourceTemplateManifest
-{-# INLINE v1alpha1ResourceTemplateManifestL #-}
+-- | 'resourceTemplateManifest' Lens
+resourceTemplateManifestL :: Lens_' ResourceTemplate (Text)
+resourceTemplateManifestL f ResourceTemplate{..} = (\resourceTemplateManifest -> ResourceTemplate { resourceTemplateManifest, ..} ) <$> f resourceTemplateManifest
+{-# INLINE resourceTemplateManifestL #-}
 
--- | 'v1alpha1ResourceTemplateSuccessCondition' Lens
-v1alpha1ResourceTemplateSuccessConditionL :: Lens_' V1alpha1ResourceTemplate (Maybe Text)
-v1alpha1ResourceTemplateSuccessConditionL f V1alpha1ResourceTemplate{..} = (\v1alpha1ResourceTemplateSuccessCondition -> V1alpha1ResourceTemplate { v1alpha1ResourceTemplateSuccessCondition, ..} ) <$> f v1alpha1ResourceTemplateSuccessCondition
-{-# INLINE v1alpha1ResourceTemplateSuccessConditionL #-}
+-- | 'resourceTemplateSuccessCondition' Lens
+resourceTemplateSuccessConditionL :: Lens_' ResourceTemplate (Maybe Text)
+resourceTemplateSuccessConditionL f ResourceTemplate{..} = (\resourceTemplateSuccessCondition -> ResourceTemplate { resourceTemplateSuccessCondition, ..} ) <$> f resourceTemplateSuccessCondition
+{-# INLINE resourceTemplateSuccessConditionL #-}
 
 
 
--- * V1alpha1RetryStrategy
+-- * RetryStrategy
 
--- | 'v1alpha1RetryStrategyLimit' Lens
-v1alpha1RetryStrategyLimitL :: Lens_' V1alpha1RetryStrategy (Maybe Int)
-v1alpha1RetryStrategyLimitL f V1alpha1RetryStrategy{..} = (\v1alpha1RetryStrategyLimit -> V1alpha1RetryStrategy { v1alpha1RetryStrategyLimit, ..} ) <$> f v1alpha1RetryStrategyLimit
-{-# INLINE v1alpha1RetryStrategyLimitL #-}
+-- | 'retryStrategyLimit' Lens
+retryStrategyLimitL :: Lens_' RetryStrategy (Maybe Int)
+retryStrategyLimitL f RetryStrategy{..} = (\retryStrategyLimit -> RetryStrategy { retryStrategyLimit, ..} ) <$> f retryStrategyLimit
+{-# INLINE retryStrategyLimitL #-}
 
 
 
--- * V1alpha1S3Artifact
+-- * S3Artifact
 
--- | 'v1alpha1S3ArtifactAccessKeySecret' Lens
-v1alpha1S3ArtifactAccessKeySecretL :: Lens_' V1alpha1S3Artifact (V1SecretKeySelector)
-v1alpha1S3ArtifactAccessKeySecretL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactAccessKeySecret -> V1alpha1S3Artifact { v1alpha1S3ArtifactAccessKeySecret, ..} ) <$> f v1alpha1S3ArtifactAccessKeySecret
-{-# INLINE v1alpha1S3ArtifactAccessKeySecretL #-}
+-- | 's3ArtifactAccessKeySecret' Lens
+s3ArtifactAccessKeySecretL :: Lens_' S3Artifact (V1SecretKeySelector)
+s3ArtifactAccessKeySecretL f S3Artifact{..} = (\s3ArtifactAccessKeySecret -> S3Artifact { s3ArtifactAccessKeySecret, ..} ) <$> f s3ArtifactAccessKeySecret
+{-# INLINE s3ArtifactAccessKeySecretL #-}
 
--- | 'v1alpha1S3ArtifactBucket' Lens
-v1alpha1S3ArtifactBucketL :: Lens_' V1alpha1S3Artifact (Text)
-v1alpha1S3ArtifactBucketL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactBucket -> V1alpha1S3Artifact { v1alpha1S3ArtifactBucket, ..} ) <$> f v1alpha1S3ArtifactBucket
-{-# INLINE v1alpha1S3ArtifactBucketL #-}
+-- | 's3ArtifactBucket' Lens
+s3ArtifactBucketL :: Lens_' S3Artifact (Text)
+s3ArtifactBucketL f S3Artifact{..} = (\s3ArtifactBucket -> S3Artifact { s3ArtifactBucket, ..} ) <$> f s3ArtifactBucket
+{-# INLINE s3ArtifactBucketL #-}
 
--- | 'v1alpha1S3ArtifactEndpoint' Lens
-v1alpha1S3ArtifactEndpointL :: Lens_' V1alpha1S3Artifact (Text)
-v1alpha1S3ArtifactEndpointL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactEndpoint -> V1alpha1S3Artifact { v1alpha1S3ArtifactEndpoint, ..} ) <$> f v1alpha1S3ArtifactEndpoint
-{-# INLINE v1alpha1S3ArtifactEndpointL #-}
+-- | 's3ArtifactEndpoint' Lens
+s3ArtifactEndpointL :: Lens_' S3Artifact (Text)
+s3ArtifactEndpointL f S3Artifact{..} = (\s3ArtifactEndpoint -> S3Artifact { s3ArtifactEndpoint, ..} ) <$> f s3ArtifactEndpoint
+{-# INLINE s3ArtifactEndpointL #-}
 
--- | 'v1alpha1S3ArtifactInsecure' Lens
-v1alpha1S3ArtifactInsecureL :: Lens_' V1alpha1S3Artifact (Maybe Bool)
-v1alpha1S3ArtifactInsecureL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactInsecure -> V1alpha1S3Artifact { v1alpha1S3ArtifactInsecure, ..} ) <$> f v1alpha1S3ArtifactInsecure
-{-# INLINE v1alpha1S3ArtifactInsecureL #-}
+-- | 's3ArtifactInsecure' Lens
+s3ArtifactInsecureL :: Lens_' S3Artifact (Maybe Bool)
+s3ArtifactInsecureL f S3Artifact{..} = (\s3ArtifactInsecure -> S3Artifact { s3ArtifactInsecure, ..} ) <$> f s3ArtifactInsecure
+{-# INLINE s3ArtifactInsecureL #-}
 
--- | 'v1alpha1S3ArtifactKey' Lens
-v1alpha1S3ArtifactKeyL :: Lens_' V1alpha1S3Artifact (Text)
-v1alpha1S3ArtifactKeyL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactKey -> V1alpha1S3Artifact { v1alpha1S3ArtifactKey, ..} ) <$> f v1alpha1S3ArtifactKey
-{-# INLINE v1alpha1S3ArtifactKeyL #-}
+-- | 's3ArtifactKey' Lens
+s3ArtifactKeyL :: Lens_' S3Artifact (Text)
+s3ArtifactKeyL f S3Artifact{..} = (\s3ArtifactKey -> S3Artifact { s3ArtifactKey, ..} ) <$> f s3ArtifactKey
+{-# INLINE s3ArtifactKeyL #-}
 
--- | 'v1alpha1S3ArtifactRegion' Lens
-v1alpha1S3ArtifactRegionL :: Lens_' V1alpha1S3Artifact (Maybe Text)
-v1alpha1S3ArtifactRegionL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactRegion -> V1alpha1S3Artifact { v1alpha1S3ArtifactRegion, ..} ) <$> f v1alpha1S3ArtifactRegion
-{-# INLINE v1alpha1S3ArtifactRegionL #-}
+-- | 's3ArtifactRegion' Lens
+s3ArtifactRegionL :: Lens_' S3Artifact (Maybe Text)
+s3ArtifactRegionL f S3Artifact{..} = (\s3ArtifactRegion -> S3Artifact { s3ArtifactRegion, ..} ) <$> f s3ArtifactRegion
+{-# INLINE s3ArtifactRegionL #-}
 
--- | 'v1alpha1S3ArtifactSecretKeySecret' Lens
-v1alpha1S3ArtifactSecretKeySecretL :: Lens_' V1alpha1S3Artifact (V1SecretKeySelector)
-v1alpha1S3ArtifactSecretKeySecretL f V1alpha1S3Artifact{..} = (\v1alpha1S3ArtifactSecretKeySecret -> V1alpha1S3Artifact { v1alpha1S3ArtifactSecretKeySecret, ..} ) <$> f v1alpha1S3ArtifactSecretKeySecret
-{-# INLINE v1alpha1S3ArtifactSecretKeySecretL #-}
+-- | 's3ArtifactSecretKeySecret' Lens
+s3ArtifactSecretKeySecretL :: Lens_' S3Artifact (V1SecretKeySelector)
+s3ArtifactSecretKeySecretL f S3Artifact{..} = (\s3ArtifactSecretKeySecret -> S3Artifact { s3ArtifactSecretKeySecret, ..} ) <$> f s3ArtifactSecretKeySecret
+{-# INLINE s3ArtifactSecretKeySecretL #-}
 
 
 
--- * V1alpha1S3Bucket
+-- * S3Bucket
 
--- | 'v1alpha1S3BucketAccessKeySecret' Lens
-v1alpha1S3BucketAccessKeySecretL :: Lens_' V1alpha1S3Bucket (V1SecretKeySelector)
-v1alpha1S3BucketAccessKeySecretL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketAccessKeySecret -> V1alpha1S3Bucket { v1alpha1S3BucketAccessKeySecret, ..} ) <$> f v1alpha1S3BucketAccessKeySecret
-{-# INLINE v1alpha1S3BucketAccessKeySecretL #-}
+-- | 's3BucketAccessKeySecret' Lens
+s3BucketAccessKeySecretL :: Lens_' S3Bucket (V1SecretKeySelector)
+s3BucketAccessKeySecretL f S3Bucket{..} = (\s3BucketAccessKeySecret -> S3Bucket { s3BucketAccessKeySecret, ..} ) <$> f s3BucketAccessKeySecret
+{-# INLINE s3BucketAccessKeySecretL #-}
 
--- | 'v1alpha1S3BucketBucket' Lens
-v1alpha1S3BucketBucketL :: Lens_' V1alpha1S3Bucket (Text)
-v1alpha1S3BucketBucketL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketBucket -> V1alpha1S3Bucket { v1alpha1S3BucketBucket, ..} ) <$> f v1alpha1S3BucketBucket
-{-# INLINE v1alpha1S3BucketBucketL #-}
+-- | 's3BucketBucket' Lens
+s3BucketBucketL :: Lens_' S3Bucket (Text)
+s3BucketBucketL f S3Bucket{..} = (\s3BucketBucket -> S3Bucket { s3BucketBucket, ..} ) <$> f s3BucketBucket
+{-# INLINE s3BucketBucketL #-}
 
--- | 'v1alpha1S3BucketEndpoint' Lens
-v1alpha1S3BucketEndpointL :: Lens_' V1alpha1S3Bucket (Text)
-v1alpha1S3BucketEndpointL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketEndpoint -> V1alpha1S3Bucket { v1alpha1S3BucketEndpoint, ..} ) <$> f v1alpha1S3BucketEndpoint
-{-# INLINE v1alpha1S3BucketEndpointL #-}
+-- | 's3BucketEndpoint' Lens
+s3BucketEndpointL :: Lens_' S3Bucket (Text)
+s3BucketEndpointL f S3Bucket{..} = (\s3BucketEndpoint -> S3Bucket { s3BucketEndpoint, ..} ) <$> f s3BucketEndpoint
+{-# INLINE s3BucketEndpointL #-}
 
--- | 'v1alpha1S3BucketInsecure' Lens
-v1alpha1S3BucketInsecureL :: Lens_' V1alpha1S3Bucket (Maybe Bool)
-v1alpha1S3BucketInsecureL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketInsecure -> V1alpha1S3Bucket { v1alpha1S3BucketInsecure, ..} ) <$> f v1alpha1S3BucketInsecure
-{-# INLINE v1alpha1S3BucketInsecureL #-}
+-- | 's3BucketInsecure' Lens
+s3BucketInsecureL :: Lens_' S3Bucket (Maybe Bool)
+s3BucketInsecureL f S3Bucket{..} = (\s3BucketInsecure -> S3Bucket { s3BucketInsecure, ..} ) <$> f s3BucketInsecure
+{-# INLINE s3BucketInsecureL #-}
 
--- | 'v1alpha1S3BucketRegion' Lens
-v1alpha1S3BucketRegionL :: Lens_' V1alpha1S3Bucket (Maybe Text)
-v1alpha1S3BucketRegionL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketRegion -> V1alpha1S3Bucket { v1alpha1S3BucketRegion, ..} ) <$> f v1alpha1S3BucketRegion
-{-# INLINE v1alpha1S3BucketRegionL #-}
+-- | 's3BucketRegion' Lens
+s3BucketRegionL :: Lens_' S3Bucket (Maybe Text)
+s3BucketRegionL f S3Bucket{..} = (\s3BucketRegion -> S3Bucket { s3BucketRegion, ..} ) <$> f s3BucketRegion
+{-# INLINE s3BucketRegionL #-}
 
--- | 'v1alpha1S3BucketSecretKeySecret' Lens
-v1alpha1S3BucketSecretKeySecretL :: Lens_' V1alpha1S3Bucket (V1SecretKeySelector)
-v1alpha1S3BucketSecretKeySecretL f V1alpha1S3Bucket{..} = (\v1alpha1S3BucketSecretKeySecret -> V1alpha1S3Bucket { v1alpha1S3BucketSecretKeySecret, ..} ) <$> f v1alpha1S3BucketSecretKeySecret
-{-# INLINE v1alpha1S3BucketSecretKeySecretL #-}
+-- | 's3BucketSecretKeySecret' Lens
+s3BucketSecretKeySecretL :: Lens_' S3Bucket (V1SecretKeySelector)
+s3BucketSecretKeySecretL f S3Bucket{..} = (\s3BucketSecretKeySecret -> S3Bucket { s3BucketSecretKeySecret, ..} ) <$> f s3BucketSecretKeySecret
+{-# INLINE s3BucketSecretKeySecretL #-}
 
 
 
--- * V1alpha1ScriptTemplate
+-- * ScriptTemplate
 
--- | 'v1alpha1ScriptTemplateArgs' Lens
-v1alpha1ScriptTemplateArgsL :: Lens_' V1alpha1ScriptTemplate (Maybe [Text])
-v1alpha1ScriptTemplateArgsL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateArgs -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateArgs, ..} ) <$> f v1alpha1ScriptTemplateArgs
-{-# INLINE v1alpha1ScriptTemplateArgsL #-}
+-- | 'scriptTemplateArgs' Lens
+scriptTemplateArgsL :: Lens_' ScriptTemplate (Maybe [Text])
+scriptTemplateArgsL f ScriptTemplate{..} = (\scriptTemplateArgs -> ScriptTemplate { scriptTemplateArgs, ..} ) <$> f scriptTemplateArgs
+{-# INLINE scriptTemplateArgsL #-}
 
--- | 'v1alpha1ScriptTemplateCommand' Lens
-v1alpha1ScriptTemplateCommandL :: Lens_' V1alpha1ScriptTemplate (Maybe [Text])
-v1alpha1ScriptTemplateCommandL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateCommand -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateCommand, ..} ) <$> f v1alpha1ScriptTemplateCommand
-{-# INLINE v1alpha1ScriptTemplateCommandL #-}
+-- | 'scriptTemplateCommand' Lens
+scriptTemplateCommandL :: Lens_' ScriptTemplate (Maybe [Text])
+scriptTemplateCommandL f ScriptTemplate{..} = (\scriptTemplateCommand -> ScriptTemplate { scriptTemplateCommand, ..} ) <$> f scriptTemplateCommand
+{-# INLINE scriptTemplateCommandL #-}
 
--- | 'v1alpha1ScriptTemplateEnv' Lens
-v1alpha1ScriptTemplateEnvL :: Lens_' V1alpha1ScriptTemplate (Maybe [V1EnvVar])
-v1alpha1ScriptTemplateEnvL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateEnv -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateEnv, ..} ) <$> f v1alpha1ScriptTemplateEnv
-{-# INLINE v1alpha1ScriptTemplateEnvL #-}
+-- | 'scriptTemplateEnv' Lens
+scriptTemplateEnvL :: Lens_' ScriptTemplate (Maybe [V1EnvVar])
+scriptTemplateEnvL f ScriptTemplate{..} = (\scriptTemplateEnv -> ScriptTemplate { scriptTemplateEnv, ..} ) <$> f scriptTemplateEnv
+{-# INLINE scriptTemplateEnvL #-}
 
--- | 'v1alpha1ScriptTemplateEnvFrom' Lens
-v1alpha1ScriptTemplateEnvFromL :: Lens_' V1alpha1ScriptTemplate (Maybe [V1EnvFromSource])
-v1alpha1ScriptTemplateEnvFromL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateEnvFrom -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateEnvFrom, ..} ) <$> f v1alpha1ScriptTemplateEnvFrom
-{-# INLINE v1alpha1ScriptTemplateEnvFromL #-}
+-- | 'scriptTemplateEnvFrom' Lens
+scriptTemplateEnvFromL :: Lens_' ScriptTemplate (Maybe [V1EnvFromSource])
+scriptTemplateEnvFromL f ScriptTemplate{..} = (\scriptTemplateEnvFrom -> ScriptTemplate { scriptTemplateEnvFrom, ..} ) <$> f scriptTemplateEnvFrom
+{-# INLINE scriptTemplateEnvFromL #-}
 
--- | 'v1alpha1ScriptTemplateImage' Lens
-v1alpha1ScriptTemplateImageL :: Lens_' V1alpha1ScriptTemplate (Maybe Text)
-v1alpha1ScriptTemplateImageL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateImage -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateImage, ..} ) <$> f v1alpha1ScriptTemplateImage
-{-# INLINE v1alpha1ScriptTemplateImageL #-}
+-- | 'scriptTemplateImage' Lens
+scriptTemplateImageL :: Lens_' ScriptTemplate (Maybe Text)
+scriptTemplateImageL f ScriptTemplate{..} = (\scriptTemplateImage -> ScriptTemplate { scriptTemplateImage, ..} ) <$> f scriptTemplateImage
+{-# INLINE scriptTemplateImageL #-}
 
--- | 'v1alpha1ScriptTemplateImagePullPolicy' Lens
-v1alpha1ScriptTemplateImagePullPolicyL :: Lens_' V1alpha1ScriptTemplate (Maybe Text)
-v1alpha1ScriptTemplateImagePullPolicyL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateImagePullPolicy -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateImagePullPolicy, ..} ) <$> f v1alpha1ScriptTemplateImagePullPolicy
-{-# INLINE v1alpha1ScriptTemplateImagePullPolicyL #-}
+-- | 'scriptTemplateImagePullPolicy' Lens
+scriptTemplateImagePullPolicyL :: Lens_' ScriptTemplate (Maybe Text)
+scriptTemplateImagePullPolicyL f ScriptTemplate{..} = (\scriptTemplateImagePullPolicy -> ScriptTemplate { scriptTemplateImagePullPolicy, ..} ) <$> f scriptTemplateImagePullPolicy
+{-# INLINE scriptTemplateImagePullPolicyL #-}
 
--- | 'v1alpha1ScriptTemplateLifecycle' Lens
-v1alpha1ScriptTemplateLifecycleL :: Lens_' V1alpha1ScriptTemplate (Maybe V1Lifecycle)
-v1alpha1ScriptTemplateLifecycleL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateLifecycle -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateLifecycle, ..} ) <$> f v1alpha1ScriptTemplateLifecycle
-{-# INLINE v1alpha1ScriptTemplateLifecycleL #-}
+-- | 'scriptTemplateLifecycle' Lens
+scriptTemplateLifecycleL :: Lens_' ScriptTemplate (Maybe V1Lifecycle)
+scriptTemplateLifecycleL f ScriptTemplate{..} = (\scriptTemplateLifecycle -> ScriptTemplate { scriptTemplateLifecycle, ..} ) <$> f scriptTemplateLifecycle
+{-# INLINE scriptTemplateLifecycleL #-}
 
--- | 'v1alpha1ScriptTemplateLivenessProbe' Lens
-v1alpha1ScriptTemplateLivenessProbeL :: Lens_' V1alpha1ScriptTemplate (Maybe V1Probe)
-v1alpha1ScriptTemplateLivenessProbeL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateLivenessProbe -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateLivenessProbe, ..} ) <$> f v1alpha1ScriptTemplateLivenessProbe
-{-# INLINE v1alpha1ScriptTemplateLivenessProbeL #-}
+-- | 'scriptTemplateLivenessProbe' Lens
+scriptTemplateLivenessProbeL :: Lens_' ScriptTemplate (Maybe V1Probe)
+scriptTemplateLivenessProbeL f ScriptTemplate{..} = (\scriptTemplateLivenessProbe -> ScriptTemplate { scriptTemplateLivenessProbe, ..} ) <$> f scriptTemplateLivenessProbe
+{-# INLINE scriptTemplateLivenessProbeL #-}
 
--- | 'v1alpha1ScriptTemplateName' Lens
-v1alpha1ScriptTemplateNameL :: Lens_' V1alpha1ScriptTemplate (Text)
-v1alpha1ScriptTemplateNameL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateName -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateName, ..} ) <$> f v1alpha1ScriptTemplateName
-{-# INLINE v1alpha1ScriptTemplateNameL #-}
+-- | 'scriptTemplateName' Lens
+scriptTemplateNameL :: Lens_' ScriptTemplate (Text)
+scriptTemplateNameL f ScriptTemplate{..} = (\scriptTemplateName -> ScriptTemplate { scriptTemplateName, ..} ) <$> f scriptTemplateName
+{-# INLINE scriptTemplateNameL #-}
 
--- | 'v1alpha1ScriptTemplatePorts' Lens
-v1alpha1ScriptTemplatePortsL :: Lens_' V1alpha1ScriptTemplate (Maybe [V1ContainerPort])
-v1alpha1ScriptTemplatePortsL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplatePorts -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplatePorts, ..} ) <$> f v1alpha1ScriptTemplatePorts
-{-# INLINE v1alpha1ScriptTemplatePortsL #-}
+-- | 'scriptTemplatePorts' Lens
+scriptTemplatePortsL :: Lens_' ScriptTemplate (Maybe [V1ContainerPort])
+scriptTemplatePortsL f ScriptTemplate{..} = (\scriptTemplatePorts -> ScriptTemplate { scriptTemplatePorts, ..} ) <$> f scriptTemplatePorts
+{-# INLINE scriptTemplatePortsL #-}
 
--- | 'v1alpha1ScriptTemplateReadinessProbe' Lens
-v1alpha1ScriptTemplateReadinessProbeL :: Lens_' V1alpha1ScriptTemplate (Maybe V1Probe)
-v1alpha1ScriptTemplateReadinessProbeL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateReadinessProbe -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateReadinessProbe, ..} ) <$> f v1alpha1ScriptTemplateReadinessProbe
-{-# INLINE v1alpha1ScriptTemplateReadinessProbeL #-}
+-- | 'scriptTemplateReadinessProbe' Lens
+scriptTemplateReadinessProbeL :: Lens_' ScriptTemplate (Maybe V1Probe)
+scriptTemplateReadinessProbeL f ScriptTemplate{..} = (\scriptTemplateReadinessProbe -> ScriptTemplate { scriptTemplateReadinessProbe, ..} ) <$> f scriptTemplateReadinessProbe
+{-# INLINE scriptTemplateReadinessProbeL #-}
 
--- | 'v1alpha1ScriptTemplateResources' Lens
-v1alpha1ScriptTemplateResourcesL :: Lens_' V1alpha1ScriptTemplate (Maybe V1ResourceRequirements)
-v1alpha1ScriptTemplateResourcesL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateResources -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateResources, ..} ) <$> f v1alpha1ScriptTemplateResources
-{-# INLINE v1alpha1ScriptTemplateResourcesL #-}
+-- | 'scriptTemplateResources' Lens
+scriptTemplateResourcesL :: Lens_' ScriptTemplate (Maybe V1ResourceRequirements)
+scriptTemplateResourcesL f ScriptTemplate{..} = (\scriptTemplateResources -> ScriptTemplate { scriptTemplateResources, ..} ) <$> f scriptTemplateResources
+{-# INLINE scriptTemplateResourcesL #-}
 
--- | 'v1alpha1ScriptTemplateSecurityContext' Lens
-v1alpha1ScriptTemplateSecurityContextL :: Lens_' V1alpha1ScriptTemplate (Maybe V1SecurityContext)
-v1alpha1ScriptTemplateSecurityContextL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateSecurityContext -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateSecurityContext, ..} ) <$> f v1alpha1ScriptTemplateSecurityContext
-{-# INLINE v1alpha1ScriptTemplateSecurityContextL #-}
+-- | 'scriptTemplateSecurityContext' Lens
+scriptTemplateSecurityContextL :: Lens_' ScriptTemplate (Maybe V1SecurityContext)
+scriptTemplateSecurityContextL f ScriptTemplate{..} = (\scriptTemplateSecurityContext -> ScriptTemplate { scriptTemplateSecurityContext, ..} ) <$> f scriptTemplateSecurityContext
+{-# INLINE scriptTemplateSecurityContextL #-}
 
--- | 'v1alpha1ScriptTemplateSource' Lens
-v1alpha1ScriptTemplateSourceL :: Lens_' V1alpha1ScriptTemplate (Text)
-v1alpha1ScriptTemplateSourceL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateSource -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateSource, ..} ) <$> f v1alpha1ScriptTemplateSource
-{-# INLINE v1alpha1ScriptTemplateSourceL #-}
+-- | 'scriptTemplateSource' Lens
+scriptTemplateSourceL :: Lens_' ScriptTemplate (Text)
+scriptTemplateSourceL f ScriptTemplate{..} = (\scriptTemplateSource -> ScriptTemplate { scriptTemplateSource, ..} ) <$> f scriptTemplateSource
+{-# INLINE scriptTemplateSourceL #-}
 
--- | 'v1alpha1ScriptTemplateStdin' Lens
-v1alpha1ScriptTemplateStdinL :: Lens_' V1alpha1ScriptTemplate (Maybe Bool)
-v1alpha1ScriptTemplateStdinL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateStdin -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateStdin, ..} ) <$> f v1alpha1ScriptTemplateStdin
-{-# INLINE v1alpha1ScriptTemplateStdinL #-}
+-- | 'scriptTemplateStdin' Lens
+scriptTemplateStdinL :: Lens_' ScriptTemplate (Maybe Bool)
+scriptTemplateStdinL f ScriptTemplate{..} = (\scriptTemplateStdin -> ScriptTemplate { scriptTemplateStdin, ..} ) <$> f scriptTemplateStdin
+{-# INLINE scriptTemplateStdinL #-}
 
--- | 'v1alpha1ScriptTemplateStdinOnce' Lens
-v1alpha1ScriptTemplateStdinOnceL :: Lens_' V1alpha1ScriptTemplate (Maybe Bool)
-v1alpha1ScriptTemplateStdinOnceL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateStdinOnce -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateStdinOnce, ..} ) <$> f v1alpha1ScriptTemplateStdinOnce
-{-# INLINE v1alpha1ScriptTemplateStdinOnceL #-}
+-- | 'scriptTemplateStdinOnce' Lens
+scriptTemplateStdinOnceL :: Lens_' ScriptTemplate (Maybe Bool)
+scriptTemplateStdinOnceL f ScriptTemplate{..} = (\scriptTemplateStdinOnce -> ScriptTemplate { scriptTemplateStdinOnce, ..} ) <$> f scriptTemplateStdinOnce
+{-# INLINE scriptTemplateStdinOnceL #-}
 
--- | 'v1alpha1ScriptTemplateTerminationMessagePath' Lens
-v1alpha1ScriptTemplateTerminationMessagePathL :: Lens_' V1alpha1ScriptTemplate (Maybe Text)
-v1alpha1ScriptTemplateTerminationMessagePathL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateTerminationMessagePath -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateTerminationMessagePath, ..} ) <$> f v1alpha1ScriptTemplateTerminationMessagePath
-{-# INLINE v1alpha1ScriptTemplateTerminationMessagePathL #-}
+-- | 'scriptTemplateTerminationMessagePath' Lens
+scriptTemplateTerminationMessagePathL :: Lens_' ScriptTemplate (Maybe Text)
+scriptTemplateTerminationMessagePathL f ScriptTemplate{..} = (\scriptTemplateTerminationMessagePath -> ScriptTemplate { scriptTemplateTerminationMessagePath, ..} ) <$> f scriptTemplateTerminationMessagePath
+{-# INLINE scriptTemplateTerminationMessagePathL #-}
 
--- | 'v1alpha1ScriptTemplateTerminationMessagePolicy' Lens
-v1alpha1ScriptTemplateTerminationMessagePolicyL :: Lens_' V1alpha1ScriptTemplate (Maybe Text)
-v1alpha1ScriptTemplateTerminationMessagePolicyL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateTerminationMessagePolicy -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateTerminationMessagePolicy, ..} ) <$> f v1alpha1ScriptTemplateTerminationMessagePolicy
-{-# INLINE v1alpha1ScriptTemplateTerminationMessagePolicyL #-}
+-- | 'scriptTemplateTerminationMessagePolicy' Lens
+scriptTemplateTerminationMessagePolicyL :: Lens_' ScriptTemplate (Maybe Text)
+scriptTemplateTerminationMessagePolicyL f ScriptTemplate{..} = (\scriptTemplateTerminationMessagePolicy -> ScriptTemplate { scriptTemplateTerminationMessagePolicy, ..} ) <$> f scriptTemplateTerminationMessagePolicy
+{-# INLINE scriptTemplateTerminationMessagePolicyL #-}
 
--- | 'v1alpha1ScriptTemplateTty' Lens
-v1alpha1ScriptTemplateTtyL :: Lens_' V1alpha1ScriptTemplate (Maybe Bool)
-v1alpha1ScriptTemplateTtyL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateTty -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateTty, ..} ) <$> f v1alpha1ScriptTemplateTty
-{-# INLINE v1alpha1ScriptTemplateTtyL #-}
+-- | 'scriptTemplateTty' Lens
+scriptTemplateTtyL :: Lens_' ScriptTemplate (Maybe Bool)
+scriptTemplateTtyL f ScriptTemplate{..} = (\scriptTemplateTty -> ScriptTemplate { scriptTemplateTty, ..} ) <$> f scriptTemplateTty
+{-# INLINE scriptTemplateTtyL #-}
 
--- | 'v1alpha1ScriptTemplateVolumeDevices' Lens
-v1alpha1ScriptTemplateVolumeDevicesL :: Lens_' V1alpha1ScriptTemplate (Maybe [V1VolumeDevice])
-v1alpha1ScriptTemplateVolumeDevicesL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateVolumeDevices -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateVolumeDevices, ..} ) <$> f v1alpha1ScriptTemplateVolumeDevices
-{-# INLINE v1alpha1ScriptTemplateVolumeDevicesL #-}
+-- | 'scriptTemplateVolumeDevices' Lens
+scriptTemplateVolumeDevicesL :: Lens_' ScriptTemplate (Maybe [V1VolumeDevice])
+scriptTemplateVolumeDevicesL f ScriptTemplate{..} = (\scriptTemplateVolumeDevices -> ScriptTemplate { scriptTemplateVolumeDevices, ..} ) <$> f scriptTemplateVolumeDevices
+{-# INLINE scriptTemplateVolumeDevicesL #-}
 
--- | 'v1alpha1ScriptTemplateVolumeMounts' Lens
-v1alpha1ScriptTemplateVolumeMountsL :: Lens_' V1alpha1ScriptTemplate (Maybe [V1VolumeMount])
-v1alpha1ScriptTemplateVolumeMountsL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateVolumeMounts -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateVolumeMounts, ..} ) <$> f v1alpha1ScriptTemplateVolumeMounts
-{-# INLINE v1alpha1ScriptTemplateVolumeMountsL #-}
+-- | 'scriptTemplateVolumeMounts' Lens
+scriptTemplateVolumeMountsL :: Lens_' ScriptTemplate (Maybe [V1VolumeMount])
+scriptTemplateVolumeMountsL f ScriptTemplate{..} = (\scriptTemplateVolumeMounts -> ScriptTemplate { scriptTemplateVolumeMounts, ..} ) <$> f scriptTemplateVolumeMounts
+{-# INLINE scriptTemplateVolumeMountsL #-}
 
--- | 'v1alpha1ScriptTemplateWorkingDir' Lens
-v1alpha1ScriptTemplateWorkingDirL :: Lens_' V1alpha1ScriptTemplate (Maybe Text)
-v1alpha1ScriptTemplateWorkingDirL f V1alpha1ScriptTemplate{..} = (\v1alpha1ScriptTemplateWorkingDir -> V1alpha1ScriptTemplate { v1alpha1ScriptTemplateWorkingDir, ..} ) <$> f v1alpha1ScriptTemplateWorkingDir
-{-# INLINE v1alpha1ScriptTemplateWorkingDirL #-}
+-- | 'scriptTemplateWorkingDir' Lens
+scriptTemplateWorkingDirL :: Lens_' ScriptTemplate (Maybe Text)
+scriptTemplateWorkingDirL f ScriptTemplate{..} = (\scriptTemplateWorkingDir -> ScriptTemplate { scriptTemplateWorkingDir, ..} ) <$> f scriptTemplateWorkingDir
+{-# INLINE scriptTemplateWorkingDirL #-}
 
 
 
--- * V1alpha1Sidecar
+-- * Sidecar
 
--- | 'v1alpha1SidecarArgs' Lens
-v1alpha1SidecarArgsL :: Lens_' V1alpha1Sidecar (Maybe [Text])
-v1alpha1SidecarArgsL f V1alpha1Sidecar{..} = (\v1alpha1SidecarArgs -> V1alpha1Sidecar { v1alpha1SidecarArgs, ..} ) <$> f v1alpha1SidecarArgs
-{-# INLINE v1alpha1SidecarArgsL #-}
+-- | 'sidecarArgs' Lens
+sidecarArgsL :: Lens_' Sidecar (Maybe [Text])
+sidecarArgsL f Sidecar{..} = (\sidecarArgs -> Sidecar { sidecarArgs, ..} ) <$> f sidecarArgs
+{-# INLINE sidecarArgsL #-}
 
--- | 'v1alpha1SidecarCommand' Lens
-v1alpha1SidecarCommandL :: Lens_' V1alpha1Sidecar (Maybe [Text])
-v1alpha1SidecarCommandL f V1alpha1Sidecar{..} = (\v1alpha1SidecarCommand -> V1alpha1Sidecar { v1alpha1SidecarCommand, ..} ) <$> f v1alpha1SidecarCommand
-{-# INLINE v1alpha1SidecarCommandL #-}
+-- | 'sidecarCommand' Lens
+sidecarCommandL :: Lens_' Sidecar (Maybe [Text])
+sidecarCommandL f Sidecar{..} = (\sidecarCommand -> Sidecar { sidecarCommand, ..} ) <$> f sidecarCommand
+{-# INLINE sidecarCommandL #-}
 
--- | 'v1alpha1SidecarEnv' Lens
-v1alpha1SidecarEnvL :: Lens_' V1alpha1Sidecar (Maybe [V1EnvVar])
-v1alpha1SidecarEnvL f V1alpha1Sidecar{..} = (\v1alpha1SidecarEnv -> V1alpha1Sidecar { v1alpha1SidecarEnv, ..} ) <$> f v1alpha1SidecarEnv
-{-# INLINE v1alpha1SidecarEnvL #-}
+-- | 'sidecarEnv' Lens
+sidecarEnvL :: Lens_' Sidecar (Maybe [V1EnvVar])
+sidecarEnvL f Sidecar{..} = (\sidecarEnv -> Sidecar { sidecarEnv, ..} ) <$> f sidecarEnv
+{-# INLINE sidecarEnvL #-}
 
--- | 'v1alpha1SidecarEnvFrom' Lens
-v1alpha1SidecarEnvFromL :: Lens_' V1alpha1Sidecar (Maybe [V1EnvFromSource])
-v1alpha1SidecarEnvFromL f V1alpha1Sidecar{..} = (\v1alpha1SidecarEnvFrom -> V1alpha1Sidecar { v1alpha1SidecarEnvFrom, ..} ) <$> f v1alpha1SidecarEnvFrom
-{-# INLINE v1alpha1SidecarEnvFromL #-}
+-- | 'sidecarEnvFrom' Lens
+sidecarEnvFromL :: Lens_' Sidecar (Maybe [V1EnvFromSource])
+sidecarEnvFromL f Sidecar{..} = (\sidecarEnvFrom -> Sidecar { sidecarEnvFrom, ..} ) <$> f sidecarEnvFrom
+{-# INLINE sidecarEnvFromL #-}
 
--- | 'v1alpha1SidecarImage' Lens
-v1alpha1SidecarImageL :: Lens_' V1alpha1Sidecar (Maybe Text)
-v1alpha1SidecarImageL f V1alpha1Sidecar{..} = (\v1alpha1SidecarImage -> V1alpha1Sidecar { v1alpha1SidecarImage, ..} ) <$> f v1alpha1SidecarImage
-{-# INLINE v1alpha1SidecarImageL #-}
+-- | 'sidecarImage' Lens
+sidecarImageL :: Lens_' Sidecar (Maybe Text)
+sidecarImageL f Sidecar{..} = (\sidecarImage -> Sidecar { sidecarImage, ..} ) <$> f sidecarImage
+{-# INLINE sidecarImageL #-}
 
--- | 'v1alpha1SidecarImagePullPolicy' Lens
-v1alpha1SidecarImagePullPolicyL :: Lens_' V1alpha1Sidecar (Maybe Text)
-v1alpha1SidecarImagePullPolicyL f V1alpha1Sidecar{..} = (\v1alpha1SidecarImagePullPolicy -> V1alpha1Sidecar { v1alpha1SidecarImagePullPolicy, ..} ) <$> f v1alpha1SidecarImagePullPolicy
-{-# INLINE v1alpha1SidecarImagePullPolicyL #-}
+-- | 'sidecarImagePullPolicy' Lens
+sidecarImagePullPolicyL :: Lens_' Sidecar (Maybe Text)
+sidecarImagePullPolicyL f Sidecar{..} = (\sidecarImagePullPolicy -> Sidecar { sidecarImagePullPolicy, ..} ) <$> f sidecarImagePullPolicy
+{-# INLINE sidecarImagePullPolicyL #-}
 
--- | 'v1alpha1SidecarLifecycle' Lens
-v1alpha1SidecarLifecycleL :: Lens_' V1alpha1Sidecar (Maybe V1Lifecycle)
-v1alpha1SidecarLifecycleL f V1alpha1Sidecar{..} = (\v1alpha1SidecarLifecycle -> V1alpha1Sidecar { v1alpha1SidecarLifecycle, ..} ) <$> f v1alpha1SidecarLifecycle
-{-# INLINE v1alpha1SidecarLifecycleL #-}
+-- | 'sidecarLifecycle' Lens
+sidecarLifecycleL :: Lens_' Sidecar (Maybe V1Lifecycle)
+sidecarLifecycleL f Sidecar{..} = (\sidecarLifecycle -> Sidecar { sidecarLifecycle, ..} ) <$> f sidecarLifecycle
+{-# INLINE sidecarLifecycleL #-}
 
--- | 'v1alpha1SidecarLivenessProbe' Lens
-v1alpha1SidecarLivenessProbeL :: Lens_' V1alpha1Sidecar (Maybe V1Probe)
-v1alpha1SidecarLivenessProbeL f V1alpha1Sidecar{..} = (\v1alpha1SidecarLivenessProbe -> V1alpha1Sidecar { v1alpha1SidecarLivenessProbe, ..} ) <$> f v1alpha1SidecarLivenessProbe
-{-# INLINE v1alpha1SidecarLivenessProbeL #-}
+-- | 'sidecarLivenessProbe' Lens
+sidecarLivenessProbeL :: Lens_' Sidecar (Maybe V1Probe)
+sidecarLivenessProbeL f Sidecar{..} = (\sidecarLivenessProbe -> Sidecar { sidecarLivenessProbe, ..} ) <$> f sidecarLivenessProbe
+{-# INLINE sidecarLivenessProbeL #-}
 
--- | 'v1alpha1SidecarMirrorVolumeMounts' Lens
-v1alpha1SidecarMirrorVolumeMountsL :: Lens_' V1alpha1Sidecar (Maybe Bool)
-v1alpha1SidecarMirrorVolumeMountsL f V1alpha1Sidecar{..} = (\v1alpha1SidecarMirrorVolumeMounts -> V1alpha1Sidecar { v1alpha1SidecarMirrorVolumeMounts, ..} ) <$> f v1alpha1SidecarMirrorVolumeMounts
-{-# INLINE v1alpha1SidecarMirrorVolumeMountsL #-}
+-- | 'sidecarMirrorVolumeMounts' Lens
+sidecarMirrorVolumeMountsL :: Lens_' Sidecar (Maybe Bool)
+sidecarMirrorVolumeMountsL f Sidecar{..} = (\sidecarMirrorVolumeMounts -> Sidecar { sidecarMirrorVolumeMounts, ..} ) <$> f sidecarMirrorVolumeMounts
+{-# INLINE sidecarMirrorVolumeMountsL #-}
 
--- | 'v1alpha1SidecarName' Lens
-v1alpha1SidecarNameL :: Lens_' V1alpha1Sidecar (Text)
-v1alpha1SidecarNameL f V1alpha1Sidecar{..} = (\v1alpha1SidecarName -> V1alpha1Sidecar { v1alpha1SidecarName, ..} ) <$> f v1alpha1SidecarName
-{-# INLINE v1alpha1SidecarNameL #-}
+-- | 'sidecarName' Lens
+sidecarNameL :: Lens_' Sidecar (Text)
+sidecarNameL f Sidecar{..} = (\sidecarName -> Sidecar { sidecarName, ..} ) <$> f sidecarName
+{-# INLINE sidecarNameL #-}
 
--- | 'v1alpha1SidecarPorts' Lens
-v1alpha1SidecarPortsL :: Lens_' V1alpha1Sidecar (Maybe [V1ContainerPort])
-v1alpha1SidecarPortsL f V1alpha1Sidecar{..} = (\v1alpha1SidecarPorts -> V1alpha1Sidecar { v1alpha1SidecarPorts, ..} ) <$> f v1alpha1SidecarPorts
-{-# INLINE v1alpha1SidecarPortsL #-}
+-- | 'sidecarPorts' Lens
+sidecarPortsL :: Lens_' Sidecar (Maybe [V1ContainerPort])
+sidecarPortsL f Sidecar{..} = (\sidecarPorts -> Sidecar { sidecarPorts, ..} ) <$> f sidecarPorts
+{-# INLINE sidecarPortsL #-}
 
--- | 'v1alpha1SidecarReadinessProbe' Lens
-v1alpha1SidecarReadinessProbeL :: Lens_' V1alpha1Sidecar (Maybe V1Probe)
-v1alpha1SidecarReadinessProbeL f V1alpha1Sidecar{..} = (\v1alpha1SidecarReadinessProbe -> V1alpha1Sidecar { v1alpha1SidecarReadinessProbe, ..} ) <$> f v1alpha1SidecarReadinessProbe
-{-# INLINE v1alpha1SidecarReadinessProbeL #-}
+-- | 'sidecarReadinessProbe' Lens
+sidecarReadinessProbeL :: Lens_' Sidecar (Maybe V1Probe)
+sidecarReadinessProbeL f Sidecar{..} = (\sidecarReadinessProbe -> Sidecar { sidecarReadinessProbe, ..} ) <$> f sidecarReadinessProbe
+{-# INLINE sidecarReadinessProbeL #-}
 
--- | 'v1alpha1SidecarResources' Lens
-v1alpha1SidecarResourcesL :: Lens_' V1alpha1Sidecar (Maybe V1ResourceRequirements)
-v1alpha1SidecarResourcesL f V1alpha1Sidecar{..} = (\v1alpha1SidecarResources -> V1alpha1Sidecar { v1alpha1SidecarResources, ..} ) <$> f v1alpha1SidecarResources
-{-# INLINE v1alpha1SidecarResourcesL #-}
+-- | 'sidecarResources' Lens
+sidecarResourcesL :: Lens_' Sidecar (Maybe V1ResourceRequirements)
+sidecarResourcesL f Sidecar{..} = (\sidecarResources -> Sidecar { sidecarResources, ..} ) <$> f sidecarResources
+{-# INLINE sidecarResourcesL #-}
 
--- | 'v1alpha1SidecarSecurityContext' Lens
-v1alpha1SidecarSecurityContextL :: Lens_' V1alpha1Sidecar (Maybe V1SecurityContext)
-v1alpha1SidecarSecurityContextL f V1alpha1Sidecar{..} = (\v1alpha1SidecarSecurityContext -> V1alpha1Sidecar { v1alpha1SidecarSecurityContext, ..} ) <$> f v1alpha1SidecarSecurityContext
-{-# INLINE v1alpha1SidecarSecurityContextL #-}
+-- | 'sidecarSecurityContext' Lens
+sidecarSecurityContextL :: Lens_' Sidecar (Maybe V1SecurityContext)
+sidecarSecurityContextL f Sidecar{..} = (\sidecarSecurityContext -> Sidecar { sidecarSecurityContext, ..} ) <$> f sidecarSecurityContext
+{-# INLINE sidecarSecurityContextL #-}
 
--- | 'v1alpha1SidecarStdin' Lens
-v1alpha1SidecarStdinL :: Lens_' V1alpha1Sidecar (Maybe Bool)
-v1alpha1SidecarStdinL f V1alpha1Sidecar{..} = (\v1alpha1SidecarStdin -> V1alpha1Sidecar { v1alpha1SidecarStdin, ..} ) <$> f v1alpha1SidecarStdin
-{-# INLINE v1alpha1SidecarStdinL #-}
+-- | 'sidecarStdin' Lens
+sidecarStdinL :: Lens_' Sidecar (Maybe Bool)
+sidecarStdinL f Sidecar{..} = (\sidecarStdin -> Sidecar { sidecarStdin, ..} ) <$> f sidecarStdin
+{-# INLINE sidecarStdinL #-}
 
--- | 'v1alpha1SidecarStdinOnce' Lens
-v1alpha1SidecarStdinOnceL :: Lens_' V1alpha1Sidecar (Maybe Bool)
-v1alpha1SidecarStdinOnceL f V1alpha1Sidecar{..} = (\v1alpha1SidecarStdinOnce -> V1alpha1Sidecar { v1alpha1SidecarStdinOnce, ..} ) <$> f v1alpha1SidecarStdinOnce
-{-# INLINE v1alpha1SidecarStdinOnceL #-}
+-- | 'sidecarStdinOnce' Lens
+sidecarStdinOnceL :: Lens_' Sidecar (Maybe Bool)
+sidecarStdinOnceL f Sidecar{..} = (\sidecarStdinOnce -> Sidecar { sidecarStdinOnce, ..} ) <$> f sidecarStdinOnce
+{-# INLINE sidecarStdinOnceL #-}
 
--- | 'v1alpha1SidecarTerminationMessagePath' Lens
-v1alpha1SidecarTerminationMessagePathL :: Lens_' V1alpha1Sidecar (Maybe Text)
-v1alpha1SidecarTerminationMessagePathL f V1alpha1Sidecar{..} = (\v1alpha1SidecarTerminationMessagePath -> V1alpha1Sidecar { v1alpha1SidecarTerminationMessagePath, ..} ) <$> f v1alpha1SidecarTerminationMessagePath
-{-# INLINE v1alpha1SidecarTerminationMessagePathL #-}
+-- | 'sidecarTerminationMessagePath' Lens
+sidecarTerminationMessagePathL :: Lens_' Sidecar (Maybe Text)
+sidecarTerminationMessagePathL f Sidecar{..} = (\sidecarTerminationMessagePath -> Sidecar { sidecarTerminationMessagePath, ..} ) <$> f sidecarTerminationMessagePath
+{-# INLINE sidecarTerminationMessagePathL #-}
 
--- | 'v1alpha1SidecarTerminationMessagePolicy' Lens
-v1alpha1SidecarTerminationMessagePolicyL :: Lens_' V1alpha1Sidecar (Maybe Text)
-v1alpha1SidecarTerminationMessagePolicyL f V1alpha1Sidecar{..} = (\v1alpha1SidecarTerminationMessagePolicy -> V1alpha1Sidecar { v1alpha1SidecarTerminationMessagePolicy, ..} ) <$> f v1alpha1SidecarTerminationMessagePolicy
-{-# INLINE v1alpha1SidecarTerminationMessagePolicyL #-}
+-- | 'sidecarTerminationMessagePolicy' Lens
+sidecarTerminationMessagePolicyL :: Lens_' Sidecar (Maybe Text)
+sidecarTerminationMessagePolicyL f Sidecar{..} = (\sidecarTerminationMessagePolicy -> Sidecar { sidecarTerminationMessagePolicy, ..} ) <$> f sidecarTerminationMessagePolicy
+{-# INLINE sidecarTerminationMessagePolicyL #-}
 
--- | 'v1alpha1SidecarTty' Lens
-v1alpha1SidecarTtyL :: Lens_' V1alpha1Sidecar (Maybe Bool)
-v1alpha1SidecarTtyL f V1alpha1Sidecar{..} = (\v1alpha1SidecarTty -> V1alpha1Sidecar { v1alpha1SidecarTty, ..} ) <$> f v1alpha1SidecarTty
-{-# INLINE v1alpha1SidecarTtyL #-}
+-- | 'sidecarTty' Lens
+sidecarTtyL :: Lens_' Sidecar (Maybe Bool)
+sidecarTtyL f Sidecar{..} = (\sidecarTty -> Sidecar { sidecarTty, ..} ) <$> f sidecarTty
+{-# INLINE sidecarTtyL #-}
 
--- | 'v1alpha1SidecarVolumeDevices' Lens
-v1alpha1SidecarVolumeDevicesL :: Lens_' V1alpha1Sidecar (Maybe [V1VolumeDevice])
-v1alpha1SidecarVolumeDevicesL f V1alpha1Sidecar{..} = (\v1alpha1SidecarVolumeDevices -> V1alpha1Sidecar { v1alpha1SidecarVolumeDevices, ..} ) <$> f v1alpha1SidecarVolumeDevices
-{-# INLINE v1alpha1SidecarVolumeDevicesL #-}
+-- | 'sidecarVolumeDevices' Lens
+sidecarVolumeDevicesL :: Lens_' Sidecar (Maybe [V1VolumeDevice])
+sidecarVolumeDevicesL f Sidecar{..} = (\sidecarVolumeDevices -> Sidecar { sidecarVolumeDevices, ..} ) <$> f sidecarVolumeDevices
+{-# INLINE sidecarVolumeDevicesL #-}
 
--- | 'v1alpha1SidecarVolumeMounts' Lens
-v1alpha1SidecarVolumeMountsL :: Lens_' V1alpha1Sidecar (Maybe [V1VolumeMount])
-v1alpha1SidecarVolumeMountsL f V1alpha1Sidecar{..} = (\v1alpha1SidecarVolumeMounts -> V1alpha1Sidecar { v1alpha1SidecarVolumeMounts, ..} ) <$> f v1alpha1SidecarVolumeMounts
-{-# INLINE v1alpha1SidecarVolumeMountsL #-}
+-- | 'sidecarVolumeMounts' Lens
+sidecarVolumeMountsL :: Lens_' Sidecar (Maybe [V1VolumeMount])
+sidecarVolumeMountsL f Sidecar{..} = (\sidecarVolumeMounts -> Sidecar { sidecarVolumeMounts, ..} ) <$> f sidecarVolumeMounts
+{-# INLINE sidecarVolumeMountsL #-}
 
--- | 'v1alpha1SidecarWorkingDir' Lens
-v1alpha1SidecarWorkingDirL :: Lens_' V1alpha1Sidecar (Maybe Text)
-v1alpha1SidecarWorkingDirL f V1alpha1Sidecar{..} = (\v1alpha1SidecarWorkingDir -> V1alpha1Sidecar { v1alpha1SidecarWorkingDir, ..} ) <$> f v1alpha1SidecarWorkingDir
-{-# INLINE v1alpha1SidecarWorkingDirL #-}
+-- | 'sidecarWorkingDir' Lens
+sidecarWorkingDirL :: Lens_' Sidecar (Maybe Text)
+sidecarWorkingDirL f Sidecar{..} = (\sidecarWorkingDir -> Sidecar { sidecarWorkingDir, ..} ) <$> f sidecarWorkingDir
+{-# INLINE sidecarWorkingDirL #-}
 
 
 
--- * V1alpha1SuspendTemplate
+-- * SuspendTemplate
 
 
 
--- * V1alpha1Template
+-- * Template
 
--- | 'v1alpha1TemplateActiveDeadlineSeconds' Lens
-v1alpha1TemplateActiveDeadlineSecondsL :: Lens_' V1alpha1Template (Maybe Integer)
-v1alpha1TemplateActiveDeadlineSecondsL f V1alpha1Template{..} = (\v1alpha1TemplateActiveDeadlineSeconds -> V1alpha1Template { v1alpha1TemplateActiveDeadlineSeconds, ..} ) <$> f v1alpha1TemplateActiveDeadlineSeconds
-{-# INLINE v1alpha1TemplateActiveDeadlineSecondsL #-}
+-- | 'templateActiveDeadlineSeconds' Lens
+templateActiveDeadlineSecondsL :: Lens_' Template (Maybe Integer)
+templateActiveDeadlineSecondsL f Template{..} = (\templateActiveDeadlineSeconds -> Template { templateActiveDeadlineSeconds, ..} ) <$> f templateActiveDeadlineSeconds
+{-# INLINE templateActiveDeadlineSecondsL #-}
 
--- | 'v1alpha1TemplateAffinity' Lens
-v1alpha1TemplateAffinityL :: Lens_' V1alpha1Template (Maybe V1Affinity)
-v1alpha1TemplateAffinityL f V1alpha1Template{..} = (\v1alpha1TemplateAffinity -> V1alpha1Template { v1alpha1TemplateAffinity, ..} ) <$> f v1alpha1TemplateAffinity
-{-# INLINE v1alpha1TemplateAffinityL #-}
+-- | 'templateAffinity' Lens
+templateAffinityL :: Lens_' Template (Maybe V1Affinity)
+templateAffinityL f Template{..} = (\templateAffinity -> Template { templateAffinity, ..} ) <$> f templateAffinity
+{-# INLINE templateAffinityL #-}
 
--- | 'v1alpha1TemplateArchiveLocation' Lens
-v1alpha1TemplateArchiveLocationL :: Lens_' V1alpha1Template (Maybe V1alpha1ArtifactLocation)
-v1alpha1TemplateArchiveLocationL f V1alpha1Template{..} = (\v1alpha1TemplateArchiveLocation -> V1alpha1Template { v1alpha1TemplateArchiveLocation, ..} ) <$> f v1alpha1TemplateArchiveLocation
-{-# INLINE v1alpha1TemplateArchiveLocationL #-}
+-- | 'templateArchiveLocation' Lens
+templateArchiveLocationL :: Lens_' Template (Maybe ArtifactLocation)
+templateArchiveLocationL f Template{..} = (\templateArchiveLocation -> Template { templateArchiveLocation, ..} ) <$> f templateArchiveLocation
+{-# INLINE templateArchiveLocationL #-}
 
--- | 'v1alpha1TemplateContainer' Lens
-v1alpha1TemplateContainerL :: Lens_' V1alpha1Template (Maybe V1Container)
-v1alpha1TemplateContainerL f V1alpha1Template{..} = (\v1alpha1TemplateContainer -> V1alpha1Template { v1alpha1TemplateContainer, ..} ) <$> f v1alpha1TemplateContainer
-{-# INLINE v1alpha1TemplateContainerL #-}
+-- | 'templateContainer' Lens
+templateContainerL :: Lens_' Template (Maybe V1Container)
+templateContainerL f Template{..} = (\templateContainer -> Template { templateContainer, ..} ) <$> f templateContainer
+{-# INLINE templateContainerL #-}
 
--- | 'v1alpha1TemplateDaemon' Lens
-v1alpha1TemplateDaemonL :: Lens_' V1alpha1Template (Maybe Bool)
-v1alpha1TemplateDaemonL f V1alpha1Template{..} = (\v1alpha1TemplateDaemon -> V1alpha1Template { v1alpha1TemplateDaemon, ..} ) <$> f v1alpha1TemplateDaemon
-{-# INLINE v1alpha1TemplateDaemonL #-}
+-- | 'templateDaemon' Lens
+templateDaemonL :: Lens_' Template (Maybe Bool)
+templateDaemonL f Template{..} = (\templateDaemon -> Template { templateDaemon, ..} ) <$> f templateDaemon
+{-# INLINE templateDaemonL #-}
 
--- | 'v1alpha1TemplateDag' Lens
-v1alpha1TemplateDagL :: Lens_' V1alpha1Template (Maybe V1alpha1DAGTemplate)
-v1alpha1TemplateDagL f V1alpha1Template{..} = (\v1alpha1TemplateDag -> V1alpha1Template { v1alpha1TemplateDag, ..} ) <$> f v1alpha1TemplateDag
-{-# INLINE v1alpha1TemplateDagL #-}
+-- | 'templateDag' Lens
+templateDagL :: Lens_' Template (Maybe DAGTemplate)
+templateDagL f Template{..} = (\templateDag -> Template { templateDag, ..} ) <$> f templateDag
+{-# INLINE templateDagL #-}
 
--- | 'v1alpha1TemplateInputs' Lens
-v1alpha1TemplateInputsL :: Lens_' V1alpha1Template (Maybe V1alpha1Inputs)
-v1alpha1TemplateInputsL f V1alpha1Template{..} = (\v1alpha1TemplateInputs -> V1alpha1Template { v1alpha1TemplateInputs, ..} ) <$> f v1alpha1TemplateInputs
-{-# INLINE v1alpha1TemplateInputsL #-}
+-- | 'templateInputs' Lens
+templateInputsL :: Lens_' Template (Maybe Inputs)
+templateInputsL f Template{..} = (\templateInputs -> Template { templateInputs, ..} ) <$> f templateInputs
+{-# INLINE templateInputsL #-}
 
--- | 'v1alpha1TemplateMetadata' Lens
-v1alpha1TemplateMetadataL :: Lens_' V1alpha1Template (Maybe V1alpha1Metadata)
-v1alpha1TemplateMetadataL f V1alpha1Template{..} = (\v1alpha1TemplateMetadata -> V1alpha1Template { v1alpha1TemplateMetadata, ..} ) <$> f v1alpha1TemplateMetadata
-{-# INLINE v1alpha1TemplateMetadataL #-}
+-- | 'templateMetadata' Lens
+templateMetadataL :: Lens_' Template (Maybe Metadata)
+templateMetadataL f Template{..} = (\templateMetadata -> Template { templateMetadata, ..} ) <$> f templateMetadata
+{-# INLINE templateMetadataL #-}
 
--- | 'v1alpha1TemplateName' Lens
-v1alpha1TemplateNameL :: Lens_' V1alpha1Template (Text)
-v1alpha1TemplateNameL f V1alpha1Template{..} = (\v1alpha1TemplateName -> V1alpha1Template { v1alpha1TemplateName, ..} ) <$> f v1alpha1TemplateName
-{-# INLINE v1alpha1TemplateNameL #-}
+-- | 'templateName' Lens
+templateNameL :: Lens_' Template (Text)
+templateNameL f Template{..} = (\templateName -> Template { templateName, ..} ) <$> f templateName
+{-# INLINE templateNameL #-}
 
--- | 'v1alpha1TemplateNodeSelector' Lens
-v1alpha1TemplateNodeSelectorL :: Lens_' V1alpha1Template (Maybe (Map.Map String Text))
-v1alpha1TemplateNodeSelectorL f V1alpha1Template{..} = (\v1alpha1TemplateNodeSelector -> V1alpha1Template { v1alpha1TemplateNodeSelector, ..} ) <$> f v1alpha1TemplateNodeSelector
-{-# INLINE v1alpha1TemplateNodeSelectorL #-}
+-- | 'templateNodeSelector' Lens
+templateNodeSelectorL :: Lens_' Template (Maybe (Map.Map String Text))
+templateNodeSelectorL f Template{..} = (\templateNodeSelector -> Template { templateNodeSelector, ..} ) <$> f templateNodeSelector
+{-# INLINE templateNodeSelectorL #-}
 
--- | 'v1alpha1TemplateOutputs' Lens
-v1alpha1TemplateOutputsL :: Lens_' V1alpha1Template (Maybe V1alpha1Outputs)
-v1alpha1TemplateOutputsL f V1alpha1Template{..} = (\v1alpha1TemplateOutputs -> V1alpha1Template { v1alpha1TemplateOutputs, ..} ) <$> f v1alpha1TemplateOutputs
-{-# INLINE v1alpha1TemplateOutputsL #-}
+-- | 'templateOutputs' Lens
+templateOutputsL :: Lens_' Template (Maybe Outputs)
+templateOutputsL f Template{..} = (\templateOutputs -> Template { templateOutputs, ..} ) <$> f templateOutputs
+{-# INLINE templateOutputsL #-}
 
--- | 'v1alpha1TemplateParallelism' Lens
-v1alpha1TemplateParallelismL :: Lens_' V1alpha1Template (Maybe Integer)
-v1alpha1TemplateParallelismL f V1alpha1Template{..} = (\v1alpha1TemplateParallelism -> V1alpha1Template { v1alpha1TemplateParallelism, ..} ) <$> f v1alpha1TemplateParallelism
-{-# INLINE v1alpha1TemplateParallelismL #-}
+-- | 'templateParallelism' Lens
+templateParallelismL :: Lens_' Template (Maybe Integer)
+templateParallelismL f Template{..} = (\templateParallelism -> Template { templateParallelism, ..} ) <$> f templateParallelism
+{-# INLINE templateParallelismL #-}
 
--- | 'v1alpha1TemplateResource' Lens
-v1alpha1TemplateResourceL :: Lens_' V1alpha1Template (Maybe V1alpha1ResourceTemplate)
-v1alpha1TemplateResourceL f V1alpha1Template{..} = (\v1alpha1TemplateResource -> V1alpha1Template { v1alpha1TemplateResource, ..} ) <$> f v1alpha1TemplateResource
-{-# INLINE v1alpha1TemplateResourceL #-}
+-- | 'templateResource' Lens
+templateResourceL :: Lens_' Template (Maybe ResourceTemplate)
+templateResourceL f Template{..} = (\templateResource -> Template { templateResource, ..} ) <$> f templateResource
+{-# INLINE templateResourceL #-}
 
--- | 'v1alpha1TemplateRetryStrategy' Lens
-v1alpha1TemplateRetryStrategyL :: Lens_' V1alpha1Template (Maybe V1alpha1RetryStrategy)
-v1alpha1TemplateRetryStrategyL f V1alpha1Template{..} = (\v1alpha1TemplateRetryStrategy -> V1alpha1Template { v1alpha1TemplateRetryStrategy, ..} ) <$> f v1alpha1TemplateRetryStrategy
-{-# INLINE v1alpha1TemplateRetryStrategyL #-}
+-- | 'templateRetryStrategy' Lens
+templateRetryStrategyL :: Lens_' Template (Maybe RetryStrategy)
+templateRetryStrategyL f Template{..} = (\templateRetryStrategy -> Template { templateRetryStrategy, ..} ) <$> f templateRetryStrategy
+{-# INLINE templateRetryStrategyL #-}
 
--- | 'v1alpha1TemplateScript' Lens
-v1alpha1TemplateScriptL :: Lens_' V1alpha1Template (Maybe V1alpha1ScriptTemplate)
-v1alpha1TemplateScriptL f V1alpha1Template{..} = (\v1alpha1TemplateScript -> V1alpha1Template { v1alpha1TemplateScript, ..} ) <$> f v1alpha1TemplateScript
-{-# INLINE v1alpha1TemplateScriptL #-}
+-- | 'templateScript' Lens
+templateScriptL :: Lens_' Template (Maybe ScriptTemplate)
+templateScriptL f Template{..} = (\templateScript -> Template { templateScript, ..} ) <$> f templateScript
+{-# INLINE templateScriptL #-}
 
--- | 'v1alpha1TemplateSidecars' Lens
-v1alpha1TemplateSidecarsL :: Lens_' V1alpha1Template (Maybe [V1alpha1Sidecar])
-v1alpha1TemplateSidecarsL f V1alpha1Template{..} = (\v1alpha1TemplateSidecars -> V1alpha1Template { v1alpha1TemplateSidecars, ..} ) <$> f v1alpha1TemplateSidecars
-{-# INLINE v1alpha1TemplateSidecarsL #-}
+-- | 'templateSidecars' Lens
+templateSidecarsL :: Lens_' Template (Maybe [Sidecar])
+templateSidecarsL f Template{..} = (\templateSidecars -> Template { templateSidecars, ..} ) <$> f templateSidecars
+{-# INLINE templateSidecarsL #-}
 
--- | 'v1alpha1TemplateSteps' Lens
-v1alpha1TemplateStepsL :: Lens_' V1alpha1Template (Maybe [[V1alpha1WorkflowStep]])
-v1alpha1TemplateStepsL f V1alpha1Template{..} = (\v1alpha1TemplateSteps -> V1alpha1Template { v1alpha1TemplateSteps, ..} ) <$> f v1alpha1TemplateSteps
-{-# INLINE v1alpha1TemplateStepsL #-}
+-- | 'templateSteps' Lens
+templateStepsL :: Lens_' Template (Maybe [[WorkflowStep]])
+templateStepsL f Template{..} = (\templateSteps -> Template { templateSteps, ..} ) <$> f templateSteps
+{-# INLINE templateStepsL #-}
 
--- | 'v1alpha1TemplateSuspend' Lens
-v1alpha1TemplateSuspendL :: Lens_' V1alpha1Template (Maybe V1alpha1SuspendTemplate)
-v1alpha1TemplateSuspendL f V1alpha1Template{..} = (\v1alpha1TemplateSuspend -> V1alpha1Template { v1alpha1TemplateSuspend, ..} ) <$> f v1alpha1TemplateSuspend
-{-# INLINE v1alpha1TemplateSuspendL #-}
+-- | 'templateSuspend' Lens
+templateSuspendL :: Lens_' Template (Maybe SuspendTemplate)
+templateSuspendL f Template{..} = (\templateSuspend -> Template { templateSuspend, ..} ) <$> f templateSuspend
+{-# INLINE templateSuspendL #-}
 
--- | 'v1alpha1TemplateTolerations' Lens
-v1alpha1TemplateTolerationsL :: Lens_' V1alpha1Template (Maybe [V1Toleration])
-v1alpha1TemplateTolerationsL f V1alpha1Template{..} = (\v1alpha1TemplateTolerations -> V1alpha1Template { v1alpha1TemplateTolerations, ..} ) <$> f v1alpha1TemplateTolerations
-{-# INLINE v1alpha1TemplateTolerationsL #-}
+-- | 'templateTolerations' Lens
+templateTolerationsL :: Lens_' Template (Maybe [V1Toleration])
+templateTolerationsL f Template{..} = (\templateTolerations -> Template { templateTolerations, ..} ) <$> f templateTolerations
+{-# INLINE templateTolerationsL #-}
 
 
 
--- * V1alpha1ValueFrom
+-- * ValueFrom
 
--- | 'v1alpha1ValueFromJqFilter' Lens
-v1alpha1ValueFromJqFilterL :: Lens_' V1alpha1ValueFrom (Maybe Text)
-v1alpha1ValueFromJqFilterL f V1alpha1ValueFrom{..} = (\v1alpha1ValueFromJqFilter -> V1alpha1ValueFrom { v1alpha1ValueFromJqFilter, ..} ) <$> f v1alpha1ValueFromJqFilter
-{-# INLINE v1alpha1ValueFromJqFilterL #-}
+-- | 'valueFromJqFilter' Lens
+valueFromJqFilterL :: Lens_' ValueFrom (Maybe Text)
+valueFromJqFilterL f ValueFrom{..} = (\valueFromJqFilter -> ValueFrom { valueFromJqFilter, ..} ) <$> f valueFromJqFilter
+{-# INLINE valueFromJqFilterL #-}
 
--- | 'v1alpha1ValueFromJsonPath' Lens
-v1alpha1ValueFromJsonPathL :: Lens_' V1alpha1ValueFrom (Maybe Text)
-v1alpha1ValueFromJsonPathL f V1alpha1ValueFrom{..} = (\v1alpha1ValueFromJsonPath -> V1alpha1ValueFrom { v1alpha1ValueFromJsonPath, ..} ) <$> f v1alpha1ValueFromJsonPath
-{-# INLINE v1alpha1ValueFromJsonPathL #-}
+-- | 'valueFromJsonPath' Lens
+valueFromJsonPathL :: Lens_' ValueFrom (Maybe Text)
+valueFromJsonPathL f ValueFrom{..} = (\valueFromJsonPath -> ValueFrom { valueFromJsonPath, ..} ) <$> f valueFromJsonPath
+{-# INLINE valueFromJsonPathL #-}
 
--- | 'v1alpha1ValueFromParameter' Lens
-v1alpha1ValueFromParameterL :: Lens_' V1alpha1ValueFrom (Maybe Text)
-v1alpha1ValueFromParameterL f V1alpha1ValueFrom{..} = (\v1alpha1ValueFromParameter -> V1alpha1ValueFrom { v1alpha1ValueFromParameter, ..} ) <$> f v1alpha1ValueFromParameter
-{-# INLINE v1alpha1ValueFromParameterL #-}
+-- | 'valueFromParameter' Lens
+valueFromParameterL :: Lens_' ValueFrom (Maybe Text)
+valueFromParameterL f ValueFrom{..} = (\valueFromParameter -> ValueFrom { valueFromParameter, ..} ) <$> f valueFromParameter
+{-# INLINE valueFromParameterL #-}
 
--- | 'v1alpha1ValueFromPath' Lens
-v1alpha1ValueFromPathL :: Lens_' V1alpha1ValueFrom (Maybe Text)
-v1alpha1ValueFromPathL f V1alpha1ValueFrom{..} = (\v1alpha1ValueFromPath -> V1alpha1ValueFrom { v1alpha1ValueFromPath, ..} ) <$> f v1alpha1ValueFromPath
-{-# INLINE v1alpha1ValueFromPathL #-}
+-- | 'valueFromPath' Lens
+valueFromPathL :: Lens_' ValueFrom (Maybe Text)
+valueFromPathL f ValueFrom{..} = (\valueFromPath -> ValueFrom { valueFromPath, ..} ) <$> f valueFromPath
+{-# INLINE valueFromPathL #-}
 
 
 
--- * V1alpha1Workflow
+-- * Workflow
 
--- | 'v1alpha1WorkflowApiVersion' Lens
-v1alpha1WorkflowApiVersionL :: Lens_' V1alpha1Workflow (Maybe Text)
-v1alpha1WorkflowApiVersionL f V1alpha1Workflow{..} = (\v1alpha1WorkflowApiVersion -> V1alpha1Workflow { v1alpha1WorkflowApiVersion, ..} ) <$> f v1alpha1WorkflowApiVersion
-{-# INLINE v1alpha1WorkflowApiVersionL #-}
+-- | 'workflowApiVersion' Lens
+workflowApiVersionL :: Lens_' Workflow (Maybe Text)
+workflowApiVersionL f Workflow{..} = (\workflowApiVersion -> Workflow { workflowApiVersion, ..} ) <$> f workflowApiVersion
+{-# INLINE workflowApiVersionL #-}
 
--- | 'v1alpha1WorkflowKind' Lens
-v1alpha1WorkflowKindL :: Lens_' V1alpha1Workflow (Maybe Text)
-v1alpha1WorkflowKindL f V1alpha1Workflow{..} = (\v1alpha1WorkflowKind -> V1alpha1Workflow { v1alpha1WorkflowKind, ..} ) <$> f v1alpha1WorkflowKind
-{-# INLINE v1alpha1WorkflowKindL #-}
+-- | 'workflowKind' Lens
+workflowKindL :: Lens_' Workflow (Maybe Text)
+workflowKindL f Workflow{..} = (\workflowKind -> Workflow { workflowKind, ..} ) <$> f workflowKind
+{-# INLINE workflowKindL #-}
 
--- | 'v1alpha1WorkflowMetadata' Lens
-v1alpha1WorkflowMetadataL :: Lens_' V1alpha1Workflow (V1ObjectMeta)
-v1alpha1WorkflowMetadataL f V1alpha1Workflow{..} = (\v1alpha1WorkflowMetadata -> V1alpha1Workflow { v1alpha1WorkflowMetadata, ..} ) <$> f v1alpha1WorkflowMetadata
-{-# INLINE v1alpha1WorkflowMetadataL #-}
+-- | 'workflowMetadata' Lens
+workflowMetadataL :: Lens_' Workflow (V1ObjectMeta)
+workflowMetadataL f Workflow{..} = (\workflowMetadata -> Workflow { workflowMetadata, ..} ) <$> f workflowMetadata
+{-# INLINE workflowMetadataL #-}
 
--- | 'v1alpha1WorkflowSpec' Lens
-v1alpha1WorkflowSpecL :: Lens_' V1alpha1Workflow (V1alpha1WorkflowSpec)
-v1alpha1WorkflowSpecL f V1alpha1Workflow{..} = (\v1alpha1WorkflowSpec -> V1alpha1Workflow { v1alpha1WorkflowSpec, ..} ) <$> f v1alpha1WorkflowSpec
-{-# INLINE v1alpha1WorkflowSpecL #-}
+-- | 'workflowSpec' Lens
+workflowSpecL :: Lens_' Workflow (WorkflowSpec)
+workflowSpecL f Workflow{..} = (\workflowSpec -> Workflow { workflowSpec, ..} ) <$> f workflowSpec
+{-# INLINE workflowSpecL #-}
 
--- | 'v1alpha1WorkflowStatus' Lens
-v1alpha1WorkflowStatusL :: Lens_' V1alpha1Workflow (V1alpha1WorkflowStatus)
-v1alpha1WorkflowStatusL f V1alpha1Workflow{..} = (\v1alpha1WorkflowStatus -> V1alpha1Workflow { v1alpha1WorkflowStatus, ..} ) <$> f v1alpha1WorkflowStatus
-{-# INLINE v1alpha1WorkflowStatusL #-}
+-- | 'workflowStatus' Lens
+workflowStatusL :: Lens_' Workflow (WorkflowStatus)
+workflowStatusL f Workflow{..} = (\workflowStatus -> Workflow { workflowStatus, ..} ) <$> f workflowStatus
+{-# INLINE workflowStatusL #-}
 
 
 
--- * V1alpha1WorkflowList
+-- * WorkflowList
 
--- | 'v1alpha1WorkflowListApiVersion' Lens
-v1alpha1WorkflowListApiVersionL :: Lens_' V1alpha1WorkflowList (Maybe Text)
-v1alpha1WorkflowListApiVersionL f V1alpha1WorkflowList{..} = (\v1alpha1WorkflowListApiVersion -> V1alpha1WorkflowList { v1alpha1WorkflowListApiVersion, ..} ) <$> f v1alpha1WorkflowListApiVersion
-{-# INLINE v1alpha1WorkflowListApiVersionL #-}
+-- | 'workflowListApiVersion' Lens
+workflowListApiVersionL :: Lens_' WorkflowList (Maybe Text)
+workflowListApiVersionL f WorkflowList{..} = (\workflowListApiVersion -> WorkflowList { workflowListApiVersion, ..} ) <$> f workflowListApiVersion
+{-# INLINE workflowListApiVersionL #-}
 
--- | 'v1alpha1WorkflowListItems' Lens
-v1alpha1WorkflowListItemsL :: Lens_' V1alpha1WorkflowList ([V1alpha1Workflow])
-v1alpha1WorkflowListItemsL f V1alpha1WorkflowList{..} = (\v1alpha1WorkflowListItems -> V1alpha1WorkflowList { v1alpha1WorkflowListItems, ..} ) <$> f v1alpha1WorkflowListItems
-{-# INLINE v1alpha1WorkflowListItemsL #-}
+-- | 'workflowListItems' Lens
+workflowListItemsL :: Lens_' WorkflowList ([Workflow])
+workflowListItemsL f WorkflowList{..} = (\workflowListItems -> WorkflowList { workflowListItems, ..} ) <$> f workflowListItems
+{-# INLINE workflowListItemsL #-}
 
--- | 'v1alpha1WorkflowListKind' Lens
-v1alpha1WorkflowListKindL :: Lens_' V1alpha1WorkflowList (Maybe Text)
-v1alpha1WorkflowListKindL f V1alpha1WorkflowList{..} = (\v1alpha1WorkflowListKind -> V1alpha1WorkflowList { v1alpha1WorkflowListKind, ..} ) <$> f v1alpha1WorkflowListKind
-{-# INLINE v1alpha1WorkflowListKindL #-}
+-- | 'workflowListKind' Lens
+workflowListKindL :: Lens_' WorkflowList (Maybe Text)
+workflowListKindL f WorkflowList{..} = (\workflowListKind -> WorkflowList { workflowListKind, ..} ) <$> f workflowListKind
+{-# INLINE workflowListKindL #-}
 
--- | 'v1alpha1WorkflowListMetadata' Lens
-v1alpha1WorkflowListMetadataL :: Lens_' V1alpha1WorkflowList (V1ListMeta)
-v1alpha1WorkflowListMetadataL f V1alpha1WorkflowList{..} = (\v1alpha1WorkflowListMetadata -> V1alpha1WorkflowList { v1alpha1WorkflowListMetadata, ..} ) <$> f v1alpha1WorkflowListMetadata
-{-# INLINE v1alpha1WorkflowListMetadataL #-}
+-- | 'workflowListMetadata' Lens
+workflowListMetadataL :: Lens_' WorkflowList (V1ListMeta)
+workflowListMetadataL f WorkflowList{..} = (\workflowListMetadata -> WorkflowList { workflowListMetadata, ..} ) <$> f workflowListMetadata
+{-# INLINE workflowListMetadataL #-}
 
 
 
--- * V1alpha1WorkflowSpec
+-- * WorkflowSpec
 
--- | 'v1alpha1WorkflowSpecAffinity' Lens
-v1alpha1WorkflowSpecAffinityL :: Lens_' V1alpha1WorkflowSpec (Maybe V1Affinity)
-v1alpha1WorkflowSpecAffinityL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecAffinity -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecAffinity, ..} ) <$> f v1alpha1WorkflowSpecAffinity
-{-# INLINE v1alpha1WorkflowSpecAffinityL #-}
+-- | 'workflowSpecAffinity' Lens
+workflowSpecAffinityL :: Lens_' WorkflowSpec (Maybe V1Affinity)
+workflowSpecAffinityL f WorkflowSpec{..} = (\workflowSpecAffinity -> WorkflowSpec { workflowSpecAffinity, ..} ) <$> f workflowSpecAffinity
+{-# INLINE workflowSpecAffinityL #-}
 
--- | 'v1alpha1WorkflowSpecArguments' Lens
-v1alpha1WorkflowSpecArgumentsL :: Lens_' V1alpha1WorkflowSpec (Maybe V1alpha1Arguments)
-v1alpha1WorkflowSpecArgumentsL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecArguments -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecArguments, ..} ) <$> f v1alpha1WorkflowSpecArguments
-{-# INLINE v1alpha1WorkflowSpecArgumentsL #-}
+-- | 'workflowSpecArguments' Lens
+workflowSpecArgumentsL :: Lens_' WorkflowSpec (Maybe Arguments)
+workflowSpecArgumentsL f WorkflowSpec{..} = (\workflowSpecArguments -> WorkflowSpec { workflowSpecArguments, ..} ) <$> f workflowSpecArguments
+{-# INLINE workflowSpecArgumentsL #-}
 
--- | 'v1alpha1WorkflowSpecEntrypoint' Lens
-v1alpha1WorkflowSpecEntrypointL :: Lens_' V1alpha1WorkflowSpec (Text)
-v1alpha1WorkflowSpecEntrypointL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecEntrypoint -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecEntrypoint, ..} ) <$> f v1alpha1WorkflowSpecEntrypoint
-{-# INLINE v1alpha1WorkflowSpecEntrypointL #-}
+-- | 'workflowSpecEntrypoint' Lens
+workflowSpecEntrypointL :: Lens_' WorkflowSpec (Text)
+workflowSpecEntrypointL f WorkflowSpec{..} = (\workflowSpecEntrypoint -> WorkflowSpec { workflowSpecEntrypoint, ..} ) <$> f workflowSpecEntrypoint
+{-# INLINE workflowSpecEntrypointL #-}
 
--- | 'v1alpha1WorkflowSpecImagePullSecrets' Lens
-v1alpha1WorkflowSpecImagePullSecretsL :: Lens_' V1alpha1WorkflowSpec (Maybe [V1LocalObjectReference])
-v1alpha1WorkflowSpecImagePullSecretsL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecImagePullSecrets -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecImagePullSecrets, ..} ) <$> f v1alpha1WorkflowSpecImagePullSecrets
-{-# INLINE v1alpha1WorkflowSpecImagePullSecretsL #-}
+-- | 'workflowSpecImagePullSecrets' Lens
+workflowSpecImagePullSecretsL :: Lens_' WorkflowSpec (Maybe [V1LocalObjectReference])
+workflowSpecImagePullSecretsL f WorkflowSpec{..} = (\workflowSpecImagePullSecrets -> WorkflowSpec { workflowSpecImagePullSecrets, ..} ) <$> f workflowSpecImagePullSecrets
+{-# INLINE workflowSpecImagePullSecretsL #-}
 
--- | 'v1alpha1WorkflowSpecNodeSelector' Lens
-v1alpha1WorkflowSpecNodeSelectorL :: Lens_' V1alpha1WorkflowSpec (Maybe (Map.Map String Text))
-v1alpha1WorkflowSpecNodeSelectorL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecNodeSelector -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecNodeSelector, ..} ) <$> f v1alpha1WorkflowSpecNodeSelector
-{-# INLINE v1alpha1WorkflowSpecNodeSelectorL #-}
+-- | 'workflowSpecNodeSelector' Lens
+workflowSpecNodeSelectorL :: Lens_' WorkflowSpec (Maybe (Map.Map String Text))
+workflowSpecNodeSelectorL f WorkflowSpec{..} = (\workflowSpecNodeSelector -> WorkflowSpec { workflowSpecNodeSelector, ..} ) <$> f workflowSpecNodeSelector
+{-# INLINE workflowSpecNodeSelectorL #-}
 
--- | 'v1alpha1WorkflowSpecOnExit' Lens
-v1alpha1WorkflowSpecOnExitL :: Lens_' V1alpha1WorkflowSpec (Maybe Text)
-v1alpha1WorkflowSpecOnExitL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecOnExit -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecOnExit, ..} ) <$> f v1alpha1WorkflowSpecOnExit
-{-# INLINE v1alpha1WorkflowSpecOnExitL #-}
+-- | 'workflowSpecOnExit' Lens
+workflowSpecOnExitL :: Lens_' WorkflowSpec (Maybe Text)
+workflowSpecOnExitL f WorkflowSpec{..} = (\workflowSpecOnExit -> WorkflowSpec { workflowSpecOnExit, ..} ) <$> f workflowSpecOnExit
+{-# INLINE workflowSpecOnExitL #-}
 
--- | 'v1alpha1WorkflowSpecParallelism' Lens
-v1alpha1WorkflowSpecParallelismL :: Lens_' V1alpha1WorkflowSpec (Maybe Integer)
-v1alpha1WorkflowSpecParallelismL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecParallelism -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecParallelism, ..} ) <$> f v1alpha1WorkflowSpecParallelism
-{-# INLINE v1alpha1WorkflowSpecParallelismL #-}
+-- | 'workflowSpecParallelism' Lens
+workflowSpecParallelismL :: Lens_' WorkflowSpec (Maybe Integer)
+workflowSpecParallelismL f WorkflowSpec{..} = (\workflowSpecParallelism -> WorkflowSpec { workflowSpecParallelism, ..} ) <$> f workflowSpecParallelism
+{-# INLINE workflowSpecParallelismL #-}
 
--- | 'v1alpha1WorkflowSpecServiceAccountName' Lens
-v1alpha1WorkflowSpecServiceAccountNameL :: Lens_' V1alpha1WorkflowSpec (Maybe Text)
-v1alpha1WorkflowSpecServiceAccountNameL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecServiceAccountName -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecServiceAccountName, ..} ) <$> f v1alpha1WorkflowSpecServiceAccountName
-{-# INLINE v1alpha1WorkflowSpecServiceAccountNameL #-}
+-- | 'workflowSpecServiceAccountName' Lens
+workflowSpecServiceAccountNameL :: Lens_' WorkflowSpec (Maybe Text)
+workflowSpecServiceAccountNameL f WorkflowSpec{..} = (\workflowSpecServiceAccountName -> WorkflowSpec { workflowSpecServiceAccountName, ..} ) <$> f workflowSpecServiceAccountName
+{-# INLINE workflowSpecServiceAccountNameL #-}
 
--- | 'v1alpha1WorkflowSpecSuspend' Lens
-v1alpha1WorkflowSpecSuspendL :: Lens_' V1alpha1WorkflowSpec (Maybe Bool)
-v1alpha1WorkflowSpecSuspendL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecSuspend -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecSuspend, ..} ) <$> f v1alpha1WorkflowSpecSuspend
-{-# INLINE v1alpha1WorkflowSpecSuspendL #-}
+-- | 'workflowSpecSuspend' Lens
+workflowSpecSuspendL :: Lens_' WorkflowSpec (Maybe Bool)
+workflowSpecSuspendL f WorkflowSpec{..} = (\workflowSpecSuspend -> WorkflowSpec { workflowSpecSuspend, ..} ) <$> f workflowSpecSuspend
+{-# INLINE workflowSpecSuspendL #-}
 
--- | 'v1alpha1WorkflowSpecTemplates' Lens
-v1alpha1WorkflowSpecTemplatesL :: Lens_' V1alpha1WorkflowSpec ([V1alpha1Template])
-v1alpha1WorkflowSpecTemplatesL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecTemplates -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecTemplates, ..} ) <$> f v1alpha1WorkflowSpecTemplates
-{-# INLINE v1alpha1WorkflowSpecTemplatesL #-}
+-- | 'workflowSpecTemplates' Lens
+workflowSpecTemplatesL :: Lens_' WorkflowSpec ([Template])
+workflowSpecTemplatesL f WorkflowSpec{..} = (\workflowSpecTemplates -> WorkflowSpec { workflowSpecTemplates, ..} ) <$> f workflowSpecTemplates
+{-# INLINE workflowSpecTemplatesL #-}
 
--- | 'v1alpha1WorkflowSpecTolerations' Lens
-v1alpha1WorkflowSpecTolerationsL :: Lens_' V1alpha1WorkflowSpec (Maybe [V1Toleration])
-v1alpha1WorkflowSpecTolerationsL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecTolerations -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecTolerations, ..} ) <$> f v1alpha1WorkflowSpecTolerations
-{-# INLINE v1alpha1WorkflowSpecTolerationsL #-}
+-- | 'workflowSpecTolerations' Lens
+workflowSpecTolerationsL :: Lens_' WorkflowSpec (Maybe [V1Toleration])
+workflowSpecTolerationsL f WorkflowSpec{..} = (\workflowSpecTolerations -> WorkflowSpec { workflowSpecTolerations, ..} ) <$> f workflowSpecTolerations
+{-# INLINE workflowSpecTolerationsL #-}
 
--- | 'v1alpha1WorkflowSpecVolumeClaimTemplates' Lens
-v1alpha1WorkflowSpecVolumeClaimTemplatesL :: Lens_' V1alpha1WorkflowSpec (Maybe [V1PersistentVolumeClaim])
-v1alpha1WorkflowSpecVolumeClaimTemplatesL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecVolumeClaimTemplates -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecVolumeClaimTemplates, ..} ) <$> f v1alpha1WorkflowSpecVolumeClaimTemplates
-{-# INLINE v1alpha1WorkflowSpecVolumeClaimTemplatesL #-}
+-- | 'workflowSpecVolumeClaimTemplates' Lens
+workflowSpecVolumeClaimTemplatesL :: Lens_' WorkflowSpec (Maybe [V1PersistentVolumeClaim])
+workflowSpecVolumeClaimTemplatesL f WorkflowSpec{..} = (\workflowSpecVolumeClaimTemplates -> WorkflowSpec { workflowSpecVolumeClaimTemplates, ..} ) <$> f workflowSpecVolumeClaimTemplates
+{-# INLINE workflowSpecVolumeClaimTemplatesL #-}
 
--- | 'v1alpha1WorkflowSpecVolumes' Lens
-v1alpha1WorkflowSpecVolumesL :: Lens_' V1alpha1WorkflowSpec (Maybe [V1Volume])
-v1alpha1WorkflowSpecVolumesL f V1alpha1WorkflowSpec{..} = (\v1alpha1WorkflowSpecVolumes -> V1alpha1WorkflowSpec { v1alpha1WorkflowSpecVolumes, ..} ) <$> f v1alpha1WorkflowSpecVolumes
-{-# INLINE v1alpha1WorkflowSpecVolumesL #-}
+-- | 'workflowSpecVolumes' Lens
+workflowSpecVolumesL :: Lens_' WorkflowSpec (Maybe [V1Volume])
+workflowSpecVolumesL f WorkflowSpec{..} = (\workflowSpecVolumes -> WorkflowSpec { workflowSpecVolumes, ..} ) <$> f workflowSpecVolumes
+{-# INLINE workflowSpecVolumesL #-}
 
 
 
--- * V1alpha1WorkflowStep
+-- * WorkflowStep
 
--- | 'v1alpha1WorkflowStepArguments' Lens
-v1alpha1WorkflowStepArgumentsL :: Lens_' V1alpha1WorkflowStep (Maybe V1alpha1Arguments)
-v1alpha1WorkflowStepArgumentsL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepArguments -> V1alpha1WorkflowStep { v1alpha1WorkflowStepArguments, ..} ) <$> f v1alpha1WorkflowStepArguments
-{-# INLINE v1alpha1WorkflowStepArgumentsL #-}
+-- | 'workflowStepArguments' Lens
+workflowStepArgumentsL :: Lens_' WorkflowStep (Maybe Arguments)
+workflowStepArgumentsL f WorkflowStep{..} = (\workflowStepArguments -> WorkflowStep { workflowStepArguments, ..} ) <$> f workflowStepArguments
+{-# INLINE workflowStepArgumentsL #-}
 
--- | 'v1alpha1WorkflowStepName' Lens
-v1alpha1WorkflowStepNameL :: Lens_' V1alpha1WorkflowStep (Maybe Text)
-v1alpha1WorkflowStepNameL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepName -> V1alpha1WorkflowStep { v1alpha1WorkflowStepName, ..} ) <$> f v1alpha1WorkflowStepName
-{-# INLINE v1alpha1WorkflowStepNameL #-}
+-- | 'workflowStepName' Lens
+workflowStepNameL :: Lens_' WorkflowStep (Maybe Text)
+workflowStepNameL f WorkflowStep{..} = (\workflowStepName -> WorkflowStep { workflowStepName, ..} ) <$> f workflowStepName
+{-# INLINE workflowStepNameL #-}
 
--- | 'v1alpha1WorkflowStepTemplate' Lens
-v1alpha1WorkflowStepTemplateL :: Lens_' V1alpha1WorkflowStep (Maybe Text)
-v1alpha1WorkflowStepTemplateL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepTemplate -> V1alpha1WorkflowStep { v1alpha1WorkflowStepTemplate, ..} ) <$> f v1alpha1WorkflowStepTemplate
-{-# INLINE v1alpha1WorkflowStepTemplateL #-}
+-- | 'workflowStepTemplate' Lens
+workflowStepTemplateL :: Lens_' WorkflowStep (Maybe Text)
+workflowStepTemplateL f WorkflowStep{..} = (\workflowStepTemplate -> WorkflowStep { workflowStepTemplate, ..} ) <$> f workflowStepTemplate
+{-# INLINE workflowStepTemplateL #-}
 
--- | 'v1alpha1WorkflowStepWhen' Lens
-v1alpha1WorkflowStepWhenL :: Lens_' V1alpha1WorkflowStep (Maybe Text)
-v1alpha1WorkflowStepWhenL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepWhen -> V1alpha1WorkflowStep { v1alpha1WorkflowStepWhen, ..} ) <$> f v1alpha1WorkflowStepWhen
-{-# INLINE v1alpha1WorkflowStepWhenL #-}
+-- | 'workflowStepWhen' Lens
+workflowStepWhenL :: Lens_' WorkflowStep (Maybe Text)
+workflowStepWhenL f WorkflowStep{..} = (\workflowStepWhen -> WorkflowStep { workflowStepWhen, ..} ) <$> f workflowStepWhen
+{-# INLINE workflowStepWhenL #-}
 
--- | 'v1alpha1WorkflowStepWithItems' Lens
-v1alpha1WorkflowStepWithItemsL :: Lens_' V1alpha1WorkflowStep (Maybe [V1alpha1Item])
-v1alpha1WorkflowStepWithItemsL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepWithItems -> V1alpha1WorkflowStep { v1alpha1WorkflowStepWithItems, ..} ) <$> f v1alpha1WorkflowStepWithItems
-{-# INLINE v1alpha1WorkflowStepWithItemsL #-}
+-- | 'workflowStepWithItems' Lens
+workflowStepWithItemsL :: Lens_' WorkflowStep (Maybe [Item])
+workflowStepWithItemsL f WorkflowStep{..} = (\workflowStepWithItems -> WorkflowStep { workflowStepWithItems, ..} ) <$> f workflowStepWithItems
+{-# INLINE workflowStepWithItemsL #-}
 
--- | 'v1alpha1WorkflowStepWithParam' Lens
-v1alpha1WorkflowStepWithParamL :: Lens_' V1alpha1WorkflowStep (Maybe Text)
-v1alpha1WorkflowStepWithParamL f V1alpha1WorkflowStep{..} = (\v1alpha1WorkflowStepWithParam -> V1alpha1WorkflowStep { v1alpha1WorkflowStepWithParam, ..} ) <$> f v1alpha1WorkflowStepWithParam
-{-# INLINE v1alpha1WorkflowStepWithParamL #-}
+-- | 'workflowStepWithParam' Lens
+workflowStepWithParamL :: Lens_' WorkflowStep (Maybe Text)
+workflowStepWithParamL f WorkflowStep{..} = (\workflowStepWithParam -> WorkflowStep { workflowStepWithParam, ..} ) <$> f workflowStepWithParam
+{-# INLINE workflowStepWithParamL #-}
 
 
